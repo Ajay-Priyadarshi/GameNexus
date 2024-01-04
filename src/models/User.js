@@ -1,4 +1,4 @@
-// In User.js
+// User_Data_tbl
 import mongoose from 'mongoose';
 
 // Define the user schema

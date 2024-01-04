@@ -1,0 +1,55 @@
+<!-- register.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleRegister.css">
+    <title>Dark Theme Form with Photo</title>
+</head>
+
+<body>
+    <h1>ENTER DETAILS</h1>
+    
+    <form  method="post" action="/auth/register" enctype="multipart/form-data">
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="accountType">User Type:</label>
+        <select name="accountType" id="accountType" required>
+            <option value="PLAYER">PLAYER</option>
+            <option value="SPONSOR">SPONSOR</option>
+            <option value="EVENT ORGANIZER">EVENT ORGANIZER</option>
+        </select>
+
+        <label for="bio">Bio:</label>
+        <input type="text" id="bio" name="bio" required>
+
+        <label for="securityQuestion">Security Question:</label>
+        <input type="text" id="securityQuestion" name="securityQuestion" required>
+
+        <label for="answer">Answer:</label>
+        <input type="text" id="answer" name="answer" required>
+
+        <label for="photoInput" id="photoLabel">Upload Photo</label>
+        <input type="file" id="photoInput" name="photo" accept="image/*">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="previous">
+        <a href="login.html">
+            GO BACK
+        </a>
+    </div>
+</body>
+
+</html>

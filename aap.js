@@ -1,0 +1,46 @@
+import express from 'express';
+import session from 'express-session';
+import bodyParser from 'body-parser';
+import path from 'path';
+import { fileURLToPath } from 'url';  
+import { dirname } from 'path';  
+import mongoose from 'mongoose';
+import authRoutes from './src/routes/authRoutes.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+mongoose.connect("mongodb://127.0.0.1:27017/GameNexus").then(() => {
+  console.log("mongodb connected");
+});
+
+// Set up express-session middleware
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: true,
+}));
+
+// Set up body-parser middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// Serve static files
+app.use(express.static(path.join(__dirname, 'static')));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
+
+// Set up routes
+app.use('/auth', authRoutes);
+
+// Default route
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'static', 'login.html'));
+});
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});

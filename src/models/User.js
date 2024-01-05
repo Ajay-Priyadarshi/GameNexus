@@ -1,14 +1,14 @@
 // User_Data_tbl
+
 import mongoose from 'mongoose';
 
-// Define the user schema
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
   securityQuestion: { type: String, required: true },
   answer: { type: String, required: true },
-  planID: { type: String, default: 0},
+  Plan_ID: { type: mongoose.Schema.Types.ObjectId, ref: 'Plans_tbl', required: true },
   userPhoto: { type: String },
   bio: { type: String },
   planValidity: { type: Date },
@@ -17,8 +17,6 @@ const userSchema = new mongoose.Schema({
   accountType: { type: String, required: true},
 });
 
-// Create the User model
 const UserModel = mongoose.model('User_Data_tbl', userSchema, 'User_Data_tbl');
 
-// Export the User model as a named export
 export { UserModel };

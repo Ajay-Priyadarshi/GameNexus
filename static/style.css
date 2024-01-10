@@ -15,7 +15,7 @@ button {
     cursor: pointer;
     position: absolute;
     top: 62.5%;
-    left: center;
+    left: 50%;
     font-family: 'Minecraft';
     position: absolute;
     background-color: rgb(114, 187, 255);

@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+.profile-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff; /* White background */
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0; /* Light gray border */
+}
+
+.profile-header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-info {
+    flex-grow: 1;
+}
+
+.profile-info h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.profile-info p {
+    margin: 5px 0;
+    color: #666; /* Dark gray text color */
+}
+
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.post {
+    margin: 10px;
+}
+
+.post img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
+.edit-profile {
+    background-color: #3498db; /* Blue color for the button */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-profile:hover {
+    background-color: #2980b9; /* Darker blue color on hover */
+}

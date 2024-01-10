@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="style_events_options.css">
+</head>
+<body>
+
+    <div class="options-container">
+        <div class="option" id="registerOption">
+            <button onclick="toggleDropdown('registerDropdown')">Registered Events</button>
+            <div class="dropdown" id="registerDropdown">
+                <ul>
+                    <li><a href="#">Event 1</a></li>
+                    <li><a href="#">Event 2</a></li>
+                    <li><a href="#">Event 3</a></li>
+                    <!-- Add more events as needed -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="option" id="bookmarksOption">
+            <button onclick="toggleDropdown('bookmarksDropdown')">Bookmarked Events</button>
+            <div class="dropdown" id="bookmarksDropdown">
+                <ul>
+                    <li><a href="#">Bookmarked Event 1</a></li>
+                    <li><a href="#">Bookmarked Event 2</a></li>
+                    <li><a href="#">Bookmarked Event 3</a></li>
+                    <!-- Add more bookmarked events as needed -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown(dropdownId) {
+            var dropdown = document.getElementById(dropdownId);
+            dropdown.classList.toggle("show");
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.option button')) {
+                var dropdowns = document.getElementsByClassName('dropdown');
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

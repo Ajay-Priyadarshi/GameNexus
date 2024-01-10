@@ -1,10 +1,12 @@
 body {
-    background-color: #000000;
+    background: url('../assets/web11.jpeg') no-repeat center center fixed;
     color: #ffffff;
     font-family: 'Minecraft';
+    overflow: auto;
     margin: 0;
-    padding: 10px;
-    height: 100%;
+    padding: 0;
+    background-size: cover;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,18 +14,7 @@ body {
     text-shadow: 0 0 5px #ffffff;
 }
 
-form {
-    background-color: #333333;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    background-color: #000000;
-    width: 100%;
-    max-width: 600px;
-    /* Set a maximum width for better readability */
-    text-align: left;
-    box-sizing: border-box;
-}
+
 
 label {
     display: block;
@@ -31,36 +22,44 @@ label {
 }
 
 input {
-    width: calc(100% - 16px);
+    width: calc(100% + 40px);
     padding: 8px;
     margin-bottom: 16px;
     box-sizing: border-box;
-    background-color: #444444;
+    background-color: rgb(114, 187, 255);
+    border-style: double;
+    border-color: white;
     color: #ffffff;
-    border: none;
-    border-radius: 4px;
+    box-shadow: 0 0 5px #ffffff;
+    border-radius: 25px;
 }
 
 button {
     font-family: 'Minecraft';
     font-weight: bold;
     border-radius: 100px;
-    background-color: black;
-    width: 100%;
+    background-color: rgb(114, 187, 255);
+    width: calc(100% - 12px);
     /* Take up full width */
     padding: 10px 0;
     /* Vertical padding */
     font-size: 18px;
     color: white;
     font-family: 'Minecraft';
+    border-style: double;
+    border-color: white;
     box-shadow: 0 0 5px #ffffff;
     margin-top: 10px;
+
 }
 
 button:hover {
-    text-decoration: underline;
-    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000,
-        0 0 10px #ff8d00, 0 0 98px #ff0000;
+   
+ 
+    text-shadow: 0 0 5px #ffffff;
+    outline: none;
+    box-shadow: 0 5px #ffffff, 0 0 15px #c1c1c1, 0 0 20px #ffffff, 0 0 40px #ff8d00;
+    border-color: white;
 }
 
 #photoInput {
@@ -69,18 +68,28 @@ button:hover {
 
 #photoLabel {
     font-family: 'Minecraft';
+    width: calc(100% - 16px);
     font-weight: bold;
     border-radius: 100px;
     text-align: center;
-    background-color: black;
-    width: 100%;
+    background-color: rgb(114, 187, 255);
+   
     padding: 10px 0;
     /* Vertical padding */
     font-size: 18px;
+    text-shadow: none;
     color: white;
-
+    border-style: double;
+    border-color: white;
     box-shadow: 0 0 5px #ffffff;
     margin-top: 10px;
+}
+
+#photoLabel:hover{
+    text-shadow: 0 0 5px #ffffff;
+    outline: none;
+    box-shadow: 0 5px #ffffff, 0 0 15px #c1c1c1, 0 0 20px #ffffff, 0 0 40px #ff8d00;
+    border-color: white;
 }
 
 a {
@@ -89,25 +98,61 @@ a {
     color: white;
 }
 
-a:hover {
-    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000,
-        0 0 10px #ff8d00, 0 0 98px #ff0000;
-    text-decoration: underline;
-}
 
 .previous {
     font-family: 'Minecraft';
     font-weight: bold;
-
+    background-color: #645F7D;
+    width:110px;
+    border-radius: 5px;
     font-size: 18px;
     color: white;
     font-family: 'Aquire';
-
+    text-align: center;
+    border-style: double;
+    border-color: white;
+    
     margin-top: 10px;
 }
 
-.previous:hover {
-    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000,
-        0 0 10px #ff8d00, 0 0 98px #ff0000;
-    text-decoration: underline;
+.previous:hover{
+    text-shadow: 0 0 5px #ffffff;
+    outline: none;
+    box-shadow: 0 5px #ffffff, 0 0 15px #c1c1c1, 0 0 20px #ffffff, 0 0 40px #ff8d00;
+    border-color: white;
+}
+
+
+
+#accountType{
+    font-family: 'Minecraft';
+    font-weight: bold;
+    border-radius: 100px;
+    text-align: center;
+    background-color: rgb(114, 187, 255);
+    box-shadow: 0 0 5px #ffffff;
+    color: white;
+    border-style: double;
+    border-color: white;
+    padding:2px 0px 0px 0px;
+    margin-bottom: 5px;
+}
+
+
+
+
+
+.inbox:focus{
+   
+    outline: none;
+    box-shadow: 0 5px #ffffff, 0 0 15px #c1c1c1, 0 0 20px #ffffff, 0 0 40px #ff8d00;
+    border-color: white;
+}
+
+.DETAILS{
+    background-color: #645F7D;
+    padding:10px 6px 4px 8px;
+border-radius: 10px;
+border-style: double;
+border-color: white;
 }

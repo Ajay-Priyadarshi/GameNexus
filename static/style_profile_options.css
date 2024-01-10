@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Light gray background */
+}
+
+.logout-container {
+    display: flex;
+    justify-content: center;
+    height: 6vh;
+}
+
+.logout-button {
+
+    width: 90%;
+    max-width: 300px; /* Set a maximum width if needed */
+    padding: 15px;
+    font-size: 16px;
+    background-color: #d9534f; /* Red color for the button */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #c9302c; /* Darker red color on hover */
+}

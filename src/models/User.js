@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   securityQuestion: { type: String, required: true },
   answer: { type: String, required: true },
-  Plan_ID: { type: mongoose.Schema.Types.ObjectId, ref: 'Plans_tbl', required: true },
+  Plan_ID: { type: mongoose.Schema.Types.ObjectId, ref: 'Plans_tbl'},
   userPhoto: { type: String },
   bio: { type: String },
   planValidity: { type: Date },

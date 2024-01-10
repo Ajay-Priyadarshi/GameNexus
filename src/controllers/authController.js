@@ -38,7 +38,7 @@ export const register = async (req, res, next) => {
     const newUser = new User({
       username,
       email,
-      password, // Store the password as it is
+      password, 
       accountType,
       bio,
       securityQuestion,

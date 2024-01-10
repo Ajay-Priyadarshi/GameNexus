@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="styleHome.css">
+     
+    <script>
+        function loadPage(pageName) {
+            // Load the content of the clicked link into the third section
+            document.getElementById("content").src = pageName + ".html";
+            
+            // Modify pageName for the related page in the third section
+            const relatedPageName = pageName + "_options";
+            document.getElementById("options-content").src = relatedPageName + ".html";
+
+            // Display a fallback message if the pages fail to load
+            document.getElementById("content").onerror = function() {
+                document.getElementById("content").contentDocument.body.innerHTML = "<p>Failed to load page.</p>";
+            };
+
+            document.getElementById("options-content").onerror = function() {
+                document.getElementById("options-content").contentDocument.body.innerHTML = "<p>Failed to load related page.</p>";
+            };
+        }
+    </script>
+</head>
+<body>
+
+    <nav>
+        <h1 class="logo">Gamexus</h1>
+        <a href="#" onclick="loadPage('home')"><i class="fas fa-home"></i> Home</a>
+        <a href="#" onclick="loadPage('search')"><i class="fas fa-search"></i> Search</a>
+        <a href="#" onclick="loadPage('events')"><i class="far fa-calendar-alt"></i> Events</a>
+        <a href="#" onclick="loadPage('profile')"><i class="far fa-user"></i> Profile</a>
+        <a href="#" onclick="loadPage('settings')"><i class="fas fa-cogs"></i> Settings</a>
+    </nav>
+
+    <section>
+        <iframe id="content" src="home.html" width="100%" height="100%" frameborder="0"></iframe>
+    </section>
+
+
+    <section class="options-section">
+        <iframe id="options-content" src="home_o.html" width="100%" height="100%" frameborder="0"></iframe>
+    </section>
+
+</body>
+</html>

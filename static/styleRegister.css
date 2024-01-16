@@ -22,7 +22,8 @@ label {
 }
 
 input {
-    width: calc(100% + 40px);
+    height: 3vh;
+    width: 20vw;
     padding: 8px;
     margin-bottom: 16px;
     box-sizing: border-box;
@@ -34,14 +35,22 @@ input {
     border-radius: 25px;
 }
 
+input:focus{
+    outline: none;
+    box-shadow: 0 5px #ffffff, 0 0 15px #c1c1c1, 0 0 20px #ffffff, 0 0 40px #ff8d00;
+    border-color: white;
+   
+}
+
 button {
     font-family: 'Minecraft';
     font-weight: bold;
     border-radius: 100px;
     background-color: rgb(114, 187, 255);
-    width: calc(100% - 12px);
+    height: 3vh;
+    width: 20vw;
     /* Take up full width */
-    padding: 10px 0;
+    padding: 3px;
     /* Vertical padding */
     font-size: 18px;
     color: white;
@@ -68,13 +77,14 @@ button:hover {
 
 #photoLabel {
     font-family: 'Minecraft';
-    width: calc(100% - 16px);
+    height: 2.5vh;
+    width: 19.75vw;
     font-weight: bold;
     border-radius: 100px;
     text-align: center;
     background-color: rgb(114, 187, 255);
    
-    padding: 10px 0;
+    
     /* Vertical padding */
     font-size: 18px;
     text-shadow: none;
@@ -82,7 +92,8 @@ button:hover {
     border-style: double;
     border-color: white;
     box-shadow: 0 0 5px #ffffff;
-    margin-top: 10px;
+    margin-top:8px;
+    padding-top: 5px;
 }
 
 #photoLabel:hover{
@@ -136,6 +147,13 @@ a {
     border-color: white;
     padding:2px 0px 0px 0px;
     margin-bottom: 5px;
+}
+
+#accountType:focus{
+    outline: none;
+    box-shadow: 0 5px #ffffff, 0 0 15px #c1c1c1, 0 0 20px #ffffff, 0 0 40px #ff8d00;
+    border-color: white;
+   
 }
 
 

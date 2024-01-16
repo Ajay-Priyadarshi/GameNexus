@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';  
 import mongoose from 'mongoose';
 import authRoutes from './src/routes/authRoutes.js';
+import profileRoutes from './src/routes/profileRoutes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -17,9 +18,8 @@ mongoose.connect("mongodb://127.0.0.1:27017/GameNexus").then(() => {
   console.log("mongodb connected");
 });
 
-// Set up express-session middleware
 app.use(session({
-  secret: 'your-secret-key',
+  secret: 'i-m-a-n-o-o-b-i-e',
   resave: false,
   saveUninitialized: true,
 }));
@@ -28,12 +28,16 @@ app.use(session({
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
 // Serve static files
 app.use(express.static(path.join(__dirname, 'static')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // Set up routes
 app.use('/auth', authRoutes);
+app.use('/profile', profileRoutes); 
 
 // Default route
 app.get('/', (req, res) => {

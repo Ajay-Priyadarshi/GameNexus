@@ -15,7 +15,7 @@ export const login = async (req, res) => {
     if (password !== existingUser.password) {
       return res.status(401).json({ error: 'Incorrect password' });
     }
-
+    req.session.userId = existingUser._id;
     res.redirect('/Homepage.html');
     // return res.status(200).json({ message: 'Login successful' });
   } catch (error) {

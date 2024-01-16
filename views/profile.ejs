@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/styleProfile.css">
+</head>
+
+<body>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <!-- Assuming you have a user object available with dynamic data -->
+            <img src="/path/to/user/photo.jpg" alt="Profile Picture">
+            <div class="profile-info">
+                <!-- Use dynamic data from the user object -->
+                <h1><%= user.username %></h1>
+                <p>User Type: <%= user.accountType %></p>
+                <p>Followers: <%= user.followersCount %></p>
+                <p>Following: <%= user.followingCount %></p>
+                <p>Posts: <%= user.postsCount %></p>
+                <p>Achievement Bio: <%= user.bio %></p>
+                <button class="edit-profile">Edit Profile</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,5 +1,5 @@
 body {
-    background: url('../assets/web11.jpeg') no-repeat center center fixed;
+    background: url('../assets/main.jpg') no-repeat center center fixed;
     color: #ffffff;
     font-family: 'Minecraft';
     overflow: auto;
@@ -11,7 +11,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-shadow: 0 0 5px #ffffff;
+    
 }
 
 
@@ -19,6 +19,11 @@ body {
 label {
     display: block;
     margin-bottom: 8px;
+    width: fit-content;
+    padding:2px;
+    border-radius: 2px;
+    background-color: #382c59;
+
 }
 
 input {
@@ -27,10 +32,10 @@ input {
     padding: 8px;
     margin-bottom: 16px;
     box-sizing: border-box;
-    background-color: rgb(114, 187, 255);
+    background-color: rgba(254,237,1,255);
     border-style: double;
     border-color: white;
-    color: #ffffff;
+    color: black;
     box-shadow: 0 0 5px #ffffff;
     border-radius: 25px;
 }
@@ -46,7 +51,7 @@ button {
     font-family: 'Minecraft';
     font-weight: bold;
     border-radius: 100px;
-    background-color: rgb(114, 187, 255);
+    background-color:#382c59;
     height: 3vh;
     width: 20vw;
     /* Take up full width */
@@ -59,6 +64,7 @@ button {
     border-color: white;
     box-shadow: 0 0 5px #ffffff;
     margin-top: 10px;
+    padding-bottom: 20px;
 
 }
 
@@ -72,6 +78,7 @@ button:hover {
 }
 
 #photoInput {
+    
     display: none;
 }
 
@@ -82,7 +89,7 @@ button:hover {
     font-weight: bold;
     border-radius: 100px;
     text-align: center;
-    background-color: rgb(114, 187, 255);
+    background-color:#382c59;
    
     
     /* Vertical padding */
@@ -113,7 +120,7 @@ a {
 .previous {
     font-family: 'Minecraft';
     font-weight: bold;
-    background-color: #645F7D;
+    background-color: #382c59;
     width:110px;
     border-radius: 5px;
     font-size: 18px;
@@ -140,7 +147,7 @@ a {
     font-weight: bold;
     border-radius: 100px;
     text-align: center;
-    background-color: rgb(114, 187, 255);
+    background-color: #382c59;
     box-shadow: 0 0 5px #ffffff;
     color: white;
     border-style: double;
@@ -151,7 +158,7 @@ a {
 
 #accountType:focus{
     outline: none;
-    box-shadow: 0 5px #ffffff, 0 0 15px #c1c1c1, 0 0 20px #ffffff, 0 0 40px #ff8d00;
+    box-shadow: 0 5px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff, 0 0 40px #ff8d00;
     border-color: white;
    
 }
@@ -173,4 +180,8 @@ a {
 border-radius: 10px;
 border-style: double;
 border-color: white;
+}
+
+.details{
+    text-shadow: 0 0 20px #B0C4DE; 
 }

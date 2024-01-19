@@ -1,6 +1,6 @@
 body {
     font-family: 'Minecraft';
-    background: url('../assets/web11.jpeg') no-repeat center center fixed;
+    background: url('../assets/main.jpg') no-repeat center center fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -34,7 +34,7 @@ label {
 
 input {
     width: calc(100% - 16px);
-    background-color: rgb(114, 187, 255);
+    background-color:  rgba(254,237,1,255);
     outline: none;
     border-radius: 10px;
     border-style: double;

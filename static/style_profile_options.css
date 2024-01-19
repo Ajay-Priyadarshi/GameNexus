@@ -2,7 +2,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* Light gray background */
+    background-color: #000000; /* Light gray background */
+ 
 }
 
 .logout-container {
@@ -11,13 +12,14 @@ body {
     height: 6vh;
 }
 
-.logout-button {
-
+#buttons {
+  
+    margin: 1vh;
     width: 90%;
     max-width: 300px; /* Set a maximum width if needed */
-    padding: 15px;
+    padding: 10px;
     font-size: 16px;
-    background-color: #d9534f; /* Red color for the button */
+    background-color: #3498db; /* Blue color for the button */
     color: #fff; /* White text color */
     border: none;
     border-radius: 5px;
@@ -25,6 +27,6 @@ body {
     transition: background-color 0.3s;
 }
 
-.logout-button:hover {
-    background-color: #c9302c; /* Darker red color on hover */
+#buttons:hover{
+    background-color: #2980b9; /* Darker blue color on hover */
 }

@@ -2,70 +2,95 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: white;
-}
-
-.profile-container {
-    max-width: 800px;
-    margin: 50px auto;
-    background-color: #fff; /* White background */
+    background-color: #000000; /* Light gray background */
+    color: white;
 }
 
 .profile-header {
+    
+    padding-bottom: 3vh;
     display: flex;
-    align-items: center;
-    padding: 20px;
     border-bottom: 1px solid #e0e0e0; /* Light gray border */
+    
 }
 
 .profile-header img {
-    width: 80px;
-    height: 80px;
+    width: 20vh;
+    height: 20vh;
     border-radius: 50%;
     margin-right: 20px;
+    margin-left: 10px;
+    border-color: 1px solid #000000;
 }
 
 .profile-info {
+    margin-top: 3vh;
     flex-grow: 1;
+    margin-bottom: 2vh;
+    
 }
+
+.usertype{
+    background-color:#594E86;
+    width:fit-content;
+}
+
 
 .profile-info h1 {
     margin: 0;
     font-size: 1.5em;
+   
 }
 
-.profile-info p {
-    margin: 5px 0;
-    color: #666; /* Dark gray text color */
+#data{
+    
+    padding:0vh 5.5vh 0vh 5.5vh;
+}
+
+ /* Add this style for the liked state */
+ .liked {
+    color: red;
+}
+
+/* Customize the like, comment, and share icons */
+.post-actions i {
+    font-size: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.counts {
+    font-size: 1.5em;
+    display: flex;
+    width: 90%;
+}
+
+.counts p {
+    margin: 0;
+}
+
+.multiline-text {
+    border-bottom:1px solid #e0e0e0 ;
+
+    width: 100%;
+    background-color:#594E86;
 }
 
 .posts {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
     padding: 20px;
 }
 
 .post {
-    margin: 10px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 8px;
 }
 
 .post img {
     width: 100%;
-    max-width: 300px;
     height: auto;
-}
-
-.edit-profile {
-    background-color: #3498db; /* Blue color for the button */
-    color: #fff; /* White text color */
-    border: none;
-    padding: 8px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.edit-profile:hover {
-    background-color: #2980b9; /* Darker blue color on hover */
+    border-bottom: 1px solid #ddd;
 }

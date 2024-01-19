@@ -8,16 +8,21 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .option {
     width: 90%;
-    margin: 10px;
+    margin:10px 10px 10px 5px;
+}
+
+#EditOption,#add-event,#delete-event{
+    margin-left: 11px;
 }
 
 button {
     width: 100%;
-    padding: 10px;
+    padding:10px;
     font-size: 16px;
     background-color: #3498db; /* Blue color for the button */
     color: #fff; /* White text color */
@@ -32,7 +37,7 @@ button {
     width: 90%;
     background-color: #f9f9f9;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+  
 }
 
 ul {
@@ -60,3 +65,5 @@ ul {
 .show {
     display: block;
 }
+
+

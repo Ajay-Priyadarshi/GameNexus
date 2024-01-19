@@ -1,30 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
-    <link rel="stylesheet" href="/styleProfile.css">
+    <link rel="stylesheet" href="styleProfile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-
 <body>
 
     <div class="profile-container">
         <div class="profile-header">
             <img src="/uploads/<%= user.userPhoto %>" alt="Profile Picture">
             <div class="profile-info">
-                <h1><%= user.username %></h1>
-                <p>User Type: <%= user.accountType %></p>
-                <p>Followers: <%= user.followersCount %></p>
-                <p>Following: <%= user.followingCount %></p>
-                <p>Posts: <%= user.postsCount %></p>
-                <p>Achievement Bio: <%= user.bio %></p>
-                <button class="edit-profile">Edit Profile</button>
+                <h1 id="usrname"><%= user.username %></h1>
+                <div class="usertype">
+                    <p><%= user.accountType %></p>
+                </div>
+                <div class="counts" style="width: 90%;">
+                    <table>
+                        <tr>
+                            <th class="Followers" id="data">Followers: <%= user.followersCount %></th>
+                            <th class="Following" id="data">Following: <%= user.followingCount %></th>
+                            <th class="Post" id="data">Post: <%= user.postsCount %></th>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
 
-</body>
+        <div class="multiline-text">
+            <label id="ach"><b>Achievement bio:</b> <%= user.bio %></label><br><br>
+            <label id="req"><b>Requirements:</b></label><br><br>
+        </div>
 
+        <div class="profile-container">
+            <!-- Your existing profile section -->
+        </div>
+    
+        <script>
+            function likePost(icon) {
+                // Toggle the 'liked' class to change the color
+                icon.classList.toggle('liked');
+    
+                // Add your logic for liking the post here
+                // You can update the UI or make an AJAX request to your server
+                console.log("Liked post");
+            }
+    
+            function commentPost(icon) {
+                // Add your logic for commenting on the post here
+                // You can show a modal or redirect to a comment page
+                console.log("Commented on post");
+            }
+        </script>
+    
+    </body>
 </html>

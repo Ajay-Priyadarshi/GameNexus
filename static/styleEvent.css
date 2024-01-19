@@ -2,18 +2,19 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #fff; /* White background */
-    color: #000; /* Black text color */
+    background-color: #000000; /* White background */
+    color: #ffffff; /* Black text color */
 }
 
 header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    
 }
 
 .search-container {
+    padding:2vw;
     display: flex;
     align-items: center;
 }
@@ -26,7 +27,9 @@ header {
 input[type="text"] {
     padding: 8px;
     font-size: 16px;
-    border: 1px solid #000; /* Black border */
+    border: 1px solid #ffffff; /* Black border */
+    background-color: #000000;
+    color: #ffffff;
     border-radius: 5px;
     outline: none;
     width: 70vw;
@@ -39,65 +42,95 @@ input[type="text"] {
 }
 
 .event-item {
-    background-color: #e7e7e7;
-    padding:3vh 0vh 3vh 0vh;
+    background-color: #ffffff;
     display: flex;
+    border-radius: 10px;
+    color:black;
     align-items: center;
-    margin: 10px;
+    margin: 5px;
     width: 100%; /* Utilize full width of the page */
 }
 
 .event-image {
-    width: 50px;
-    height: 50px;
+    margin-top: 7px;
     border-radius: 50%;
-    background-color: #ccc; /* Placeholder color for the image */
-    margin-left: 10px; /* Move image to the right side */
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 20px;
 }
 
 .event-details {
+    border-style: double;
+    border-radius: 4vh;
+    border-color:rgba(254, 237, 1, 1);
+    padding:4vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: calc(100% - 70px); /* Adjust as needed */
 }
 
+.event-details:hover{
+    box-shadow: 0 0 5px rgba(254, 237, 1, 1),
+    0 0 15px rgba(255, 0, 0, 1),
+    0 0 20px rgba(255, 141, 0, 1);
+}
 
+.user-name{
+    margin:2.5vh 0vh 0vh 2.5vh;
+}
 .event-name {
-    margin: 0px 0px 0px 8vw;
+    margin:2.5vh 0vh 0vh 2.5vh;
     text-align: left;
     font-weight: bold;
     font-size: 18px;
-    margin-bottom: 5px;
+    color: #ffffff;
+    background-color:#594E86;
+    width:max-content;
+    max-height:2.5vh;
 }
 
 .event-info {
+    margin: 0.7vh 5vh 0vh 5vh;
     display: flex;
     flex-direction: column;
+   
 }
 
 .prize-money{
+    color: rgb(0, 0, 0);
     text-align: center;
-    font-size: 14px;
-    color: #555; /* Dark gray color for additional information */
-    margin-bottom: 5px;
+    font-size: 15px;
+   
+  
 }
 .event-date {
+    color: rgb(0, 0, 0);
     text-align: right;
-    font-size: 14px;
-    color: #555; /* Dark gray color for additional information */
-    margin-bottom: 5px;
+    font-size: 15px;
+   
+
 }
 
-.register-button {
-    background-color: #3498db; /* Blue color for the button */
-    color: #fff; /* White text color */
+.button-container {
+    display: flex;
+}
+
+/* Adjust the style for the Register button and Bookmark button */
+.register-button,
+.bookmark-button {
+    margin: 0.3vh;
+    background-color: #3498db;
+    color: #fff;
     border: none;
-    padding: 8px;
+   width:15.5vw;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-size: 12.5px;
 }
 
-.register-button:hover {
-    background-color: #2980b9; /* Darker blue color on hover */
+.register-button:hover,
+.bookmark-button:hover {
+    background-color: #2980b9;
 }

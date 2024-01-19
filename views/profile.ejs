@@ -12,10 +12,8 @@
 
     <div class="profile-container">
         <div class="profile-header">
-            <!-- Assuming you have a user object available with dynamic data -->
-            <img src="/path/to/user/photo.jpg" alt="Profile Picture">
+            <img src="/uploads/<%= user.userPhoto %>" alt="Profile Picture">
             <div class="profile-info">
-                <!-- Use dynamic data from the user object -->
                 <h1><%= user.username %></h1>
                 <p>User Type: <%= user.accountType %></p>
                 <p>Followers: <%= user.followersCount %></p>

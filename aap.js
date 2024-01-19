@@ -35,6 +35,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'static')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.get('/uploads/:filename', (req, res) => {
+  const filename = req.params.filename;
+  res.sendFile(path.join(__dirname, 'uploads', filename));
+});
+
 // Set up routes
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes); 

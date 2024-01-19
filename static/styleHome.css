@@ -2,22 +2,41 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Supercell-Magic', sans-serif;
-    background-color: #ffffff; /* White background for a clean look */
-    color: #333; /* Dark text color */
+    background-color: #000000; /* White background for a clean look */
+    color: #ffffff; /* Dark text color */
 }
 
 .logo{
-    font-family: 'Minecraft';
+    font-family: 'Space Monkey';
+    color: white;
     text-align: center;
-    font-size: 3vh;
+    font-size: 4vh;
     padding: 3vh;
+    text-shadow: 0 0 10px #87CEEB, 0 0 20px #B0C4DE; 
+}
+
+.logo:hover{
+    text-shadow: 0 0 5px rgba(254, 237, 1, 1),
+             0 0 15px rgba(254, 237, 1, 1),
+             0 0 20px rgba(254, 237, 1, 1),
+             0 0 40px rgba(254, 237, 1, 1),
+             0 0 60px rgba(255, 0, 0, 1),
+             0 0 10px rgba(255, 141, 0, 1);
+
+}
+
+#nvoptions:hover{
+    background-color: rgba(254,237,1,255);
+    color: #000000;
 }
 
 nav {
+   
+    font-size: 2.5vh;
     float: left;
     width: 20%;
     height: 100vh;
-    background-color: #f2f2f2; /* Light gray color for the navigation background */
+    background-color: #000000; /* Light gray color for the navigation background */
     padding: 20px;
     box-sizing: border-box;
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1); /* Subtle box shadow for depth */
@@ -25,7 +44,7 @@ nav {
 
 nav h1.logo {
     margin-bottom: 20px; /* Add spacing between the logo and links */
-    color: #333; /* Dark text color for the logo */
+    color: #ffffff; /* Dark text color for the logo */
 }
 
 nav a {
@@ -33,15 +52,15 @@ nav a {
     padding: 12px;
     margin-bottom: 10px;
     text-decoration: none;
-    color: #333; /* Dark text color for navigation links */
-    background-color: #f5f5f5; /* Light gray background color for navigation links */
+    color: #ffffff; /* Dark text color for navigation links */
+    background-color: #000000; /* Light gray background color for navigation links */
     border-radius: 8px;
     text-align: center;
     transition: background-color 0.3s; /* Smooth transition on hover */
 }
 
 nav a:hover {
-    background-color: #e0e0e0; /* Slightly darker gray on hover for navigation links */
+    background-color: #000000; /* Slightly darker gray on hover for navigation links */
 }
 
 section {
@@ -52,7 +71,7 @@ section {
     box-sizing: border-box;
     border-left: 1px solid #333; /* Dark border color for separation */
     transition: border-left-color 0.3s; /* Smooth transition on hover */
-    background-color: #ffffff; /* White background for the content section */
+    background-color: #000000; /* White background for the content section */
 }
 
 section:hover {
@@ -65,13 +84,13 @@ section:hover {
     height: 100vh;
     padding: 20px;
     box-sizing: border-box;
-    background-color: #f2f2f2; /* Light gray color for the new section */
+    background-color: #000000; /* Light gray color for the new section */
     border-left: 1px solid #333; /* Dark border color for differentiation */
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1); /* Subtle box shadow for depth */
 }
 
 h1 {
-    color: #333; /* Dark text color for headers */
+    color: #ffffff; /* Dark text color for headers */
 }
 
 iframe {

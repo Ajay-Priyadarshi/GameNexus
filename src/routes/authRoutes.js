@@ -11,7 +11,7 @@ const __dirname = dirname(__filename);
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    return cb(null,path.join(__dirname, '../../uploads'));
+    return cb(null,path.join(__dirname, '../../uploads/profileImages'));
   },
   filename: function (req, file, cb) {
     return cb(null, `${Date.now()}-${file.originalname}`);

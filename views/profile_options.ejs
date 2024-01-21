@@ -1,9 +1,11 @@
+<!-- profile_options.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logout Page</title>
+    <title>Profile Options</title>
     <link rel="stylesheet" href="style_profile_options.css">
 </head>
 <body>
@@ -11,8 +13,14 @@
     <button class="edit-profile" id="buttons">Edit Profile</button>
     <button class="upload-button" id="buttons">Upload Post</button>
     <button class="delete-post-button" id="buttons">Delete Post</button>
-        <button class="logout-button" id="buttons">Logout</button>
-        <button class="delete-profile-button" id="buttons">Delete Profile</button>
+    <button class="logout-button" id="buttons" onclick="logout()">Logout</button>
+    <button class="delete-profile-button" id="buttons">Delete Profile</button>
+
+    <script>
+        function logout() {
+            window.top.location.href = '/';
+        }
+    </script>
 
 </body>
 </html>

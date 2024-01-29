@@ -21,7 +21,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 const router = express.Router();
 
-// Add middleware or authentication checks if necessary
 router.get('/', showProfile);
 
 router.get('/edit', editProfile);

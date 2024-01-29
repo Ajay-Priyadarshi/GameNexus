@@ -12,6 +12,10 @@ body {
     height: 6vh;
 }
 
+body::-webkit-scrollbar {
+    width: 0;
+}
+
 #buttons {
   
     margin: 1vh;
@@ -29,4 +33,8 @@ body {
 
 #buttons:hover{
     background-color: #2980b9; /* Darker blue color on hover */
+}
+
+#profileDropdown{
+   background-color: none;
 }

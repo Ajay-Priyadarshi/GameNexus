@@ -47,7 +47,7 @@ input[type="text"] {
     border-radius: 10px;
     color:black;
     align-items: center;
-    margin: 5px;
+    margin:10px;
     width: 100%; /* Utilize full width of the page */
 }
 
@@ -74,6 +74,10 @@ input[type="text"] {
     box-shadow: 0 0 5px rgba(254, 237, 1, 1),
     0 0 15px rgba(255, 0, 0, 1),
     0 0 20px rgba(255, 141, 0, 1);
+}
+
+body::-webkit-scrollbar {
+    width: 0;
 }
 
 .user-name{

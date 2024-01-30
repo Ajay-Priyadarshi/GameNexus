@@ -72,3 +72,51 @@ export const updateProfile = async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 };
+
+export const del =  async (req, res) => {
+  try {
+    const userId = req.session.userId;
+
+    if (!userId) {
+      return res.status(401).send('Unauthorized');
+    }
+
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+
+    res.render('deleteProfile', { user });
+  } catch (error) {
+    console.error('Error fetching user profile for editing:', error);
+    res.status(500).send('Internal Server Error');
+  }
+}
+
+export const deleteProfile =  async (req, res) => {
+  try {
+    const userId = req.session.userId;
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+
+    const { securityAnswer } = req.body;
+
+    if (securityAnswer.toLowerCase() === user.answer.toLowerCase()) {
+      // Delete the user's account
+      await User.findByIdAndDelete(userId);
+      req.session.destroy();
+      
+      const script = '<script>window.top.location.href =  "/";</script>';
+      res.send(script);
+    } else {
+      res.status(401).send('Incorrect security answer');
+    }
+  } catch (error) {
+    console.error('Error deleting user account:', error);
+    res.status(500).send('Internal Server Error');
+  }
+}

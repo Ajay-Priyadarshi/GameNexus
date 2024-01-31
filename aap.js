@@ -36,6 +36,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'static')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use('/profile', express.static(path.join(__dirname, 'static')));
+app.use('/auth', express.static(path.join(__dirname, 'static')));
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.get('/uploads/:filename', (req, res) => {

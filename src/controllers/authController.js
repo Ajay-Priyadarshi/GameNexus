@@ -8,12 +8,22 @@ export const login = async (req, res) => {
     const existingUser = await User.findOne({ username });
 
     if (!existingUser) {
-      return res.status(404).json({ error: 'User not found' });
+      return res.status(404).send(`
+        <script>
+          alert('Invalid User name try again.');
+          window.location.href = '/'; // Redirect to the login page if needed
+        </script>
+      `);
     }
 
     // Compare the entered password with the stored password directly
     if (password !== existingUser.password) {
-      return res.status(401).json({ error: 'Incorrect password' });
+      return res.status(401).send(`
+        <script>
+          alert('Incorrect password try again or forget password.');
+          window.location.href = '/'; // Redirect to the login page if needed
+        </script>
+      `);
     }
     req.session.userId = existingUser._id;
     res.redirect('/Homepage.html');
@@ -33,13 +43,19 @@ export const register = async (req, res, next) => {
     const existingUser = await User.findOne({ username });
 
     if (existingUser) {
-      return res.status(409).json({ error: 'Username already exists. Please choose a different username.' });
+      return res.status(409).send(`
+      <script>
+        alert('Username already exists. Please choose a different username.');
+      
+         window.location.href = '/auth/reg';
+      </script>
+    `);
     }
 
     const newUser = new User({
       username,
       email,
-      password, 
+      password,
       accountType,
       bio,
       securityQuestion,
@@ -49,7 +65,12 @@ export const register = async (req, res, next) => {
 
     await newUser.save();
 
-    res.status(201).json({ message: 'Registration successful. Welcome to the website!', username: newUser.username });
+    return res.status(201).send(`
+    <script>
+      alert('Registration successful. Welcome to the website!');
+      window.location.href = '/'; 
+    </script>
+  `);
   } catch (error) {
     console.error('Error during registration:', error);
     res.status(500).json({ error: 'Internal Server Error', details: error.message });

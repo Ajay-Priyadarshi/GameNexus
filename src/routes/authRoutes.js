@@ -22,6 +22,9 @@ const upload = multer({ storage });
 
 const router = express.Router();
 
+router.get('/reg', (req, res)=>{
+  res.sendFile(path.join(__dirname, 'static', '../../../static/register.html'));
+})
 router.post('/register', upload.single('photo'), register);
 router.post('/login', login);
 router.post('/forgot-password-step1', forgotPasswordStep1);

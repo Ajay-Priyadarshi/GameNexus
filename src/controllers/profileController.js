@@ -113,7 +113,12 @@ export const deleteProfile =  async (req, res) => {
       const script = '<script>window.top.location.href =  "/";</script>';
       res.send(script);
     } else {
-      res.status(401).send('Incorrect security answer');
+      return res.status(401).send(`
+        <script>
+      alert('Incorrect answer to sqcurity question');
+      window.location.href = '/profile/del'; 
+    </script>
+      `);
     }
   } catch (error) {
     console.error('Error deleting user account:', error);

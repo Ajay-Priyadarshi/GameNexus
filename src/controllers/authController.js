@@ -27,6 +27,7 @@ export const login = async (req, res) => {
     }
     req.session.userId = existingUser._id;
     res.redirect('/Homepage.html');
+    // return res.status(200).json({ message: 'Login successful' });
   } catch (error) {
     console.error('Error during user login:', error);
     res.status(500).json({ error: 'Internal Server Error' });

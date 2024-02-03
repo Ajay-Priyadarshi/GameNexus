@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url';
 import authRoutes from './src/routes/authRoutes.js';
 import profileRoutes from './src/routes/profileRoutes.js';
 import searchRoutes from './src/routes/searchRoutes.js'
+import aboutRoutes from './src/routes/aboutRoutes.js'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -37,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use('/profile', express.static(path.join(__dirname, 'static')));
 app.use('/auth', express.static(path.join(__dirname, 'static')));
+app.use('/about', express.static(path.join(__dirname, 'static')));
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.get('/uploads/:filename', (req, res) => {
@@ -48,10 +50,11 @@ app.get('/uploads/:filename', (req, res) => {
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes); 
 app.use('/search', searchRoutes);
+app.use('/about', aboutRoutes);
 
 // Default route
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'static', 'login.html'));
+  res.sendFile(path.join(__dirname, 'static', 'home.html'));
 });
 
 // Start the server

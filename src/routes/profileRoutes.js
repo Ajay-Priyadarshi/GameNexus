@@ -1,36 +1,19 @@
-// profileRoutes.js
 import express from 'express';
-import multer from 'multer';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-import { showProfile, editProfile, updateProfile, del, deleteProfile } from '../controllers/profileController.js';
+import { showProfile, editProfile, updateProfile } from '../controllers/profileController.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    return cb(null,path.join(__dirname, '../../uploads/profileImages'));
-  },
-  filename: function (req, file, cb) {
-    return cb(null, `${Date.now()}-${file.originalname}`);
-  },
-});
-
-const upload = multer({ storage });
 const router = express.Router();
 
+// Add middleware or authentication checks if necessary
 router.get('/', showProfile);
 
-router.get('/edit', editProfile);
-router.post('/update', upload.single('userPhoto'), updateProfile);
+// Route to render the edit profile form
+router.get('/editProfile', editProfile);
 
-router.get('/del', del);
-router.post('/delete', deleteProfile);
+// Route to handle the profile update form submission
+router.post('/updateProfile', updateProfile);
 
 router.get('/profile_options', (req, res) => {
-    res.render('profile_options'); 
+    res.render('profile_options'); // Render profile_options.ejs
 });
 
 export default router;

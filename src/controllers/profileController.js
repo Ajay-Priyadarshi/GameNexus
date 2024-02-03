@@ -1,5 +1,5 @@
 // profileController.js
-import { UserModel as User } from '../models/User.js';
+import { UserModel as User} from '../models/User.js';
 
 export const showProfile = async (req, res) => {
   try {
@@ -15,6 +15,7 @@ export const showProfile = async (req, res) => {
       return res.status(404).send('User not found');
     }
 
+    // Render the "profile.ejs" view with the user data
     res.render('profile', { user });
   } catch (error) {
     console.error('Error fetching user profile:', error);
@@ -26,20 +27,17 @@ export const editProfile = async (req, res) => {
   try {
     const userId = req.session.userId;
 
-    if (!userId) {
-      return res.status(401).send('Unauthorized');
-    }
-
+    // Retrieve user data for editing
     const user = await User.findById(userId);
 
     if (!user) {
-      return res.status(404).send('User not found');
+      return res.status(404).json({ error: 'User not found' });
     }
 
     res.render('editProfile', { user });
   } catch (error) {
-    console.error('Error fetching user profile for editing:', error);
-    res.status(500).send('Internal Server Error');
+    console.error('Error during editProfile:', error);
+    res.status(500).json({ error: 'Internal Server Error', details: error.message });
   }
 };
 
@@ -47,81 +45,17 @@ export const updateProfile = async (req, res) => {
   try {
     const userId = req.session.userId;
 
-    const updatedData = {
-      username: req.body.username,
-      bio: req.body.bio,
-      requirements: req.body.requirements
-    };
+    // Update user data based on form submission
+    // Assuming req.body contains the updated fields
+    const updatedUser = await User.findByIdAndUpdate(userId, req.body, { new: true });
 
-    // Check if a new profile photo is uploaded
-    if (req.file) {
-      updatedData.userPhoto = req.file.filename;
+    if (!updatedUser) {
+      return res.status(404).json({ error: 'User not found' });
     }
 
-    const user = await User.findByIdAndUpdate(userId, updatedData, { new: true });
-
-    if (!user) {
-      return res.status(404).send('User not found');
-    }
-
-    await user.save();
-    res.redirect('/profile');
-    
+    res.redirect('/profile'); // Redirect to the profile page after updating
   } catch (error) {
-    console.error('Error updating user profile:', error);
-    res.status(500).send('Internal Server Error');
+    console.error('Error during updateProfile:', error);
+    res.status(500).json({ error: 'Internal Server Error', details: error.message });
   }
 };
-
-export const del =  async (req, res) => {
-  try {
-    const userId = req.session.userId;
-
-    if (!userId) {
-      return res.status(401).send('Unauthorized');
-    }
-
-    const user = await User.findById(userId);
-
-    if (!user) {
-      return res.status(404).send('User not found');
-    }
-
-    res.render('deleteProfile', { user });
-  } catch (error) {
-    console.error('Error fetching user profile for editing:', error);
-    res.status(500).send('Internal Server Error');
-  }
-}
-
-export const deleteProfile =  async (req, res) => {
-  try {
-    const userId = req.session.userId;
-    const user = await User.findById(userId);
-
-    if (!user) {
-      return res.status(404).send('User not found');
-    }
-
-    const { securityAnswer } = req.body;
-
-    if (securityAnswer.toLowerCase() === user.answer.toLowerCase()) {
-      // Delete the user's account
-      await User.findByIdAndDelete(userId);
-      req.session.destroy();
-      
-      const script = '<script>window.top.location.href =  "/";</script>';
-      res.send(script);
-    } else {
-      return res.status(401).send(`
-        <script>
-      alert('Incorrect answer to sqcurity question');
-      window.location.href = '/profile/del'; 
-    </script>
-      `);
-    }
-  } catch (error) {
-    console.error('Error deleting user account:', error);
-    res.status(500).send('Internal Server Error');
-  }
-}

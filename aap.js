@@ -8,7 +8,6 @@ import { fileURLToPath } from 'url';
 import authRoutes from './src/routes/authRoutes.js';
 import profileRoutes from './src/routes/profileRoutes.js';
 import searchRoutes from './src/routes/searchRoutes.js'
-import aboutRoutes from './src/routes/aboutRoutes.js'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -50,7 +49,6 @@ app.get('/uploads/:filename', (req, res) => {
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes); 
 app.use('/search', searchRoutes);
-app.use('/about', aboutRoutes);
 
 // Default route
 app.get('/', (req, res) => {

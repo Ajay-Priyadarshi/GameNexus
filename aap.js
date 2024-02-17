@@ -9,6 +9,7 @@ import authRoutes from './src/routes/authRoutes.js';
 import profileRoutes from './src/routes/profileRoutes.js';
 import searchRoutes from './src/routes/searchRoutes.js';
 import adminRoutes from './src/routes/adminRoutes.js';
+import planRoutes from './src/routes/planRoutes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -38,6 +39,8 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use('/profile', express.static(path.join(__dirname, 'static')));
 app.use('/auth', express.static(path.join(__dirname, 'static')));
+app.use('/managePlans', express.static(path.join(__dirname, 'static')));
+
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.get('/uploads/:filename', (req, res) => {
@@ -50,6 +53,7 @@ app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes); 
 app.use('/search', searchRoutes);
 app.use('/admin', adminRoutes);
+app.use('/managePlans', planRoutes)
 
 // Default route
 app.get('/', (req, res) => {

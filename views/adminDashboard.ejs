@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,7 @@
             text-align: center;
         }
 
-    
+
 
         .dropdown {
             display: inline-block;
@@ -33,53 +34,66 @@
             z-index: 1;
         }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+
 
         .mp {
-            background-color: #4caf50;
-            color: white;
- 
-           
+            background-color: #333;
+
+            margin-left: 40%;
+            width: 20vw;
             cursor: pointer;
+            margin-top: 3vh;
         }
 
-        .du {
-            background-color: #f44336;
-      
-        }
 
-        .op{  
-             background-color: white;
+        #mp {
+            font-size: 4vh;
+            color: white;
         }
 
         a {
             text-decoration: none;
             color: #333;
         }
+
+        section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 5vh;
+            padding: 5vh;
+        }
     </style>
 </head>
+
 <body>
 
     <header>
         <h1>Admin Dashboard</h1>
     </header>
 
-    <section>
-        <h2>Statistics</h2>
-        <p>Number of Players: 32123<button class="op"><a href="plst.html">&#9776; List</a></button></p>
-        <p>Number of Event Organizers: 973<button class="op"><a href="elst.html">&#9776;List</a></button></p>
-        <p>Number of Sponsors: 1023<button class="op"><a href="slst.html">&#9776;List</a></button></p>
-        <p>Number of Total Users: 3432<button class="op"><a href="tlst.html">&#9776;List</a></button></p>
-        <p>Number of Events Promoted: 1323<button class="op"><a href="einfo.html">&#9776;List</a></button></p>
-    </section>
-
-    <section>
+    <section id="content">
         <h2>Actions</h2>
-        <button class="mp"><a href="mplans.html">Manage Plans</a></button>
-        <button class="du"><a href="tlst.html">Manage Users</a></button>
+        <button class="mp"><a href="#" onclick="loadPagein('managePlans')" id="mp">Manage Plans</a></button>
+        <button class="mp"><a href="#" onclick="loadPagein('userAnalytics')" id="mp">User Analytics</a></button>
+        <button class="mp"><a href="#" onclick="loadPagein('salesAnalytics')" id="mp">Sales Analytics</a></button>
     </section>
+    <script>
+        function loadPagein(pageName) {
+            console.log(`Loading page: ${pageName}`);
 
+            // Use fetch or another method to get the content of the page
+            fetch(`/${pageName}`)
+                .then(response => response.text())
+                .then(html => {
+                    document.body.innerHTML = html;
+                })
+                .catch(error => console.error('Error loading page:', error));
+        }
+    </script>
 </body>
+
 </html>

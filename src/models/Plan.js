@@ -1,4 +1,4 @@
-// Plans_tbl
+// Plan.js
 
 import mongoose from 'mongoose';
 

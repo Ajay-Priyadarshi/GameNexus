@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      color: #333;
+      background-color: #f4f4f4;
+    }
+
+    .plan-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .plan {
+      margin: 10px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .plan input {
+      margin-bottom: 10px;
+    }
+
+    .description {
+      font-family: 'Minecraft';
+      text-align: center;
+    }
+
+    #pay {
+      color: white;
+      text-decoration: none;
+    }
+
+    button {
+      font-size: 2vh;
+      margin-top: 10px;
+      background-color: #594E86;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .options {
+      margin-top: 20px;
+      align-items: center;
+    }
+
+    select {
+      padding: 5px;
+    }
+
+    .op {
+      text-decoration: none;
+      color: white;
+    }
+
+    .dropdown-container {
+      margin-top: 10px;
+    }
+
+    #b1 {
+      margin-left: 37%;
+    }
+  </style>
+
+  <title>Mange Plans</title>
+</head>
+
+<body>
+
+  <div class="plan-container">
+    <% plans.forEach(plan=> { %>
+      <div class="plan">
+        <label for="<%= plan._id %>"><strong>Type : <%= plan.Plan_Name %></strong></label>
+        <p>Description : <%= plan.Plan_Description %>
+        </p>
+        <p>Price : <%= plan.Price %>
+        </p>
+        <p>Duration : <%= plan.Plan_Cycle %>
+        </p>
+        <a href="#" onclick="window.location.href = '/managePlans/edit/<%= plan._id %>';">
+          <i class="fas fa-search"></i> Edit </a>
+        <a href="#" onclick="window.location.href = '/managePlans/delete/<%= plan._id %>';">
+          <i class="fas fa-search"></i> Delete </a>
+      </div>
+      <% }); %>
+  </div>
+
+  <div class="options">
+    <button><a class="op" href="/managePlans/add">Add Plans</a></button>
+    <button><a class="op" href="/admin/dashboard">Go Back</a></button>
+  </div>
+
+</body>
+
+</html>

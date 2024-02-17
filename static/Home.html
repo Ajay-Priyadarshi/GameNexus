@@ -730,7 +730,6 @@
       <div class="container">
         <div class="navbar-brand">
           <span class="navbar-logo">
-            <a href="https://mobiri.se">
               <img src="assets/images/photo-1580327344181-c1163234e5a0.jpeg" style="height: 4.3rem;">
             </a>
           </span>
@@ -751,7 +750,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
             <li class="nav-item">
-              <a class="nav-link link text-black display-4" href="#" data-scroll data-id="about-me-4-u2XURmbuzA">About Us</a>
+              <a class="nav-link link text-black display-4" href="#" data-scroll data-id="about-me-4-u2XURmbuzA">About
+                Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link link text-black display-4 scroll-to-section" href="#contacts-1-u2XURmeTCV"
@@ -1743,21 +1743,21 @@
       });
     });
     document.addEventListener('DOMContentLoaded', function () {
-    var scrollLinks = document.querySelectorAll('[data-scroll]');
+      var scrollLinks = document.querySelectorAll('[data-scroll]');
 
-    scrollLinks.forEach(function (link) {
-      link.addEventListener('click', function (event) {
-        event.preventDefault();
+      scrollLinks.forEach(function (link) {
+        link.addEventListener('click', function (event) {
+          event.preventDefault();
 
-        var targetSectionId = link.getAttribute('data-id');
-        var targetSection = document.getElementById(targetSectionId);
+          var targetSectionId = link.getAttribute('data-id');
+          var targetSection = document.getElementById(targetSectionId);
 
-        if (targetSection) {
-          targetSection.scrollIntoView({ behavior: 'smooth' });
-        }
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
       });
     });
-  });
 
     (function () {
       var animationInput = document.createElement('input');

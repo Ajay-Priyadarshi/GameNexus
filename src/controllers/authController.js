@@ -11,7 +11,7 @@ export const login = async (req, res) => {
       return res.status(404).send(`
         <script>
           alert('Invalid User name try again.');
-          window.location.href = '/'; // Redirect to the login page if needed
+          window.location.href = '/login.html'; // Redirect to the login page if needed
         </script>
       `);
     }
@@ -21,7 +21,7 @@ export const login = async (req, res) => {
       return res.status(401).send(`
         <script>
           alert('Incorrect password try again or forget password.');
-          window.location.href = '/'; // Redirect to the login page if needed
+          window.location.href = '/login.html'; // Redirect to the login page if needed
         </script>
       `);
     }

@@ -74,7 +74,7 @@ export const register = async (req, res, next) => {
     return res.status(201).send(`
     <script>
       alert('Registration successful. Welcome to the website!');
-      window.location.href = '/'; 
+      window.location.href = '/login.html'; 
     </script>
   `);
   } catch (error) {

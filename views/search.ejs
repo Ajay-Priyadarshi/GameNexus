@@ -19,14 +19,16 @@
     <div class="search-results">
         <% if (results && results.length > 0) { %>
             <% for (let i = 0; i < results.length; i++) { %>
-                <div class="result-item">
-                    <img src="/uploads/profileImages/<%= results[i].userPhoto %>" alt="<%= results[i].username %>">
-                    <div class="result-details">
-                        <h3><%= results[i].username %></h3>
-                        <p id="usertag">@<%= results[i].username %> • <%= results[i].accountType %></p>
-                        <p><%= results[i].bio %></p>
+                <a href="/profile/<%= results[i]._id %>"> <!-- Update the route based on your project structure -->
+                    <div class="result-item">
+                        <img src="/uploads/profileImages/<%= results[i].userPhoto %>" alt="<%= results[i].username %>">
+                        <div class="result-details">
+                            <h3><%= results[i].username %></h3>
+                            <p id="usertag">@<%= results[i].username %> • <%= results[i].accountType %></p>
+                            <p><%= results[i].bio %></p>
+                        </div>
                     </div>
-                </div>
+                </a>
             <% } %>
         <% } else { %>
             <p>No results found</p>

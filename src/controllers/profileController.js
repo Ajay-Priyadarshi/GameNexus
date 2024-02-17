@@ -125,3 +125,19 @@ export const deleteProfile =  async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 }
+
+export const getUserProfile = async (req, res) => {
+  try {
+      const userId = req.params.userId;
+      const user = await User.findById(userId);
+
+      if (!user) {
+          return res.status(404).send('User not found');
+      }
+
+      res.render('searchProfile', { user });
+  } catch (error) {
+      console.error('Error fetching user profile:', error);
+      res.status(500).send('Internal Server Error');
+  }
+};

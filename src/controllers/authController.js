@@ -26,7 +26,13 @@ export const login = async (req, res) => {
       `);
     }
     req.session.userId = existingUser._id;
-    res.redirect('/Homepage.html');
+    if (existingUser.accountType === 'admin') {
+      // Redirect to the admin dashboard
+      return res.redirect('/admin/dashboard');
+    } else {
+      // Redirect to the user's profile or home page
+      return res.redirect('/Homepage.html');
+    }
     // return res.status(200).json({ message: 'Login successful' });
   } catch (error) {
     console.error('Error during user login:', error);

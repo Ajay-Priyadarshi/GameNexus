@@ -18,7 +18,6 @@ export const showanalytics = async (req, res) => {
             result[item._id] = item.count;
             return result;
         }, {});
-
         res.render('userAnalytics', { analyticsData });
     } catch (error) {
         console.error('Error fetching user analytics data:', error);

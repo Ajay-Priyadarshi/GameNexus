@@ -11,6 +11,7 @@ import searchRoutes from './src/routes/searchRoutes.js';
 import adminRoutes from './src/routes/adminRoutes.js';
 import planRoutes from './src/routes/planRoutes.js';
 import userAnalyticsRoutes from './src/routes/userAnalyticsRoutes.js';
+import chatRoutes from './src/routes/chatRoutes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -63,6 +64,7 @@ app.use('/search', searchRoutes);
 app.use('/admin', adminRoutes);
 app.use('/managePlans', planRoutes)
 app.use('/userAnalytics', userAnalyticsRoutes)
+app.use('/chat', chatRoutes)
 
 // Default route
 app.get('/', (req, res) => {

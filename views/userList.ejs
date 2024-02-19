@@ -1,0 +1,126 @@
+<!-- userlist.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Two-Segment User List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .segment {
+            width: 50%;
+            float: left;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        .user-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .user-list-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .delete-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #f00;
+            color: #fff;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        button {
+            margin-left: 48%;
+            margin-bottom: 5vh;
+            background-color: black;
+            padding: 5px;
+        }
+
+        .op {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="segment">
+        <h2>Active Users</h2>
+        <p>Number of Active Users: <%= activeUsers.length %></p>
+        <input type="text" class="search-bar" placeholder="Search users...">
+        <ul class="user-list">
+            <% for (const user of activeUsers) { %>
+                <li class="user-list-item">
+                    <%= user.username %> • <%= user.accountType %>
+                    <button class="delete-btn" data-userid="<%= user._id %>">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+
+    <div class="segment">
+        <h2>Deactive Users</h2>
+        <p>Number of Deactive Users: <%= inactiveUsers.length %></p>
+        <input type="text" class="search-bar" placeholder="Search users...">
+        <ul class="user-list">
+            <% for (const user of inactiveUsers) { %>
+                <li class="user-list-item">
+                    <%= user.username %> • <%= user.accountType %>
+                    <button class="delete-btn" data-userid="<%= user._id %>">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+    <!-- <button><a class="op" href="/admin/dashboard">Go Back</a></button> -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const deleteButtons = document.querySelectorAll('.delete-btn');
+
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const userId = button.dataset.userid;
+                    const confirmation = confirm(`Are you sure you want to delete the account?`);
+
+                    if (confirmation) {
+                        // Redirect to the delete route
+                        window.location.href = `/userAnalytics/delete/${userId}`;
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

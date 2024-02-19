@@ -24,3 +24,41 @@ export const showanalytics = async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 };
+
+export const userList = async (req, res) => {
+    try {
+        // Fetch all users from the database
+        const users = await User.find({});
+
+        // Include all users in the activeUsers array
+        const activeUsers = users;
+        const inactiveUsers = [];
+        res.render('userList', { activeUsers, inactiveUsers });
+    } catch (error) {
+        console.error('Error fetching user list:', error);
+        res.status(500).send('Internal Server Error');
+    }
+}
+
+export const deleteUser = async (req, res) => {
+    const { userId } = req.params;
+
+    try {
+        // Find the user by ID
+        const user = await User.findById(userId);
+
+        if (!user) {
+            // User not found
+            return res.status(404).send('User not found');
+        }
+
+        // Delete the user from the database
+        await User.findByIdAndDelete(userId);
+
+        // Redirect back to the user list
+        res.redirect('/userAnalytics/userList');
+    } catch (error) {
+        console.error('Error deleting user account:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};

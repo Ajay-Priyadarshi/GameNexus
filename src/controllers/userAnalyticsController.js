@@ -13,11 +13,11 @@ export const showanalytics = async (req, res) => {
             }
         ]);
 
-        // Process the data to match the expected format
-        const analyticsData = userAnalyticsData.reduce((result, item) => {
-            result[item._id] = item.count;
-            return result;
-        }, {});
+        const analyticsData = {};
+        userAnalyticsData.forEach(item => {
+            analyticsData[item._id] = item.count;
+        });
+
         res.render('userAnalytics', { analyticsData });
     } catch (error) {
         console.error('Error fetching user analytics data:', error);

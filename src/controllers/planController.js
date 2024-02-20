@@ -64,7 +64,7 @@ export const editPlan = async (req, res) => {
             Price,
             Plan_Cycle,
         });
-        res.send(`
+        return res.send(`
         <script>
             alert('Plan edited successfully!');
             window.location.href = '/managePlans';

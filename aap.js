@@ -20,14 +20,14 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 //Local server connection string
-// mongoose.connect("mongodb://127.0.0.1:27017/GameNexus").then(() => {
-//   console.log("mongodb connected locally");
-// });
+mongoose.connect("mongodb://127.0.0.1:27017/GameNexus").then(() => {
+  console.log("mongodb connected locally");
+});
 
 //Atlas cloud connection string
-mongoose.connect("mongodb+srv://21bca142:zYIFspmRMACgnS99@gamenexus.qhvxr3b.mongodb.net/?retryWrites=true&w=majority").then(() => {
-  console.log("mongodb connected Atlas cloud");
-});
+// mongoose.connect("mongodb+srv://21bca142:zYIFspmRMACgnS99@gamenexus.qhvxr3b.mongodb.net/?retryWrites=true&w=majority").then(() => {
+//   console.log("mongodb connected Atlas cloud");
+// });
 
 app.use(session({
   secret: 'i-m-a-n-o-o-b-i-e',

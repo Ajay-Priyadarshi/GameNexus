@@ -42,21 +42,29 @@ export const userList = async (req, res) => {
 
 export const deleteUser = async (req, res) => {
     const { userId } = req.params;
-
     try {
-        // Find the user by ID
         const user = await User.findById(userId);
 
         if (!user) {
-            // User not found
             return res.status(404).send('User not found');
         }
 
-        // Delete the user from the database
-        await User.findByIdAndDelete(userId);
-
-        // Redirect back to the user list
-        res.redirect('/userAnalytics/userList');
+        if (user.accountType === 'admin') {
+            res.status(403).send(`
+                <script>
+                    alert('Cannot delete admin!');
+                    window.location.href = '/userAnalytics/userList';
+                </script>
+            `);
+        } else {
+            await User.findByIdAndDelete(userId);
+            res.send(`
+                <script>
+                    alert('User deleted successfully!');
+                    window.location.href = '/userAnalytics/userList';
+                </script>
+            `);
+        }
     } catch (error) {
         console.error('Error deleting user account:', error);
         res.status(500).send('Internal Server Error');

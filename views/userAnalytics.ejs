@@ -18,9 +18,9 @@
 
     <div class="container my-5">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 mx-auto">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body text-center">
                         <h2>User analytics</h2>
                         <canvas id="pieChart"></canvas>
                     </div>
@@ -65,7 +65,7 @@
                     labels: Object.keys(analyticsData).map(label => label.toLowerCase()),
                     datasets: [{
                         data: Object.values(analyticsData),
-                        backgroundColor: ['#3498db', '#2ecc71', '#e74c3c']
+                        backgroundColor: ['#3498db', '#2ecc71', '#e74c3c', '#f39c12']
                     }]
                 }
             });

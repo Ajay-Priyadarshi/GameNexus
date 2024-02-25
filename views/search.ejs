@@ -19,7 +19,7 @@
     <div class="search-results">
         <% if (results && results.length > 0) { %>
             <% for (let i = 0; i < results.length; i++) { %>
-                <a href="/profile/<%= results[i]._id %>"> <!-- Update the route based on your project structure -->
+                <a href="/profile/<%= results[i]._id %>"> 
                     <div class="result-item">
                         <img src="/uploads/profileImages/<%= results[i].userPhoto %>" alt="<%= results[i].username %>">
                         <div class="result-details">

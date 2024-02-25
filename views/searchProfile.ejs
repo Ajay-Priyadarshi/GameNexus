@@ -1,6 +1,7 @@
 <!-- userProfile.ejs -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,22 +9,30 @@
     <link rel="stylesheet" href="styleDProfile1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+
 <body>
 
     <div class="profile-container">
         <div class="profile-header">
             <img src="/uploads/profileImages/<%= user.userPhoto %>" alt="Profile Picture">
             <div class="profile-info">
-                <h1 id="usrname"><%= user.username %></h1> <!-- Assuming you pass 'user' object to the view -->
+                <h1 id="usrname">
+                    <%= user.username %>
+                </h1>
                 <div class="usertype">
-                    <p><%= user.accountType %></p> <!-- Assuming 'accountType' is a property of 'user' object -->
+                    <p>
+                        <%= user.accountType %>
+                    </p>
                 </div>
                 <div class="counts" style="width: 90%;">
                     <table>
                         <tr>
-                            <th class="Followers" id="data">Followers: <%= user.followersCount %></th>
-                            <th class="Following" id="data">Following: <%= user.followingCount %></th>
-                            <th class="Post" id="data">Post: <%= user.postsCount %></th>
+                            <th class="Followers" id="data">Followers: <%= user.followersCount %>
+                            </th>
+                            <th class="Following" id="data">Following: <%= user.followingCount %>
+                            </th>
+                            <th class="Post" id="data">Post: <%= user.postCount %>
+                            </th>
                         </tr>
                     </table>
                 </div>
@@ -31,13 +40,40 @@
         </div>
 
         <div class="multiline-text">
-            <lable id="ach"><b>Achievement bio:</b> <%= user.bio %></lable><br><br>
-            <lable id="req"><b>Requirements:</b> <%= user.requirements %></lable><br><br>
+            <lable id="ach"><b>Achievement bio:</b>
+                <%= user.bio %>
+            </lable><br><br>
+            <lable id="req"><b>Requirements:</b>
+                <%= user.requirements %>
+            </lable><br><br>
         </div>
         <button>&plus; Follow</button>
         <button>&#9993; Message</button>
-        <button><a class="prev" href="/search">Go Back</a></button> <!-- Assuming '/search' is your search route -->
+        <button><a class="prev" href="/search">Go Back</a></button>
+    </div>
+
+    <div class="posts">
+        <% userPosts.forEach(post => { %>
+            <div class="profile-container">
+                <div class="profile-i">
+                    <img src="/uploads/profileImages/<%= user.userPhoto %>" alt="<%= user.username %>">
+                    <div class="username">
+                        <%= user.username %>
+                    </div>
+                </div>
+                <div class="post">
+                    <img src="/uploads/posts/<%= post.Content_URL %>" alt="<%= user.username %>'s Post">
+                    <div class="post-actions">
+                        <a href="#" class="delete-btn" onclick="window.location.href='/like/<%= post._id %>/<%= user._id %>';">
+                            <i class="fas fa-heart"></i></a>
+                        <i class="fas fa-comment" onclick="commentPost(this)"></i>
+
+                    </div>
+                </div>
+            </div>
+        <% }); %>
     </div>
 
 </body>
+
 </html>

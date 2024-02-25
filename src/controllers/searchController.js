@@ -8,7 +8,7 @@ export const search = async (req, res) => {
 
         res.render('search', { results: results || [] });
     } catch (error) {
-        console.error('Error performing search:', error);
-        res.render('search', { results: [] }); // Provide an empty array if there's an error
+
+        res.render('search', { results: [] }); 
     }
 };

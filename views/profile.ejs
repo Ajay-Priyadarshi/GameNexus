@@ -66,7 +66,6 @@
                     <div class="post">
                         <img src="/uploads/posts/<%= post.Content_URL %>" alt="<%= user.username %>'s Post">
                         <div class="post-actions">
-                            <i class="fas fa-heart" id="like" onclick="likePost(this)"></i>
                             <i class="fas fa-comment" onclick="commentPost(this)"></i>
                             <a href="#" class="delete-btn" onclick="window.location.href ='/post/delete/<%= post._id %>';">
                                 <i class="fas fa-trash"></i></a>
@@ -74,7 +73,6 @@
                     </div>
                 </div>
             <% }); %>
-            
         </div>
 
         <script>

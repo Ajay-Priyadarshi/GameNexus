@@ -3,7 +3,7 @@ import multer from 'multer';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import { newPost, createPost } from '../controllers/postController.js';
+import { newPost, createPost, deletePost } from '../controllers/postController.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -21,8 +21,8 @@ const router = express.Router();
 const upload = multer({ storage });
 
 router.get('/new', newPost);
-
 router.post('/create', upload.single('userPhoto'), createPost);
+router.get('/delete/:postId', deletePost);
 
 
 export default router;

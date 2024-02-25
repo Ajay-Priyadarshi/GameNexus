@@ -33,3 +33,24 @@ export const createPost = async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 };
+
+export const deletePost = async (req, res) => {
+    try {
+        const postId = req.params.postId;
+        const userId = req.session.userId;
+
+        await Content.findByIdAndDelete(postId);
+        await User.findByIdAndUpdate(userId, { $inc: { postCount: -1 } });
+
+        return res.status(200).send(`
+        <script>
+          alert('Post deleted.');
+          window.location.href = '/profile';
+        </script>
+        `);
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+};

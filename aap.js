@@ -12,6 +12,7 @@ import adminRoutes from './src/routes/adminRoutes.js';
 import planRoutes from './src/routes/planRoutes.js';
 import userAnalyticsRoutes from './src/routes/userAnalyticsRoutes.js';
 import chatRoutes from './src/routes/chatRoutes.js';
+import postRoutes from './src/routes/postRoutes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -20,14 +21,14 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 //Local server connection string
-mongoose.connect("mongodb://127.0.0.1:27017/GameNexus").then(() => {
-  console.log("mongodb connected locally");
-});
+// mongoose.connect("mongodb://127.0.0.1:27017/GameNexus").then(() => {
+//   console.log("mongodb connected locally");
+// });
 
 //Atlas cloud connection string
-// mongoose.connect("mongodb+srv://21bca142:zYIFspmRMACgnS99@gamenexus.qhvxr3b.mongodb.net/?retryWrites=true&w=majority").then(() => {
-//   console.log("mongodb connected Atlas cloud");
-// });
+mongoose.connect("mongodb+srv://21bca142:zYIFspmRMACgnS99@gamenexus.qhvxr3b.mongodb.net/?retryWrites=true&w=majority").then(() => {
+  console.log("mongodb connected Atlas cloud");
+});
 
 app.use(session({
   secret: 'i-m-a-n-o-o-b-i-e',
@@ -49,6 +50,7 @@ app.use('/profile', express.static(path.join(__dirname, 'static')));
 app.use('/auth', express.static(path.join(__dirname, 'static')));
 app.use('/managePlans', express.static(path.join(__dirname, 'static')));
 app.use('/userAnalytics', express.static(path.join(__dirname, 'static')));
+app.use('/post', express.static(path.join(__dirname, 'static')));
 
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
@@ -62,9 +64,10 @@ app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes); 
 app.use('/search', searchRoutes);
 app.use('/admin', adminRoutes);
-app.use('/managePlans', planRoutes)
-app.use('/userAnalytics', userAnalyticsRoutes)
-app.use('/chat', chatRoutes)
+app.use('/managePlans', planRoutes);
+app.use('/userAnalytics', userAnalyticsRoutes);
+app.use('/chat', chatRoutes);
+app.use('/post', postRoutes);
 
 // Default route
 app.get('/', (req, res) => {

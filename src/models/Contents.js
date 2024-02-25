@@ -3,8 +3,8 @@
 import mongoose from 'mongoose';
 
 const contentSchema = new mongoose.Schema({
-  User_ID: { type: mongoose.Schema.Types.ObjectId, ref: 'User_Data_tbl', required: true },
-  Content_Type: { type: String, required: true },
+  User_Id: { type: mongoose.Schema.Types.ObjectId, ref: 'User_Data_tbl', required: true },
+  Content_Type: { type: String, default: 'image'},
   Content_URL: { type: String, required: true },
   Content_Description: { type: String, required: true },
   Upload_TimeStamp: { type: Date, default: Date.now },

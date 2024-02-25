@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,22 +8,30 @@
     <link rel="stylesheet" href="styleProfile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+
 <body>
 
     <div class="profile-container">
         <div class="profile-header">
             <img src="/uploads/profileImages/<%= user.userPhoto %>" alt="Profile Picture">
             <div class="profile-info">
-                <h1 id="usrname"><%= user.username %></h1>
+                <h1 id="usrname">
+                    <%= user.username %>
+                </h1>
                 <div class="usertype">
-                    <p><%= user.accountType %></p>
+                    <p>
+                        <%= user.accountType %>
+                    </p>
                 </div>
                 <div class="counts" style="width: 90%;">
                     <table>
                         <tr>
-                            <th class="Followers" id="data">Followers: <%= user.followersCount %></th>
-                            <th class="Following" id="data">Following: <%= user.followingCount %></th>
-                            <th class="Post" id="data">Post: <%= user.postsCount %></th>
+                            <th class="Followers" id="data">Followers: <%= user.followersCount %>
+                            </th>
+                            <th class="Following" id="data">Following: <%= user.followingCount %>
+                            </th>
+                            <th class="Post" id="data">Post: <%= user.postsCount %>
+                            </th>
                         </tr>
                     </table>
                 </div>
@@ -30,30 +39,57 @@
         </div>
 
         <div class="multiline-text">
-            <label id="ach"><b>Achievement bio:</b> <%= user.bio %></label><br><br>
-            <label id="req"><b>Requirements:</b> <%= user.requirements %></label><br><br>
+            <label id="ach"><b>Achievement bio:</b>
+                <%= user.bio %>
+            </label><br><br>
+            <label id="req"><b>Requirements:</b>
+                <%= user.requirements %>
+            </label><br><br>
+        </div>
+
+        <div class="npost">
+            <a href="/post/new" id="newPostButton">New Post</a>
         </div>
 
         <div class="profile-container">
             <!-- Your existing profile section -->
         </div>
-    
+
+        <div class="posts">
+            <!-- Sample posts, you can add more as needed -->
+            <div class="profile-container">
+                <div class="profile-i">
+                    <img src="/uploads/profileImages/<%= user.userPhoto %>" alt="User 1">
+                    <div class="username"><%= user.username %></div>
+                </div>
+                <div class="post">
+                    <img src="../assets/post1.png" alt="Post 1">
+                    <div class="post-actions">
+                        <i class="fas fa-heart" id="like" onclick="likePost(this)"></i>
+                        <i class="fas fa-comment" onclick="commentPost(this)"></i>
+                        <i class="fas fa-trash" id="del"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script>
             function likePost(icon) {
                 // Toggle the 'liked' class to change the color
                 icon.classList.toggle('liked');
-    
+
                 // Add your logic for liking the post here
                 // You can update the UI or make an AJAX request to your server
                 console.log("Liked post");
             }
-    
+
             function commentPost(icon) {
                 // Add your logic for commenting on the post here
                 // You can show a modal or redirect to a comment page
                 console.log("Commented on post");
             }
         </script>
-    
-    </body>
+
+</body>
+
 </html>

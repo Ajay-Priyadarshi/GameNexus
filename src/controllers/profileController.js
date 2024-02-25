@@ -1,5 +1,6 @@
 // profileController.js
 import { UserModel as User } from '../models/User.js';
+import { ContentModel as Content } from '../models/Contents.js';
 
 export const showProfile = async (req, res) => {
   try {
@@ -10,12 +11,13 @@ export const showProfile = async (req, res) => {
     }
 
     const user = await User.findById(userId);
+    const userPosts = await Content.find({ User_Id: userId });
 
     if (!user) {
       return res.status(404).send('User not found');
     }
 
-    res.render('profile', { user });
+    res.render('profile', { user, userPosts });
   } catch (error) {
     console.error('Error fetching user profile:', error);
     res.status(500).send('Internal Server Error');
@@ -66,14 +68,14 @@ export const updateProfile = async (req, res) => {
 
     await user.save();
     res.redirect('/profile');
-    
+
   } catch (error) {
     console.error('Error updating user profile:', error);
     res.status(500).send('Internal Server Error');
   }
 };
 
-export const del =  async (req, res) => {
+export const del = async (req, res) => {
   try {
     const userId = req.session.userId;
 
@@ -94,7 +96,7 @@ export const del =  async (req, res) => {
   }
 }
 
-export const deleteProfile =  async (req, res) => {
+export const deleteProfile = async (req, res) => {
   try {
     const userId = req.session.userId;
     const user = await User.findById(userId);
@@ -109,7 +111,7 @@ export const deleteProfile =  async (req, res) => {
       // Delete the user's account
       await User.findByIdAndDelete(userId);
       req.session.destroy();
-      
+
       const script = '<script>window.top.location.href =  "/";</script>';
       res.send(script);
     } else {
@@ -128,16 +130,16 @@ export const deleteProfile =  async (req, res) => {
 
 export const getUserProfile = async (req, res) => {
   try {
-      const userId = req.params.userId;
-      const user = await User.findById(userId);
+    const userId = req.params.userId;
+    const user = await User.findById(userId);
 
-      if (!user) {
-          return res.status(404).send('User not found');
-      }
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
 
-      res.render('searchProfile', { user });
+    res.render('searchProfile', { user });
   } catch (error) {
-      console.error('Error fetching user profile:', error);
-      res.status(500).send('Internal Server Error');
+    console.error('Error fetching user profile:', error);
+    res.status(500).send('Internal Server Error');
   }
 };

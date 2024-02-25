@@ -30,7 +30,7 @@
                             </th>
                             <th class="Following" id="data">Following: <%= user.followingCount %>
                             </th>
-                            <th class="Post" id="data">Post: <%= user.postsCount %>
+                            <th class="Post" id="data">Post: <%= user.postCount %>
                             </th>
                         </tr>
                     </table>
@@ -52,25 +52,28 @@
         </div>
 
         <div class="profile-container">
-            <!-- Your existing profile section -->
         </div>
 
         <div class="posts">
-            <!-- Sample posts, you can add more as needed -->
-            <div class="profile-container">
-                <div class="profile-i">
-                    <img src="/uploads/profileImages/<%= user.userPhoto %>" alt="User 1">
-                    <div class="username"><%= user.username %></div>
-                </div>
-                <div class="post">
-                    <img src="../assets/post1.png" alt="Post 1">
-                    <div class="post-actions">
-                        <i class="fas fa-heart" id="like" onclick="likePost(this)"></i>
-                        <i class="fas fa-comment" onclick="commentPost(this)"></i>
-                        <i class="fas fa-trash" id="del"></i>
+            <% userPosts.forEach(post => { %>
+                <div class="profile-container">
+                    <div class="profile-i">
+                        <img src="/uploads/profileImages/<%= user.userPhoto %>" alt="<%= user.username %>">
+                        <div class="username">
+                            <%= user.username %>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <img src="/uploads/posts/<%= post.Content_URL %>" alt="<%= user.username %>'s Post">
+                        <div class="post-actions">
+                            <i class="fas fa-heart" id="like" onclick="likePost(this)"></i>
+                            <i class="fas fa-comment" onclick="commentPost(this)"></i>
+                            <i class="fas fa-trash" id="del"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <% }); %>
+            
         </div>
 
         <script>

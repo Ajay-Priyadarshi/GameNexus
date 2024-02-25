@@ -52,7 +52,6 @@ export const register = async (req, res, next) => {
       return res.status(409).send(`
       <script>
         alert('Username already exists. Please choose a different username.');
-      
          window.location.href = '/auth/reg';
       </script>
     `);

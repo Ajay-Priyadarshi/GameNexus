@@ -3,18 +3,18 @@ import multer from 'multer';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
- import { newPost,createPost } from '../controllers/postController.js';
+import { newPost, createPost } from '../controllers/postController.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    return cb(null,path.join(__dirname, '../../uploads/posts'));
-  },
-  filename: function (req, file, cb) {
-    return cb(null, `${Date.now()}-${file.originalname}`);
-  },
+    destination: function (req, file, cb) {
+        return cb(null, path.join(__dirname, '../../uploads/posts'));
+    },
+    filename: function (req, file, cb) {
+        return cb(null, `${Date.now()}-${file.originalname}`);
+    },
 });
 
 const router = express.Router();

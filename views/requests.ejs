@@ -94,16 +94,21 @@
 
     <div class="followers-container">
         <ul>
-            <% requests.forEach(request => { %>
+            <% requests.forEach(request=> { %>
                 <li>
                     <div class="user-info">
-                        <img class="profile-photo" src="/uploads/profileImages/<%= request.Follower_ID.userPhoto %>" alt="User Photo">
-                        <span class="username"><%= request.Follower_ID.username %></span>
+                        <img class="profile-photo" src="/uploads/profileImages/<%= request.Follower_ID.userPhoto %>"
+                            alt="User Photo">
+                        <span class="username">
+                            <%= request.Follower_ID.username %>
+                        </span>
                     </div>
-                    <button onclick="">+ Accept</button>
-                    <button onclick="removeUser(this)">- reject</button>
+
+                    <button><a href="/follow/acceptRequest/<%= request.Follower_ID._id %>">+ Accept</a></button>
+                    <button><a href="/follow/rejectRequest/<%= request.Follower_ID._id %>">- Reject</a></button>
+
                 </li>
-            <% }); %>
+                <% }); %>
         </ul>
         <a href="/goback">Go Back</a>
     </div>

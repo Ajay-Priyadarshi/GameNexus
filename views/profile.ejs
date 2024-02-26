@@ -26,9 +26,11 @@
                 <div class="counts" style="width: 90%;">
                     <table>
                         <tr>
-                            <th class="Followers" id="data">Followers: <%= user.followersCount %>
+                            <th class="Followers" id="data">
+                                <a href="/follow/getFollowers %>">Followers: <%= user.followersCount %></a>
                             </th>
-                            <th class="Following" id="data">Following: <%= user.followingCount %>
+                            <th class="Followers" id="data">
+                                <a href="/follow/getFollowing %>">Following: <%= user.followingCount %></a>
                             </th>
                             <th class="Post" id="data">Post: <%= user.postCount %>
                             </th>

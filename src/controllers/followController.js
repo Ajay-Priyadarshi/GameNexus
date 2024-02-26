@@ -33,7 +33,7 @@ export const getRequests = async (req, res) => {
     try {
         const userId = req.session.userId;
         const requests = await Follow.find({ User_ID: userId, Request_Status: 'Pending' })
-            .populate('Follower_ID', 'username userPhoto') 
+            .populate('Follower_ID', 'username userPhoto _id')
             .exec();
 
         res.render('requests', { requests });
@@ -42,3 +42,71 @@ export const getRequests = async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 };
+
+export const acceptRequest = async (req, res) => {
+    try {
+        const followerId = req.params.followerId;
+        const userId = req.session.userId;
+
+        await Follow.findOneAndUpdate({ User_ID: userId, Follower_ID: followerId }, { Request_Status: 'Accepted' }); //status upadte request ka
+        await User.findByIdAndUpdate(userId, { $inc: { followersCount: 1, followRequestCount: -1 } }); //user ke followers count update
+        await User.findByIdAndUpdate(followerId, { $inc: { followingCount: 1 } }); //follower ke following count update
+
+        return res.status(200).send(`
+        <script>
+          alert('Request Accepted.');
+          window.location.href = '/profile';
+        </script>
+      `);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+}
+
+export const rejectRequest = async (req, res) => {
+    try {
+        const followerId = req.params.followerId;
+        const userId = req.session.userId;
+
+        await Follow.findOneAndUpdate({ User_ID: userId, Follower_ID: followerId }, { Request_Status: 'Rejected' });; //status upadte request ka
+        await User.findByIdAndUpdate(userId, { $inc: { followRequestCount: -1 } }); //decrement follow request count
+
+        return res.status(200).send(`
+        <script>
+          alert('Request Rejected.');
+          window.location.href = '/profile';
+        </script>
+      `);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+}
+
+export const getFollowers = async (req, res) => {
+    try {
+        const userId = req.session.userId;
+        const followers = await Follow.find({ User_ID: userId, Request_Status: 'Accepted' })
+            .populate('Follower_ID', 'username userPhoto _id')
+            .exec();
+
+        res.render('followers', { followers });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+}
+
+export const getFollowing = async (req, res) => {
+    try {
+        const userId = req.session.userId;
+        const following = await Follow.find({ Follower_ID: userId, Request_Status: 'Accepted' })
+            .populate('User_ID', 'username userPhoto _id')
+            .exec();
+        res.render('following', { following });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+}

@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema({
   planValidity: { type: Date },
   followersCount: { type: Number, default: 0 },
   followingCount: { type: Number, default: 0 },
+  followRequestCount: { type: Number, default: 0 },
   postCount: { type: Number, default: 0 },
   accountType: { type: String, required: true },
   requirements: { type: String }

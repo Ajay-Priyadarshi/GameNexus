@@ -138,3 +138,16 @@ body::-webkit-scrollbar {
     height: auto;
     border-bottom: 1px solid #ddd;
 }
+
+#newPostButton{
+    padding: 4px;
+    width: fit-content;
+    margin-right: 4px;
+    font-family: 'Supercell-Magic', sans-serif;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-size: 2vh;
+    padding: 1vh;
+    background-color: #3D3D3D;
+}

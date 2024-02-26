@@ -14,6 +14,7 @@ import userAnalyticsRoutes from './src/routes/userAnalyticsRoutes.js';
 import chatRoutes from './src/routes/chatRoutes.js';
 import postRoutes from './src/routes/postRoutes.js';
 import likeRoutes from './src/routes/likeRoutes.js';
+import followRoutes from './src/routes/followRoutes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -70,6 +71,7 @@ app.use('/userAnalytics', userAnalyticsRoutes);
 app.use('/chat', chatRoutes);
 app.use('/post', postRoutes);
 app.use('/like', likeRoutes);
+app.use('/follow', followRoutes);
 
 // Default route
 app.get('/', (req, res) => {

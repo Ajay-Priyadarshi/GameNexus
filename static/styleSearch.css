@@ -7,6 +7,19 @@ body {
     padding-top: 60px; /* Add padding to the top to accommodate the fixed header */
 }
 
+button{
+    padding: 4px;
+    width: fit-content;
+    margin-left: 1.7vw;
+    font-family: 'Supercell-Magic', sans-serif;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-size: 2vh;
+    padding: 1vh;
+    background-color: #3D3D3D;
+}
+
 body::-webkit-scrollbar {
     width: 0;
 }
@@ -21,7 +34,7 @@ header {
 .search-container {
     display: flex;
     align-items: center;
-    width: 80%;
+    width: 100%;
    
 }
 

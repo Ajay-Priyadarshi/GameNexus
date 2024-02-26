@@ -110,3 +110,45 @@ export const getFollowing = async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 }
+
+export const removeFollower = async (req, res) => {
+    try {
+        const followerId = req.params.followerId;
+        const userId = req.session.userId;
+
+        await Follow.findOneAndDelete({ User_ID: userId, Follower_ID: followerId }); //deleting the follow requestrecord 
+        await User.findByIdAndUpdate(userId, { $inc: { followersCount: -1 } });
+        await User.findByIdAndUpdate(followerId, { $inc: { followingCount: -1 } });
+
+        return res.status(200).send(`
+        <script>
+          alert('Follower Removed.');
+          window.location.href = '/profile';
+        </script>
+      `);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+}
+
+export const unFollow = async (req, res) => {
+    try {
+        const followingId = req.params.followingId;
+        const userId = req.session.userId;
+
+        await Follow.findOneAndDelete({ User_ID: followingId, Follower_ID: userId }); //deleting the follow requestrecord 
+        await User.findByIdAndUpdate(userId, { $inc: { followingCount: -1 } });
+        await User.findByIdAndUpdate(followingId, { $inc: { followersCount: -1 } });
+
+        return res.status(200).send(`
+        <script>
+          alert('Unfollowed.');
+          window.location.href = '/profile';
+        </script>
+      `);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+}

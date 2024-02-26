@@ -115,7 +115,7 @@
             <img class="profile-photo" src="/uploads/profileImages/<%= followee.User_ID.userPhoto %>" alt="User Photo">
             <span class="username"><%= followee.User_ID.username %></span>
           </div>
-          <button onclick="unfollowUser('<%= followee.User_ID._id %>')">Unfollow</button>
+          <button><a href="/follow/unFollower/<%= followee.Follower_ID._id %>">Unfollow</a></button>
         </li>
       <% }); %>
     </ul>

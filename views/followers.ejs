@@ -97,7 +97,7 @@
             <img class="profile-photo" src="/uploads/profileImages/<%= follower.Follower_ID.userPhoto %>" alt="User Photo">
             <span class="username"><%= follower.Follower_ID.username %></span>
           </div>
-          <button onclick="removeUser('<%= follower.Follower_ID._id %>')">Remove</button>
+          <button><a href="/follow/removeFollower/<%= follower.Follower_ID._id %>">Remove</a></button>
         </li>
       <% }); %>
     </ul>

@@ -17,7 +17,9 @@ const userSchema = new mongoose.Schema({
   followRequestCount: { type: Number, default: 0 },
   postCount: { type: Number, default: 0 },
   accountType: { type: String, required: true },
-  requirements: { type: String }
+  requirements: { type: String },
+  age: { type: Number},
+  gender: { type: String},
 });
 
 const UserModel = mongoose.model('User_Data_tbl', userSchema, 'User_Data_tbl');

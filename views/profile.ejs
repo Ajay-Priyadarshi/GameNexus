@@ -49,14 +49,14 @@
 
         <div class="npost">
             <a href="/post/new" id="newPostButton">+ New Post</a>
-            <a href="requests.html" id="newPostButton">+ Follow Requests</a>
+            <a href="/follow/getRequests" id="newPostButton">+ Follow Requests</a>
         </div>
 
         <div class="profile-container">
         </div>
 
         <div class="posts">
-            <% userPosts.forEach(post => { %>
+            <% userPosts.forEach(post=> { %>
                 <div class="profile-container">
                     <div class="profile-i">
                         <img src="/uploads/profileImages/<%= user.userPhoto %>" alt="<%= user.username %>">
@@ -68,12 +68,13 @@
                         <img src="/uploads/posts/<%= post.Content_URL %>" alt="<%= user.username %>'s Post">
                         <div class="post-actions">
                             <i class="fas fa-comment" onclick="commentPost(this)"></i>
-                            <a href="#" class="delete-btn" onclick="window.location.href ='/post/delete/<%= post._id %>';">
+                            <a href="#" class="delete-btn"
+                                onclick="window.location.href ='/post/delete/<%= post._id %>';">
                                 <i class="fas fa-trash"></i></a>
                         </div>
                     </div>
                 </div>
-            <% }); %>
+                <% }); %>
         </div>
 
         <script>

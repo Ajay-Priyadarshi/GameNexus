@@ -4,13 +4,13 @@ import { FollowRequestModel as Follow } from '../models/Follow.js';
 
 export const sendRequest = async (req, res) => {
     try {
-        const followingId = req.params.followingId;
-        const followerId = req.session.userId;
-        
+        const followingId = req.params.followingId; //jisko follow karna hai
+        const followerId = req.session.userId;      //jo follow kar raha hai
+
         const followRequest = new Follow({
-            User_ID: followerId,
+            User_ID: followingId,
             Request_Status: 'Pending',
-            Follower_ID: followingId,
+            Follower_ID: followerId,
         });
 
         await followRequest.save();
@@ -30,5 +30,15 @@ export const sendRequest = async (req, res) => {
 };
 
 export const getRequests = async (req, res) => {
+    try {
+        const userId = req.session.userId;
+        const requests = await Follow.find({ User_ID: userId, Request_Status: 'Pending' })
+            .populate('Follower_ID', 'username userPhoto') 
+            .exec();
 
+        res.render('requests', { requests });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
 };

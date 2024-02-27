@@ -8,23 +8,31 @@
     body {
       font-family: Arial, sans-serif;
       margin: 20px;
-      color: #333;
-      background-color: #f4f4f4;
+      color: #ffffff;
+      background-color: #1b1b1b;
     }
 
     .plan-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(2, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+      
     }
 
     .plan {
       margin: 10px;
       padding: 20px;
-      border: 1px solid #ccc;
+      border: 1px solid #000000;
+      color: rgb(255, 255, 255);
+       background-color: #3a3a3a;
+      border: #b0fffa;
+            border-style:outset;
       border-radius: 8px;
       text-align: center;
-      background-color: #fff;
+ 
+ 
     }
 
     .plan input {
@@ -37,21 +45,39 @@
     }
 
     #pay {
-      color: white;
+      color: rgb(0, 0, 0);
       text-decoration: none;
     }
 
     button {
+      margin-left: 45vw;
       font-size: 2vh;
       margin-top: 10px;
-      background-color: #594E86;
+      background-color: #000000;
       padding: 10px;
       cursor: pointer;
+      border-radius: 10px;
+      border: #156aea;
+            border-style:outset;
+            align-items: center;
     }
 
     .options {
       margin-top: 20px;
       align-items: center;
+    }
+
+    .a1{
+      text-decoration: none;
+      color: rgb(255, 255, 255);
+      box-sizing: border-box;
+      border-style: outset;
+      padding: 8px;
+      border-color: #156aea;
+      border-radius: 5px;
+      margin: 10px;
+      background-color: #000000;
+      margin-top: 5vh;
     }
 
     select {
@@ -70,13 +96,18 @@
     #b1 {
       margin-left: 37%;
     }
+
+    h1{
+     text-align: center;
+     color: #ffffff;
+    }
   </style>
 
   <title>Mange Plans</title>
 </head>
 
 <body>
-
+<h1>Plans</h1>
   <div class="plan-container">
     <% plans.forEach(plan=> { %>
       <div class="plan">
@@ -87,9 +118,9 @@
         </p>
         <p>Duration : <%= plan.Plan_Cycle %>
         </p>
-        <a href="#" onclick="window.location.href = '/managePlans/edit/<%= plan._id %>';">
+        <a href="#" class="a1" onclick="window.location.href = '/managePlans/edit/<%= plan._id %>';">
           <i class="fas fa-search"></i> Edit </a>
-        <a href="#" onclick="window.location.href = '/managePlans/delete/<%= plan._id %>';">
+        <a href="#" class="a1" onclick="window.location.href = '/managePlans/delete/<%= plan._id %>';">
           <i class="fas fa-search"></i> Delete </a>
       </div>
       <% }); %>

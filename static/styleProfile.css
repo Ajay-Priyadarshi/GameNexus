@@ -52,16 +52,30 @@ body::-webkit-scrollbar {
 
 .profile-info {
     margin-top: 3vh;
+   
     flex-grow: 1;
     margin-bottom: 2vh;
     
 }
 
-.usertype{
-    background-color:#594E86;
-    width:fit-content;
+
+
+#newPostButton{
+    padding: 4px;
+    width: fit-content;
+    margin-right: 4px;
+    font-family: 'Supercell-Magic', sans-serif;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-size: 2vh;
+    padding: 1vh;
+    background-color: #3D3D3D;
 }
 
+#newPostButton:hover{
+background-color: #242424;
+}
 
 .profile-info h1 {
     margin: 0;
@@ -69,8 +83,18 @@ body::-webkit-scrollbar {
    
 }
 
+h2{
+    text-align: center;
+    font-family: 'Space Monkey';
+}
+
+.r1{
+   
+    margin-left: 2.5vw;
+}
+
 #data{
-    
+
     padding:0vh 5.5vh 0vh 5.5vh;
 }
 
@@ -90,6 +114,11 @@ body::-webkit-scrollbar {
     display: flex;
     align-items: center;
     padding: 10px;
+  }
+
+  .pi{
+    height:3.5vh ;
+    width:3.5vh ;
   }
   
   .profile-i img {
@@ -114,17 +143,24 @@ body::-webkit-scrollbar {
 }
 
 .multiline-text {
+    padding-left: 5px;
     border-bottom:1px solid #e0e0e0 ;
-
+    padding-top:1vh;
     width: 100%;
-    background-color:#594E86;
+  background-color: #4c2265;
+    
 }
 
 .posts {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 10px;
-    padding: 20px;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-column-gap: 5px;
+grid-row-gap: 5px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
 }
 
 .profile-container{
@@ -133,21 +169,12 @@ body::-webkit-scrollbar {
     border-radius: 8px;
 }
 
-.post img {
-    width: 100%;
-    height: auto;
-    border-bottom: 1px solid #ddd;
+.delete-btn{
+    margin-left: 21vw;
 }
 
-#newPostButton{
-    padding: 4px;
-    width: fit-content;
-    margin-right: 4px;
-    font-family: 'Supercell-Magic', sans-serif;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    font-size: 2vh;
-    padding: 1vh;
-    background-color: #3D3D3D;
+.post img {
+    width: 100%;
+    height: 65vh;
+    border-bottom: 1px solid #ddd;
 }

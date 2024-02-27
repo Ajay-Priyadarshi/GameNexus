@@ -10,44 +10,49 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #ffffff;
         }
 
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            z-index: 2; 
-        }
+
 
         nav {
             font-size: 2.5vh;
             float: left;
             width: 20%;
             height: 100vh;
-            background-color: #000000;
+          background-color: #000000;
             padding: 20px;
-            box-sizing: border-box;
-            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+            border-color: #ffffff;
+           border-right-style:outset;
+           
         }
 
         .mp {
-            background-color: #333;
+            background-color: #000000;
             width: 100%;
+            border-radius: 10px;
             margin-bottom: 1vh;
+            border: #156aea;
+            border-style:outset;
+            border-radius: 10px;
         }
 
+.mp:hover{
+    border: #ea6e15;
+    border-style:outset;
+}
+
+.mp:focus{
+    border: #1bcf21;
+    border-style:outset;
+}
+
         #mp {
-            font-size: 4vh;
-            color: white;
+            font-size: 3vh;
+            color: rgb(255, 255, 255);
             display: block;
-            padding: 10px;
-            text-align: center;
+            padding: 3px;
+            
         }
 
         a {
@@ -55,27 +60,29 @@
             color: white;
         }
 
+        h2{
+            color: #ffffff;
+            text-align: center;
+        }
+
         section {
             display: flex;
             flex-direction: column;
             height: 100vh;
-            margin-top: 60px; 
+        
+           
         }
-
-        h2 {
-            text-align: center;
-            font-size: 5vh;
-            padding: 5vh;
-        }
+ 
+    
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Admin Dashboard</h1>
+     
     </header>
     <nav>
-        <h2>Actions</h2>
+        <h2>Admin Panel</h2>
         <button class="mp"><a href="#" onclick="loadPage('managePlans')" id="mp">Manage Plans</a></button>
         <button class="mp"><a href="#" onclick="loadPage('userAnalytics')" id="mp">User Analytics</a></button>
         <button class="mp"><a href="#" onclick="loadPage('salesAnalytics')" id="mp">Sales Analytics</a></button>

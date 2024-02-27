@@ -7,6 +7,16 @@ export const sendRequest = async (req, res) => {
         const followingId = req.params.followingId; //jisko follow karna hai
         const followerId = req.session.userId;      //jo follow kar raha hai
 
+        const existingFollow = await Follow.findOne({ User_ID: followingId, Follower_ID: followerId });
+        if (existingFollow) {
+            return res.status(200).send(`
+                <script>
+                    alert('Already following.');
+                    window.location.href = '/profile/${followingId}';
+                </script>
+            `);
+        }
+
         const followRequest = new Follow({
             User_ID: followingId,
             Request_Status: 'Pending',
@@ -17,16 +27,15 @@ export const sendRequest = async (req, res) => {
         await User.findByIdAndUpdate(followingId, { $inc: { followRequestCount: 1 } });
 
         return res.status(200).send(`
-        <script>
-          alert('Request Sent.');
-          window.location.href = '/profile/${followingId}';
-        </script>
-      `);
+            <script>
+                alert('Request Sent.');
+                window.location.href = '/profile/${followingId}';
+            </script>
+        `);
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');
     }
-
 };
 
 export const getRequests = async (req, res) => {

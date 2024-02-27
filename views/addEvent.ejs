@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Plan</title>
+    <link rel="stylesheet" href="/style_AE.css">
+</head>
+
+<body>
+    <form action="/events/create" method="post">
+        <h2 class="logo">Enter Event Details</h2>
+        <label for="Event_Name"><b>Event Name</b></label>
+        <input type="text" placeholder="Enter Event Name" name="Event_Name" required>
+
+        <label for="Event_Start_Date"><b>Event Start Date</b></label>
+        <input type="date" placeholder="Start Date" name="Event_Start_Date" required>
+
+        <label for="Event_End_Date"><b>Event End Date</b></label>
+        <input type="date" placeholder="End Date" name="Event_End_Date" required>
+        
+        <label for="Event_Description"><b>Event Description</b></label>
+        <input type="text" placeholder="Enter Event Description" name="Event_Description" required>
+
+        <label for="Registration_Link"><b>Regristration Link</b></label>
+        <input type="text" placeholder="Link" name="Registration_Link" required>
+
+        <button type="submit">Add Event</button>
+
+
+
+        <button type="button" onclick="goBack()">Go Back</button>
+
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+    </form>
+</body>
+
+</html>

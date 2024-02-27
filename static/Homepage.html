@@ -14,49 +14,13 @@
         <h1 class="logo">Game Nexus</h1>
 
         <a href="#" onclick="loadPage('post')" id="nvoptions" class="option"><i class="fas fa-home"></i> Home</a>
+
         <a href="#" onclick="loadPage('search')" id="nvoptions" class="option"><i class="fas fa-search"></i> Search</a>
 
-        <div class="option" id="nvoptions">
-            <a href="#" onclick="loadPage('events')" id="nvoptions" class="event"><i class="far fa-calendar-alt"></i>
-                Events</a><button onclick="toggleDropdown('EditDropdown')" id="nvoptions" class="dpd">&#9662;</button>
-            <div class="dropdown" id="EditDropdown">
-                <ul>
-                    <div id="EventOption">
-                        <button id="show-event" onclick="loadPage('showenevt')">Show Event</button>
-                        <div class="dropdown">
-                        </div>
-                    </div>
-                    <div class="options-container">
-                        <div id="registerOption">
-                            <button id="registerOption" onclick="toggleDropdown('registerDropdown')">Registered
-                                Events</button>
-                            <div class="dropdown" id="registerDropdown">
-                                <ul>
-                                    <li><a href="#">Event 1</a></li>
-                                    <li><a href="#">Event 2</a></li>
-                                    <li><a href="#">Event 3</a></li>
-                                    <!-- Add more events as needed -->
-                                </ul>
-                            </div>
-                        </div>
+        <a href="#" onclick="loadPagein('events', 'usr')" id="nvoptions" class="event"><i class="far fa-calendar-alt"></i>Events</a>
 
-                        <div id="bookmarksOption">
-                            <button id="bookmarksOption" onclick="toggleDropdown('bookmarksDropdown')">Bookmarked
-                                Events</button>
-                            <div class="dropdown" id="bookmarksDropdown">
-                                <ul>
-                                    <li><a href="#">Bookmarked Event 1</a></li>
-                                    <li><a href="#">Bookmarked Event 2</a></li>
-                                    <li><a href="#">Bookmarked Event 3</a></li>
-                                    <!-- Add more bookmarked events as needed -->
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+        <a href="#" onclick="loadPage('chat')" id="nvoptions" class="option"><i class="fas fa-search"></i> Chat</a>
 
-            </div>
-        </div>
-        <a href="#" onclick="loadPage('Chat')" id="nvoptions" class="option"><i class="fas fa-search"></i> Chat</a>
         <div class="option" id="nvoptions">
 
             <a href="#" onclick="loadPage('profile')" id="nvoptions" class="prb"><i class="far fa-user"></i>

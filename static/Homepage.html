@@ -21,6 +21,11 @@
                 Events</a><button onclick="toggleDropdown('EditDropdown')" id="nvoptions" class="dpd">&#9662;</button>
             <div class="dropdown" id="EditDropdown">
                 <ul>
+                    <div id="EventOption">
+                        <button id="show-event" onclick="loadPage('showenevt')">Show Event</button>
+                        <div class="dropdown">
+                        </div>
+                    </div>
                     <div class="options-container">
                         <div id="registerOption">
                             <button id="registerOption" onclick="toggleDropdown('registerDropdown')">Registered
@@ -44,36 +49,6 @@
                                     <li><a href="#">Bookmarked Event 2</a></li>
                                     <li><a href="#">Bookmarked Event 3</a></li>
                                     <!-- Add more bookmarked events as needed -->
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div id="EventOption">
-                            <button id="EventOption" onclick="toggleDropdown('editDropdown')">Edit Events</button>
-                            <div class="dropdown" id="editDropdown">
-                                <ul>
-                                    <li><a onclick="loadPage('EditEDetails')">Organized Event 1</a></li>
-                                    <li><a onclick="loadPage('EditEDetails')">Organized Event 2</a></li>
-                                    <li><a onclick="loadPage('EditEDetails')">Organized Event 3</a></li>
-                                    <!-- Add more Organized events as needed -->
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div id="EventOption">
-                            <button id="add-event" onclick="loadPage('AddEDetails')">Add event</button>
-                            <div class="dropdown">
-                            </div>
-                        </div>
-
-                        <div id="EventOption">
-                            <button id="delete-event" onclick="toggleDropdown('deleteDropdown')">Delete event</button>
-                            <div class="dropdown" id="deleteDropdown">
-                                <ul>
-                                    <li><a>Delete Event 1</a></li>
-                                    <li><a>Delete Event 2</a></li>
-                                    <li><a>Delete Event 3</a></li>
-                                    <!-- Add more Organized events as needed -->
                                 </ul>
                             </div>
                         </div>

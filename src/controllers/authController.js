@@ -1,3 +1,4 @@
+import e from 'express';
 import { UserModel as User } from '../models/User.js';
 
 // Function to handle user login
@@ -29,7 +30,11 @@ export const login = async (req, res) => {
     if (existingUser.accountType === 'admin') {
       // Redirect to the admin dashboard
       return res.redirect('/admin/dashboard');
-    } else {
+    }else if (existingUser.accountType === 'EVENT ORGANIZER') { 
+      // Redirect to the organiser's or home page
+      return res.redirect('/HomePageEventOrganiser.html');
+    }
+    else {
       // Redirect to the user's profile or home page
       return res.redirect('/Homepage.html');
     }

@@ -1,13 +1,14 @@
 // Example: searchController.js
-import { UserModel as User } from '../models/User.js';
 import { EventModel as Event } from '../models/Event.js';
+import { UserModel as User } from '../models/User.js';
 
 export const eventOrg = async (req, res) => {
     try {
         const userId = req.session.userId;
+        const user = await User.findById(userId);
         const myEvents = await Event.find({ User_ID: userId });
 
-        res.render('eventPageOrg', { myEvents });
+        res.render('eventPageOrg', { user, myEvents });
     } catch (error) {
         console.error('Error fetching plans:', error);
         res.status(500).send('Internal Server Error');
@@ -31,11 +32,11 @@ export const addEvent = (req, res) => {
 
 export const createEvent = async (req, res) => {
     const User_ID = req.session.userId;
-    const { Event_Name, Event_Description, Event_Start_Date, Event_End_Date, Registration_Link } = req.body;
+    const { Event_Name, Price, Event_Start_Date, Event_End_Date, Registration_Link } = req.body;
     const newEvent = new Event({
         User_ID,
         Event_Name,
-        Event_Description,
+        Price,
         Event_Start_Date,
         Event_End_Date,
         Registration_Link
@@ -69,12 +70,12 @@ export const showEditEventForm = async (req, res) => {
 
 export const editEvent = async (req, res) => {
     const eventId = req.params.eventId;
-    const { Event_Name, Event_Description, Event_Start_Date, Event_End_Date, Registration_Link } = req.body;
+    const { Event_Name, Price, Event_Start_Date, Event_End_Date, Registration_Link } = req.body;
 
     try {
         await Event.findByIdAndUpdate(eventId, {
             Event_Name,
-            Event_Description,
+            Price,
             Event_Start_Date,
             Event_End_Date,
             Registration_Link,

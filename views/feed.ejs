@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dummy Post Feed</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style_Post.css">
+</head>
+
+<body>
+
+    <h2 class="page-info">POST FEED</h2>
+    <br>
+    <br>
+    <br>
+    <div class="post-feed">
+        <% for (let i = 0; i < userPosts.length; i++) { %>
+            <div class="post">
+                <div class="profile-info">
+                    <img src="<%= userPosts[i].userProfilePic %>" alt="<%= userPosts[i].username %>">
+                    <div class="username"><%= userPosts[i].username %></div>
+                </div>
+                <% if (userPosts[i].postType === 'image') { %>
+                    <img src="<%= userPosts[i].postContent %>" alt="Post <%= i + 1 %>">
+                <% } else if (userPosts[i].postType === 'video') { %>
+                    <video controls>
+                        <source src="<%= userPosts[i].postContent %>" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                <% } %>
+                <div class="post-actions">
+                    <i class="fas fa-heart" onclick="likePost(this)"></i>
+                    <i class="fas fa-comment" onclick="commentPost(this)"></i>
+                </div>
+            </div>
+        <% } %>
+    </div>
+
+    <script>
+        function likePost(element) {
+            alert("Liked!");
+        }
+
+        function commentPost(element) {
+            alert("Commented!");
+        }
+    </script>
+
+</body>
+
+</html>

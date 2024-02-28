@@ -108,9 +108,10 @@
 
 <body>
     <h1>Events</h1>
-    <div class="event-container">
+    <div class="event-item">
+        
         <% events.forEach(event=> { %>
-          <div class="event">
+            <div class="event-details">
             <label for="<%= event._id %>"><strong>Name : <%= event.Event_Name %></strong></label>
             <p>Description : <%= event.Event_Description %>
             </p>

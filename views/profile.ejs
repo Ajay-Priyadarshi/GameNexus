@@ -55,6 +55,7 @@
         </div>
 
         <div class="profile-container">
+            <h2># PROFILE GRID</h2>
         </div>
 
         <div class="posts">
@@ -67,11 +68,13 @@
                         </div>
                     </div>
                     <div class="post">
+                        <div class="post-img">
                         <img src="/uploads/posts/<%= post.Content_URL %>" alt="<%= user.username %>'s Post">
+                        </div>
                         <div class="post-actions">
+                            <i class="fas fa-heart" id="like" onclick="likePost(this)"></i>
                             <i class="fas fa-comment" onclick="commentPost(this)"></i>
-                            <a href="#" class="delete-btn"
-                                onclick="window.location.href ='/post/delete/<%= post._id %>';">
+                            <a href="#" class="delete-btn" onclick="window.location.href ='/post/delete/<%= post._id %>';">
                                 <i class="fas fa-trash"></i></a>
                         </div>
                     </div>

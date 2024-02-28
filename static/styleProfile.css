@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'League';
     background-color: #000000; /* Light gray background */
     color: white;
 }
@@ -42,6 +42,7 @@ body::-webkit-scrollbar {
 
 .profile-header img {
     width: 20vh;
+   
     height: 20vh;
     border-radius: 50%;
     margin-top: 20px;
@@ -52,7 +53,7 @@ body::-webkit-scrollbar {
 
 .profile-info {
     margin-top: 3vh;
-   
+ 
     flex-grow: 1;
     margin-bottom: 2vh;
     
@@ -95,7 +96,7 @@ h2{
 
 #data{
 
-    padding:0vh 5.5vh 0vh 5.5vh;
+    padding:2.5vh 5.5vh 0vh 5.5vh;
 }
 
  /* Add this style for the liked state */
@@ -103,17 +104,28 @@ h2{
     color: red;
 }
 
+.post-actions{
+    background-color: white;
+    border-radius: 2px;
+    color: #000000;
+}
+
 /* Customize the like, comment, and share icons */
 .post-actions i {
+    
     font-size: 24px;
     margin-right: 10px;
     cursor: pointer;
 }
 
 .profile-i {
+    background-color: white;
+    color: rgb(0, 0, 0);
+    font-size: 2.5vh;
+
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 3px 5px 3px 2px;
   }
 
   .pi{
@@ -122,17 +134,19 @@ h2{
   }
   
   .profile-i img {
-    max-width: 3.5vh;
-    max-height: 3.5vh;
+    width: 3.5vh;
+    height:3.5vh;
     border-radius: 50%;
     margin-right: 10px;
   }
   
   .profile-i .username {
     font-weight: bold;
+    
   }
 
 .counts {
+    margin-top: 2vh;
     font-size: 1.5em;
     display: flex;
     width: 90%;
@@ -143,6 +157,7 @@ h2{
 }
 
 .multiline-text {
+    font-family:Arial, Helvetica, sans-serif;
     padding-left: 5px;
     border-bottom:1px solid #e0e0e0 ;
     padding-top:1vh;
@@ -156,6 +171,17 @@ display: grid;
 grid-template-columns: repeat(3, 1fr);
 grid-column-gap: 5px;
 grid-row-gap: 5px;
+
+}
+
+.post-img{
+    height: 65vh; /* Set your desired fixed height */
+      width: 45vh;  /* Set your desired fixed width */
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 }
 
 a{
@@ -170,11 +196,16 @@ a{
 }
 
 .delete-btn{
-    margin-left: 21vw;
+
+    margin-left: 20.9vw;
+color: #000000;
 }
 
 .post img {
-    width: 100%;
-    height: 65vh;
-    border-bottom: 1px solid #ddd;
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+
 }

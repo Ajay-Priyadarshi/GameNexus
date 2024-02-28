@@ -1,22 +1,63 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'League';
     background-color: #000000; /* White background */
     color: #ffffff; /* Black text color */
+}
+
+.reg{
+    margin-top: 4vh;
+    margin-left: 4vh;
+   font-size: 1.8vh;
+
+}
+
+.reg a{
+
+    color: white;
+}
+
+.reg a:hover{
+    text-shadow: 0 0 5px rgba(254, 237, 1, 1),
+    0 0 15px rgba(255, 0, 0, 1),
+    0 0 20px rgba(255, 141, 0, 1);
 }
 
 header {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.opt{
+    margin-top: 4vh;
+    margin-left: 4vh;
+}
+
+.a1{
+    text-decoration: none;
     
+    padding:1vw;
+    background-color:#7B2CBF;
+    color: white;
+    border-radius: 10px;
+    border-color: black;
+    border-style:outset;
+   width: fit-content;
+    height: fit-content;
+}
+
+.a1:hover{
+    background-color: black;
+    border-color: #7B2CBF;
 }
 
 .search-container {
     padding:2vw;
     display: flex;
     align-items: center;
+    font-size: 1.8vh;
 }
 
 .search-icon {
@@ -42,32 +83,41 @@ input[type="text"] {
 }
 
 .event-item {
-    background-color: #ffffff;
+    background-color: #10002B;
     display: flex;
     border-radius: 10px;
-    color:black;
+    color:rgb(255, 255, 255);
     align-items: center;
-    margin:10px;
+    margin-top: 3vh;
     width: 100%; /* Utilize full width of the page */
 }
 
 .event-image {
-    margin-top: 7px;
+    margin-top: 1vh;
     border-radius: 50%;
     width: 60px;
     height: 60px;
     object-fit: cover;
-    margin-right: 20px;
+    margin-right: 15px;
 }
 
 .event-details {
     border-style: double;
     border-radius: 4vh;
     border-color:rgba(254, 237, 1, 1);
-    padding:4vh;
+    padding:0.8vh 4vh 2vh 4vh;
     display: flex;
     flex-direction: row;
     width: calc(100% - 70px); /* Adjust as needed */
+}
+
+#addevent{
+    margin-top: 3vh;
+}
+
+.prize-money{
+    margin-top: 1vh;
+    
 }
 
 .event-details:hover{
@@ -81,60 +131,50 @@ body::-webkit-scrollbar {
 }
 
 .user-name{
-    margin:2.5vh 0vh 0vh 2.5vh;
+    margin:4vh 3vh 2vh 1vh;
 }
 .event-name {
-    margin:2.5vh 0vh 0vh 2.5vh;
+    margin:3.5vh 4vh 0vh 0vh;
     text-align: left;
     font-weight: bold;
     font-size: 18px;
-    color: #ffffff;
-    background-color:#594E86;
+    color: #10002B;
+    background-color:#ffffff;
+    padding-top: 2px;
     width:max-content;
     max-height:2.5vh;
 }
 
 .event-info {
-    margin: 0.7vh 5vh 0vh 5vh;
+   
     display: flex;
     flex-direction: column;
    
 }
 
 .prize-money{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     text-align: center;
     font-size: 15px;
    
   
 }
+
+#mid-date{
+    margin-top: 0.5vh;
+    margin-bottom: 1vh;
+}
+
+
+
 .event-date {
-    color: rgb(0, 0, 0);
+   
+    color: rgb(255, 255, 255);
     text-align: right;
     font-size: 15px;
    
 
 }
 
-.button-container {
-    display: flex;
-}
 
-/* Adjust the style for the Register button and Bookmark button */
-.register-button,
-.bookmark-button {
-    margin: 0.3vh;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-   width:15.5vw;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 12.5px;
-}
 
-.register-button:hover,
-.bookmark-button:hover {
-    background-color: #2980b9;
-}

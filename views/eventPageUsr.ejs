@@ -4,129 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            color: #ffffff;
-            background-color: #1b1b1b;
-        }
-
-        .event-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            grid-column-gap: 0px;
-            grid-row-gap: 0px;
-
-        }
-
-        .event {
-            margin: 10px;
-            padding: 20px;
-            border: 1px solid #000000;
-            color: rgb(255, 255, 255);
-            background-color: #3a3a3a;
-            border: #b0fffa;
-            border-style: outset;
-            border-radius: 8px;
-            text-align: center;
-
-
-        }
-
-        .event input {
-            margin-bottom: 10px;
-        }
-
-        .description {
-            font-family: 'Minecraft';
-            text-align: center;
-        }
-
-        #pay {
-            color: rgb(0, 0, 0);
-            text-decoration: none;
-        }
-
-        button {
-            margin-left: 45vw;
-            font-size: 2vh;
-            margin-top: 10px;
-            background-color: #000000;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 10px;
-            border: #156aea;
-            border-style: outset;
-            align-items: center;
-        }
-
-        .options {
-            margin-top: 20px;
-            align-items: center;
-        }
-
-        .a1 {
-            text-decoration: none;
-            color: rgb(255, 255, 255);
-            box-sizing: border-box;
-            border-style: outset;
-            padding: 8px;
-            border-color: #156aea;
-            border-radius: 5px;
-            margin: 10px;
-            background-color: #000000;
-            margin-top: 5vh;
-        }
-
-        select {
-            padding: 5px;
-        }
-
-        .op {
-            text-decoration: none;
-            color: white;
-        }
-
-        .dropdown-container {
-            margin-top: 10px;
-        }
-
-        #b1 {
-            margin-left: 37%;
-        }
-
-        h1 {
-            text-align: center;
-            color: #ffffff;
-        }
-    </style>
-
-    <title>Events</title>
+    <title>Event Page</title>
+    <link rel="stylesheet" href="styleEvent.css">
 </head>
 
 <body>
-    <h1>Events</h1>
-    <div class="event-item">
-        
-        <% events.forEach(event=> { %>
-            <div class="event-details">
-            <label for="<%= event._id %>"><strong>Name : <%= event.Event_Name %></strong></label>
-            <p>Description : <%= event.Event_Description %>
-            </p>
-            <p>Start Date : <%= event.Event_Start_Date %>
-            </p>
-            <p>End Date : <%= event.Event_End_Date %>
-            </p>
-            <p>Registration Link : <a href="<%= event.Registration_Link %>" target="_blank">
-                Join Now
-              </a></p>
-          <% }); %>
 
-    <div class="options">
-        <!-- <button><a class="op" href="/admin/dashboard">Go Back</a></button> -->
-    </div>
+    <header>
+        <div class="search-container">
+
+            <input type="text" placeholder="Search An Event...">
+        </div>
+    </header>
+
+    <section class="event-list">
+        <% events.forEach(event=> { %>
+
+            <div class="event-item">
+                <div class="event-details">
+                    <img class="event-image" src="/uploads/profileImages/<%= event.User_ID.userPhoto %>"
+                        alt="<%= event.User_ID.username %>">
+                    <div class="user-name">
+                        <%= event.User_ID.username %>
+                    </div>
+                    <div class="event-name">
+                        <%= event.Event_Name %>
+                    </div>
+                    <div class="event-info">
+                        <span class="prize-money">Prize Money: ₹<%= event.Price %></span>
+                        <span class="event-date" id="mid-date">Start Date: <%=
+                                event.Event_Start_Date.toISOString().split('T')[0] %>
+                        </span>
+                        <span class="event-date" id="end date">End Date: <%=
+                                event.Event_End_Date.toISOString().split('T')[0] %>
+                        </span>
+                    </div>
+                    <p class="reg">Registration Link : <a href="<%= event.Registration_Link %>" target="_blank">Join
+                            Now</a></p>
+                    <div class="opt">
+                    </div>
+                </div>
+            </div>
+
+            <% }); %>
+    </section>
 
 </body>
 

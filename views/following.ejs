@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
       // Use the history object to navigate back
       window.history.back();
     }
-    </script>
+  </script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -59,7 +60,7 @@
       margin-right: 10px;
     }
 
-    .profile-photo:hover{
+    .profile-photo:hover {
       box-shadow: 0 0 10px rgb(0, 0, 0);
     }
 
@@ -67,14 +68,14 @@
       margin-right: 10px;
     }
 
-    .username:hover{
+    .username:hover {
       text-decoration: underline;
       border-radius: 0cm;
       background-color: #555;
       color: white;
     }
 
-    a {
+    .removeBtn {
       text-decoration: none;
       color: #333;
       display: inline-block;
@@ -85,16 +86,16 @@
       border-radius: 4px;
     }
 
-    .goback{
-        background-color: #555;
-        padding: 10px;
-        color: white;
-        border-color: #fff;
-        border-radius: 10px;
+    .goback {
+      background-color: #555;
+      padding: 10px;
+      color: white;
+      border-color: #fff;
+      border-radius: 10px;
     }
 
-    .goback:hover{
-        background-color: #333;
+    .goback:hover {
+      background-color: #333;
     }
 
     a:hover {
@@ -102,6 +103,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>List of Followings</h1>
@@ -109,20 +111,24 @@
 
   <div class="followers-container">
     <ul>
-      <% following.forEach(followee => { %>
+      <% following.forEach(followee=> { %>
         <li>
           <div class="user-info">
             <img class="profile-photo" src="/uploads/profileImages/<%= followee.User_ID.userPhoto %>" alt="User Photo">
-            <span class="username"><%= followee.User_ID.username %></span>
+            <a href="/profile/<%= followee.User_ID._id %>">
+              <span class="username">
+                <%= followee.User_ID.username %>
+              </span>
           </div>
-          <button><a href="/follow/unFollower/<%= followee.Follower_ID._id %>">Unfollow</a></button>
+          <button><a class="removeBtn" href="/follow/unFollower/<%= followee.Follower_ID._id %>">Unfollow</a></button>
         </li>
-      <% }); %>
+        <% }); %>
     </ul>
     <!-- <button onclick="goback()" class="goback">Go Back</button> -->
 
-    
+
   </div>
 
 </body>
+
 </html>

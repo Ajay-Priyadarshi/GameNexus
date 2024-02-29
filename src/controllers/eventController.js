@@ -17,9 +17,11 @@ export const eventOrg = async (req, res) => {
 
 export const eventUsr = async (req, res) => {
     try {
-        const events = await Event.find();
+        const events = await Event.find()
+            .populate('User_ID', 'username userPhoto _id')
+            .exec();
 
-        res.render('eventPageusr', { events });
+        res.render('eventPageUsr', { events });
     } catch (error) {
         console.error('Error fetching plans:', error);
         res.status(500).send('Internal Server Error');

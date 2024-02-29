@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +54,7 @@
       margin-right: 10px;
     }
 
-    .profile-photo:hover{
+    .profile-photo:hover {
       box-shadow: 0 0 10px rgb(0, 0, 0);
     }
 
@@ -61,14 +62,14 @@
       margin-right: 10px;
     }
 
-    .username:hover{
+    .username:hover {
       text-decoration: underline;
       border-radius: 0cm;
       background-color: #555;
       color: white;
     }
 
-    a {
+    .removeBtn {
       text-decoration: none;
       color: #333;
       display: inline-block;
@@ -84,6 +85,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>List of Followers</h1>
@@ -91,17 +93,23 @@
 
   <div class="followers-container">
     <ul>
-      <% followers.forEach(follower => { %>
+      <% followers.forEach(follower=> { %>
         <li>
           <div class="user-info">
-            <img class="profile-photo" src="/uploads/profileImages/<%= follower.Follower_ID.userPhoto %>" alt="User Photo">
-            <span class="username"><%= follower.Follower_ID.username %></span>
+            <img class="profile-photo" src="/uploads/profileImages/<%= follower.Follower_ID.userPhoto %>"
+              alt="User Photo">
+            <a href="/profile/<%= follower.Follower_ID._id %>">
+              <span class="username">
+                <%= follower.Follower_ID.username %>
+              </span>
+            </a>
           </div>
-          <button><a href="/follow/removeFollower/<%= follower.Follower_ID._id %>">Remove</a></button>
+          <button><a class="removeBtn" href="/follow/removeFollower/<%= follower.Follower_ID._id %>">Remove</a></button>
         </li>
-      <% }); %>
+        <% }); %>
     </ul>
     <!-- <a href="/goback">Go Back</a> -->
   </div>
 </body>
+
 </html>

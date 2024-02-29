@@ -16,37 +16,23 @@
     <br>
     <br>
     <div class="post-feed">
-        <% for (let i = 0; i < userPosts.length; i++) { %>
+        <% userPosts.forEach(post=> { %>
             <div class="post">
                 <div class="profile-info">
-                    <img src="<%= userPosts[i].userProfilePic %>" alt="<%= userPosts[i].username %>">
-                    <div class="username"><%= userPosts[i].username %></div>
+                    <img src="/uploads/profileImages/<%= post.User_Id.userPhoto %>"
+                        alt="<%= post.User_Id.username %>">
+                    <div class="username">
+                        <%= post.User_Id.username %>
+                    </div>
                 </div>
-                <% if (userPosts[i].postType === 'image') { %>
-                    <img src="<%= userPosts[i].postContent %>" alt="Post <%= i + 1 %>">
-                <% } else if (userPosts[i].postType === 'video') { %>
-                    <video controls>
-                        <source src="<%= userPosts[i].postContent %>" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                <% } %>
-                <div class="post-actions">
-                    <i class="fas fa-heart" onclick="likePost(this)"></i>
-                    <i class="fas fa-comment" onclick="commentPost(this)"></i>
-                </div>
+                <img src="/uploads/posts/<%= post.Content_URL %>" alt="Post">
+                    <div class="post-actions">
+                        <i class="fas fa-heart" onclick="likePost(this)"></i>
+                        <i class="fas fa-comment" onclick="commentPost(this)"></i>
+                    </div>
             </div>
-        <% } %>
+            <% }); %>
     </div>
-
-    <script>
-        function likePost(element) {
-            alert("Liked!");
-        }
-
-        function commentPost(element) {
-            alert("Commented!");
-        }
-    </script>
 
 </body>
 

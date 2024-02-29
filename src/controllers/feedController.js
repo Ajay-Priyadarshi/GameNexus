@@ -6,7 +6,9 @@ export const showFeed = async (req, res) => {
         const userId = req.session.userId;
 
         const user = await User.findById(userId);
-        const userPosts = await Content.find({});
+        const userPosts = await Content.find({})
+            .populate('User_Id', 'username userPhoto _id')
+            .exec();
 
         res.render('feed', { user, userPosts });
     } catch (error) {

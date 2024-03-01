@@ -15,8 +15,8 @@ import chatRoutes from './src/routes/chatRoutes.js';
 import postRoutes from './src/routes/postRoutes.js';
 import likeRoutes from './src/routes/likeRoutes.js';
 import followRoutes from './src/routes/followRoutes.js';
-import eventRoutes from './src/routes/eventRoutes.js'
-import feedRoutes from './src/routes/feedRoutes.js'
+import eventRoutes from './src/routes/eventRoutes.js';
+import feedRoutes from './src/routes/feedRoutes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

@@ -73,7 +73,7 @@
                         <a href="#" id="like-btn"
                             onclick="window.location.href='/like/<%= post._id %>/<%= user._id %>';">
                             <i class="fas fa-heart"></i></a>
-                        <i class="fas fa-comment" id="cmt-btn" onclick="commentPost(this)"></i>
+                        <i class="fas fa-comment" id="cmt-btn" onclick="window.location.href='/comment/<%= post._id %>';"></i>
 
                     </div>
                 </div>

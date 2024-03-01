@@ -7,7 +7,7 @@ export const showFeed = async (req, res) => {
 
         const user = await User.findById(userId);
         const userPosts = await Content.find({})
-            .populate('User_Id', 'username userPhoto _id')
+            .populate('User_ID', 'username userPhoto _id')
             .exec();
 
         res.render('feed', { user, userPosts });

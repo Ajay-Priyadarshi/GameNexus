@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Page</title>
+    <link rel="stylesheet" href="styleComment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="post-container">
+        <div class="profile-i">
+            <img src="<%= post.User_ID.userPhoto %>" alt="<%= post.User_ID.username %>">
+            <div class="username">
+                <%= post.User_ID.username %>
+            </div>
+        </div>
+        <div class="post">
+            <div class="post-img">
+                <img src="/uploads/posts/<%= post.Content_URL %>" alt="<%= post.User_ID.username %>'s Post">
+            </div>
+            <div class="post-actions">
+                <a href="#" id="like-btn" onclick="window.location.href='/like/<%= post._id %>/<%= user._id %>';">
+                    <i class="fas fa-heart"></i>
+                </a>
+            </div>
+            <div class="post-description">
+                <p><%= post.Content_Description %></p>
+            </div>
+
+            <div class="comments-section">
+                <% comments.forEach(comment => { %>
+                    <div class="comment" id="comment-<%= comment._id %>">
+                        <p><%= comment.User_ID.username %>:</p> <p><%= comment.Comment_Description %></p>
+                    </div>
+                <% }); %>
+            </div>
+
+            <div class="new-comment">
+                <input type="text" id="comment-input" placeholder="Add a comment...">
+                <button id="send-comment-btn" onclick="sendComment()">Send</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

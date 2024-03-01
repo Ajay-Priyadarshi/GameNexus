@@ -3,7 +3,7 @@
 import mongoose from 'mongoose';
 
 const contentSchema = new mongoose.Schema({
-  User_Id: { type: mongoose.Schema.Types.ObjectId, ref: 'User_Data_tbl', required: true }, //content creator id
+  User_ID: { type: mongoose.Schema.Types.ObjectId, ref: 'User_Data_tbl', required: true }, //content creator id
   Content_Type: { type: String, default: 'image' },
   Content_URL: { type: String, required: true },
   Content_Description: { type: String, required: true },

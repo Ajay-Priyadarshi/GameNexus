@@ -1,4 +1,3 @@
-// profileController.js
 import { UserModel as User } from '../models/User.js';
 import { ContentModel as Content } from '../models/Contents.js';
 

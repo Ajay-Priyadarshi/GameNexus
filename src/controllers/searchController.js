@@ -1,4 +1,3 @@
-// Example: searchController.js
 import { UserModel as User } from '../models/User.js';
 
 export const search = async (req, res) => {
@@ -9,6 +8,6 @@ export const search = async (req, res) => {
         res.render('search', { results: results || [] });
     } catch (error) {
 
-        res.render('search', { results: [] }); 
+        res.render('search', { results: [] });
     }
 };

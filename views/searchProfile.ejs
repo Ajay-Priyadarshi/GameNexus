@@ -48,39 +48,40 @@
             </lable><br><br>
         </div>
         <div class="opt-r">
-        <button><a class="prev" href="/follow/sendRequest/<%= user._id %>">&plus; Follow</a></button>
-        <!-- passing the id of the person to be followed -->
-        <button>&#9993; Message</button>
-        <button><a class="prev" href="/search">Go Back</a></button>
+            <button><a class="prev" href="/follow/sendRequest/<%= user._id %>">&plus; Follow</a></button>
+            <!-- passing the id of the person to be followed -->
+            <button>&#9993; Message</button>
+            <button><a class="prev" href="/search">Go Back</a></button>
         </div>
         <h2># POST GRID<h2>
 
-    <div class="posts">
-      
-        <% userPosts.forEach(post=> { %>
-            <div class="profile-container">
-                <div class="profile-i">
-                    <img src="/uploads/profileImages/<%= user.userPhoto %>" alt="<%= user.username %>">
-                    <div class="username">
-                        <%= user.username %>
-                    </div>
-                </div>
-                <div class="post">
-                    <div class="post-img">
-                    <img src="/uploads/posts/<%= post.Content_URL %>" alt="<%= user.username %>'s Post">
-                   </div>
-                    <div class="post-actions">
-                        <a href="#" id="like-btn"
-                            onclick="window.location.href='/like/<%= post._id %>/<%= user._id %>';">
-                            <i class="fas fa-heart"></i></a>
-                        <i class="fas fa-comment" id="cmt-btn" onclick="window.location.href='/comment/<%= post._id %>';"></i>
+                <div class="posts">
 
-                    </div>
+                    <% userPosts.forEach(post=> { %>
+                        <div class="profile-container">
+                            <div class="profile-i">
+                                <img src="/uploads/profileImages/<%= user.userPhoto %>" alt="<%= user.username %>">
+                                <div class="username">
+                                    <%= user.username %>
+                                </div>
+                            </div>
+                            <div class="post">
+                                <div class="post-img">
+                                    <img src="/uploads/posts/<%= post.Content_URL %>" alt="<%= user.username %>'s Post">
+                                </div>
+                                <div class="post-actions">
+                                    <a href="#" id="like-btn"
+                                        onclick="window.location.href='/like/<%= post._id %>/<%= user._id %>';">
+                                        <i class="fas fa-heart"></i></a>
+                                    <i class="fas fa-comment" id="cmt-btn"
+                                        onclick="window.location.href='/comment/<%= post._id %>';"></i>
+
+                                </div>
+                            </div>
+                        </div>
+                        <% }); %>
                 </div>
-            </div>
-            <% }); %>
     </div>
-</div>
 </body>
 
 </html>

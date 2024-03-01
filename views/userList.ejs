@@ -72,32 +72,35 @@
 
     <div class="segment">
         <h2>Active Users</h2>
-        <p>Number of Active Users: <%= activeUsers.length %></p>
+        <p>Number of Active Users: <%= activeUsers.length %>
+        </p>
         <input type="text" class="search-bar" placeholder="Search users...">
         <ul class="user-list">
             <% for (const user of activeUsers) { %>
                 <li class="user-list-item">
                     <%= user.username %> • <%= user.accountType %>
-                    <a href="#" class="delete-btn" onclick="window.location.href ='/userAnalytics/delete/<%= user._id %>';">
-                        <i class="fas fa-trash"></i></a>
+                            <a href="#" class="delete-btn"
+                                onclick="window.location.href ='/userAnalytics/delete/<%= user._id %>';">
+                                <i class="fas fa-trash"></i></a>
                 </li>
-            <% } %>
+                <% } %>
         </ul>
     </div>
 
     <div class="segment">
         <h2>Deactive Users</h2>
-        <p>Number of Deactive Users: <%= inactiveUsers.length %></p>
+        <p>Number of Deactive Users: <%= inactiveUsers.length %>
+        </p>
         <input type="text" class="search-bar" placeholder="Search users...">
         <ul class="user-list">
             <% for (const user of inactiveUsers) { %>
                 <li class="user-list-item">
                     <%= user.username %> &nbsp; • &nbsp; <%= user.accountType %>
-                    <button class="delete-btn" data-userid="<%= user._id %>">
-                        <i class="fas fa-arrow-left"></i>
-                    </button>
+                            <button class="delete-btn" data-userid="<%= user._id %>">
+                                <i class="fas fa-arrow-left"></i>
+                            </button>
                 </li>
-            <% } %>
+                <% } %>
         </ul>
     </div>
     <!-- <button><a class="op" href="/admin/dashboard">Go Back</a></button> -->

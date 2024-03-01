@@ -1,11 +1,13 @@
 <!-- editProfile.ejs -->
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile Form</title>
     <link rel="stylesheet" href="style_AEL.css">
 </head>
+
 <body>
     <form action="/profile/updateProfile" method="POST" enctype="multipart/form-data">
         <label for="UserName">Username:</label>
@@ -23,9 +25,6 @@
         <button type="submit">Update</button>
 
         <button onclick="goBack()">Go Back</button>
-
-        <!-- Add a hidden input field to store user ID -->
-        <input type="hidden" name="userId" value="<%= user._id %>">
     </form>
 
     <script>
@@ -34,4 +33,5 @@
         }
     </script>
 </body>
+
 </html>

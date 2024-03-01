@@ -28,15 +28,22 @@
                 </a>
             </div>
             <div class="post-description">
-                <p><%= post.Content_Description %></p>
+                <p>
+                    <%= post.Content_Description %>
+                </p>
             </div>
 
             <div class="comments-section">
-                <% comments.forEach(comment => { %>
+                <% comments.forEach(comment=> { %>
                     <div class="comment" id="comment-<%= comment._id %>">
-                        <p><%= comment.User_ID.username %>:</p> <p><%= comment.Comment_Description %></p>
+                        <p>
+                            <%= comment.User_ID.username %>:
+                        </p>
+                        <p>
+                            <%= comment.Comment_Description %>
+                        </p>
                     </div>
-                <% }); %>
+                    <% }); %>
             </div>
 
             <div class="new-comment">

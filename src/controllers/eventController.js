@@ -1,4 +1,3 @@
-// Example: searchController.js
 import { EventModel as Event } from '../models/Event.js';
 import { UserModel as User } from '../models/User.js';
 

@@ -19,17 +19,16 @@
         <% userPosts.forEach(post=> { %>
             <div class="post">
                 <div class="profile-info">
-                    <img src="/uploads/profileImages/<%= post.User_Id.userPhoto %>"
-                        alt="<%= post.User_Id.username %>">
+                    <img src="/uploads/profileImages/<%= post.User_Id.userPhoto %>" alt="<%= post.User_Id.username %>">
                     <div class="username">
-                        <%= post.User_Id.username %>
+                        <%= post.User_ID.username %>
                     </div>
                 </div>
                 <img src="/uploads/posts/<%= post.Content_URL %>" alt="Post">
-                    <div class="post-actions">
-                        <i class="fas fa-heart" onclick="likePost(this)"></i>
-                        <i class="fas fa-comment" onclick="commentPost(this)"></i>
-                    </div>
+                <div class="post-actions">
+                    <i class="fas fa-heart" onclick="likePost(this)"></i>
+                    <i class="fas fa-comment" onclick="commentPost(this)"></i>
+                </div>
             </div>
             <% }); %>
     </div>

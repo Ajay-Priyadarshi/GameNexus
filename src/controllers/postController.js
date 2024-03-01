@@ -8,11 +8,11 @@ export const newPost = async (req, res) => {
 };
 export const createPost = async (req, res) => {
     try {
-        const { User_Id, Content_Type, Content_Description } = req.body;
+        const { User_ID, Content_Type, Content_Description } = req.body;
         const Content_URL = req.file.filename;
 
         const newPost = new Content({
-            User_Id,
+            User_ID,
             Content_Type,
             Content_URL,
             Content_Description,

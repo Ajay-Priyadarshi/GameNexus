@@ -1,4 +1,3 @@
-// userAnalyticsController.js
 import { UserModel as User } from '../models/User.js';
 
 export const showanalytics = async (req, res) => {

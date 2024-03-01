@@ -11,7 +11,7 @@ const __dirname = dirname(__filename);
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    return cb(null,path.join(__dirname, '../../uploads/profileImages'));
+    return cb(null, path.join(__dirname, '../../uploads/profileImages'));
   },
   filename: function (req, file, cb) {
     return cb(null, `${Date.now()}-${file.originalname}`);
@@ -22,7 +22,7 @@ const upload = multer({ storage });
 
 const router = express.Router();
 
-router.get('/reg', (req, res)=>{
+router.get('/reg', (req, res) => {
   res.sendFile(path.join(__dirname, 'static', '../../../static/register.html'));
 })
 router.post('/register', upload.single('photo'), register);

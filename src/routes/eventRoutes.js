@@ -14,5 +14,4 @@ router.get('/edit/:eventId', showEditEventForm);
 router.post('/editF/:eventId', editEvent);
 router.get('/delete/:eventId', deleteEvent);
 
-
 export default router;

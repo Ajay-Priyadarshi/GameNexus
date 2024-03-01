@@ -3,8 +3,8 @@ import session from 'express-session';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import path from 'path';
-import { dirname } from 'path';  
-import { fileURLToPath } from 'url';  
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 import authRoutes from './src/routes/authRoutes.js';
 import profileRoutes from './src/routes/profileRoutes.js';
 import searchRoutes from './src/routes/searchRoutes.js';
@@ -68,7 +68,7 @@ app.get('/uploads/:filename', (req, res) => {
 
 // Set up routes
 app.use('/auth', authRoutes);
-app.use('/profile', profileRoutes); 
+app.use('/profile', profileRoutes);
 app.use('/search', searchRoutes);
 app.use('/admin', adminRoutes);
 app.use('/managePlans', planRoutes);

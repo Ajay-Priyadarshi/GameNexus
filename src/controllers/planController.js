@@ -1,5 +1,3 @@
-// planController.js
-
 import { PlanModel as Plan } from '../models/Plan.js';
 
 export const showPlans = async (req, res) => {

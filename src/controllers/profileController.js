@@ -10,7 +10,7 @@ export const showProfile = async (req, res) => {
     }
 
     const user = await User.findById(userId);
-    const userPosts = await Content.find({ User_Id: userId });
+    const userPosts = await Content.find({ User_ID: userId });
 
     if (!user) {
       return res.status(404).send('User not found');
@@ -131,7 +131,7 @@ export const getUserProfile = async (req, res) => {
   try {
     const userId = req.params.userId;
     const user = await User.findById(userId);
-    const userPosts = await Content.find({ User_Id: userId });
+    const userPosts = await Content.find({ User_ID: userId });
 
     if (!user) {
       return res.status(404).send('User not found');

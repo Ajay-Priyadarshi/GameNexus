@@ -20,7 +20,7 @@ export const createPost = async (req, res) => {
 
         await newPost.save();
 
-        await User.findByIdAndUpdate(User_Id, { $inc: { postCount: 1 } });
+        await User.findByIdAndUpdate(User_ID, { $inc: { postCount: 1 } });
 
         return res.status(200).send(`
         <script>

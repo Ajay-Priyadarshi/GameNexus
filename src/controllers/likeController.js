@@ -1,26 +1,49 @@
+// likeController.js
+
 import { ContentModel as Content } from '../models/Contents.js';
 import { LikeModel as Like } from '../models/Like.js';
 
 export const likeContent = async (req, res) => {
   try {
     const postId = req.params.postId;
-    const guestId = req.params.userId;
     const userId = req.session.userId;
+    const guestId = req.params.userId;
+    const referer = req.get('Referer');
 
-    const like = new Like({
-      User_Id: userId,
-      Content_Id: postId,
-    });
+    const alreadyLiked = await Like.findOne({ User_ID: userId, Content_ID: postId });
 
-    await like.save();
-    await Content.findByIdAndUpdate(postId, { $inc: { Like_Count: 1 } });
+    if (alreadyLiked) {
+      await Like.findOneAndDelete({ User_ID: userId, Content_ID: postId });
+      await Content.findByIdAndUpdate(postId, { $inc: { Like_Count: -1 } });
+    }
+    else {
+      const like = new Like({
+        User_ID: userId,
+        Content_ID: postId,
+      });
+      await like.save();
+      await Content.findByIdAndUpdate(postId, { $inc: { Like_Count: 1 } });
+    }
+
+    let redirectUrl = '/feed';
+
+    if (referer.includes('/profile')) {
+      if (guestId) {
+        redirectUrl = `/profile/${guestId}`;
+      } else {
+        redirectUrl = '/profile';
+      }
+    } else if (referer.includes('/comment')) {
+      redirectUrl = `/comment/${postId}`;
+    } else if (referer.includes('/search')) {
+      redirectUrl = '/search';
+    }
 
     return res.status(200).send(`
-        <script>
-          alert('Post liked.');
-          window.location.href = '/profile/${guestId}';
-        </script>
-      `);
+      <script>
+        window.location.href = '${redirectUrl}';
+      </script>
+    `);
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');

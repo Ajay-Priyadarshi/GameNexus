@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
-    <link rel="stylesheet" href="styleProfile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="styleProfile.css">
 </head>
 
 <body>
@@ -51,7 +51,7 @@
 
         <div class="npost">
             <a href="/post/new" id="newPostButton">+ New Post</a>
-            <a href="/follow/getRequests" id="newPostButton">+ Follow Requests</a>
+            <a href="/follow/getRequests" id="newPostButton">+ Follow Requests <%= user.followRequestCount %></a>
         </div>
 
         <div class="profile-container">
@@ -72,9 +72,14 @@
                             <img src="/uploads/posts/<%= post.Content_URL %>" alt="<%= user.username %>'s Post">
                         </div>
                         <div class="post-actions">
-                            <i class="fas fa-heart" id="like" onclick="likePost(this)"></i>
-                            <a href="/comment/<%= post._id %>" >
-                                <i class="fas fa-comment"></i>
+                            <a href="/like/<%= post._id %>" id="like-btn" >
+                                <i class="fas fa-heart"><%= post.Like_Count %></i>
+                            </a>
+
+                            <a href="/comment/<%= post._id %>">
+                                <i class="fas fa-comment"></i><span>
+                                    <%= post.Comment_Count %>
+                                </span>
                             </a>
                             <a href="#" class="delete-btn"
                                 onclick="window.location.href ='/post/delete/<%= post._id %>';">
@@ -87,13 +92,8 @@
 
         <script>
             function likePost(icon) {
-                // Toggle the 'liked' class to change the color
                 icon.classList.toggle('liked');
                 console.log("Liked post");
-            }
-
-            function commentPost(icon) {
-                console.log("Commented on post");
             }
         </script>
 

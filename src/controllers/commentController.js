@@ -33,7 +33,10 @@ export const createComment = async (req, res) => {
             User_ID: userId,
             Comment_Description: Comment_Description
         });
+
+        await Content.findByIdAndUpdate(Content_ID, { $inc: { Comment_Count: 1 } });
         await newComment.save();
+        
         return res.status(200).send(`
         <script>
           alert('Comment added.');

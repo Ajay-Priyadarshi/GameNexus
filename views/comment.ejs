@@ -23,8 +23,8 @@
                 <img src="/uploads/posts/<%= post.Content_URL %>" alt="<%= post.User_ID.username %>'s Post">
             </div>
             <div class="post-actions">
-                <a href="/like/<%= post._id %>/<%= user._id %>" id="like-btn">
-                    <i class="fas fa-heart"></i>
+                <a href="/like/<%= post._id %>" id="like-btn">
+                    <i class="fas fa-heart"><%= post.Like_Count %></i>
                 </a>
             </div>
             <div class="post-description">

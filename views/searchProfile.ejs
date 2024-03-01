@@ -72,10 +72,11 @@
                                 <div class="post-actions">
                                     <a href="#" id="like-btn"
                                         onclick="window.location.href='/like/<%= post._id %>/<%= user._id %>';">
-                                        <i class="fas fa-heart"></i></a>
-                                    <i class="fas fa-comment" id="cmt-btn"
-                                        onclick="window.location.href='/comment/<%= post._id %>';"></i>
-
+                                        <i class="fas fa-heart"></i>
+                                    </a>
+                                    <a href="/comment/<%= post._id %>" id="cmt-btn" >
+                                        <i class="fas fa-comment"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>

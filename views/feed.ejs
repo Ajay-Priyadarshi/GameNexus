@@ -26,8 +26,12 @@
                 </div>
                 <img src="/uploads/posts/<%= post.Content_URL %>" alt="Post">
                 <div class="post-actions">
-                    <i class="fas fa-heart" onclick="likePost(this)"></i>
-                    <i class="fas fa-comment" onclick="commentPost(this)"></i>
+                    <a href="/like/<%= post._id %>/<%= user._id %>" id="like-btn" >
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    <a href="/comment/<%= post._id %>" id="cmt-btn" >
+                        <i class="fas fa-comment"></i>
+                    </a>
                 </div>
             </div>
             <% }); %>

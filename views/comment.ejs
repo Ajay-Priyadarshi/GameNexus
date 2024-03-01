@@ -13,7 +13,7 @@
 
     <div class="post-container">
         <div class="profile-i">
-            <img src="<%= post.User_ID.userPhoto %>" alt="<%= post.User_ID.username %>">
+            <img src="/uploads/profileImages/<%= post.User_ID.userPhoto %>" alt="<%= post.User_ID.username %>">
             <div class="username">
                 <%= post.User_ID.username %>
             </div>
@@ -23,32 +23,35 @@
                 <img src="/uploads/posts/<%= post.Content_URL %>" alt="<%= post.User_ID.username %>'s Post">
             </div>
             <div class="post-actions">
-                <a href="#" id="like-btn" onclick="window.location.href='/like/<%= post._id %>/<%= user._id %>';">
+                <a href="/like/<%= post._id %>/<%= user._id %>" id="like-btn">
                     <i class="fas fa-heart"></i>
                 </a>
             </div>
             <div class="post-description">
-                <p>
-                    <%= post.Content_Description %>
+                <p>Descrpition : <%= post.Content_Description %>
                 </p>
             </div>
 
             <div class="comments-section">
+                <h2>Comments</h2>
                 <% comments.forEach(comment=> { %>
                     <div class="comment" id="comment-<%= comment._id %>">
                         <p>
-                            <%= comment.User_ID.username %>:
-                        </p>
-                        <p>
-                            <%= comment.Comment_Description %>
+                            <%= comment.User_ID.username %>: <%= comment.Comment_Description %>
                         </p>
                     </div>
                     <% }); %>
             </div>
 
             <div class="new-comment">
-                <input type="text" id="comment-input" placeholder="Add a comment...">
-                <button id="send-comment-btn" onclick="sendComment()">Send</button>
+                <form action="/comment/create" method="post">
+
+                    <input type="text" id="Comment_Description" name="Comment_Description" placeholder="Enter comment">
+
+                    <input type="hidden" name="Content_ID" value="<%= post._id %>">
+
+                    <button id="send-comment-btn" type="submit">Send</button>
+                </form>
             </div>
         </div>
 

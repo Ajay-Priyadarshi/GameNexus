@@ -7,30 +7,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Chats</title>
-    <link rel="stylesheet" href="styleChat.css">
+    <link rel="stylesheet" href="styleChatIndex.css">
 </head>
 
 <body>
     <div class="search-results">
         <% recentChats.forEach(chat => { %>
             <div class="result-item" >
-                <img class="profile-i" src="/uploads/profileImages/<%= chat.user.userPhoto %>" alt="<%= chat.user.username %>">
+                <img src="/uploads/profileImages/<%= chat.user.userPhoto %>" alt="<%= chat.user.username %>">
                 <div class="result-details">
                     <a class="link" href="/chat/personal/<%= chat.user._id %>">
                         <%= chat.user.username %>
                     </a>
-                    <p class="last-message">
-                        <% if (chat.latestMessage) { %>
-                            <%= chat.latestMessage.Message_Description %>
-                        <% } else { %>
-                            No messages yet
-                        <% } %>
-                    </p>
-                    <p class="time">
-                        <% if (chat.latestMessage) { %>
-                            <%= moment(chat.latestMessage.Message_Timestamp).tz('Asia/Kolkata').format('HH:mm') %>
-                        <% } %>
-                    </p>
+                    <div class="last-message">
+                        <span class="last">
+                            <% if (chat.latestMessage) { %>
+                                <%= chat.latestMessage.Message_Description %>
+                            <% } else { %>
+                                No messages yet
+                            <% } %>
+                        </span>
+                    </div>
+                    <div class="time">
+                        <span class="time">
+                            <% if (chat.latestMessage) { %>
+                                <%= moment(chat.latestMessage.Message_Timestamp).tz('Asia/Kolkata').format('HH:mm') %>
+                            <% } %>
+                        </span>
+                    </div>
                 </div>
             </div>
         <% }); %>

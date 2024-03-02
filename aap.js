@@ -55,6 +55,7 @@ app.use('/profile', express.static(path.join(__dirname, 'static')));
 app.use('/auth', express.static(path.join(__dirname, 'static')));
 app.use('/managePlans', express.static(path.join(__dirname, 'static')));
 app.use('/userAnalytics', express.static(path.join(__dirname, 'static')));
+app.use('/chat', express.static(path.join(__dirname, 'static')));
 app.use('/post', express.static(path.join(__dirname, 'static')));
 app.use('/events', express.static(path.join(__dirname, 'static')));
 app.use('/comment', express.static(path.join(__dirname, 'static')));

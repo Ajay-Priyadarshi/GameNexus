@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="/styleChat.css">
+</head>
+
+<body>
+    <div class="chat-container">
+        <div class="uinfo">
+            <img class="profile-i" src="/uploads/profileImages/<%= guestUser.userPhoto %>" alt="<%= guestUser.username %>">
+            <a class="link" href="/profile/<%= guestUser._id %>">
+                <%= guestUser.username %>
+            </a>
+        </div>
+
+        <div class="send-message-bar">
+            <form action="/chat/send" method="post">
+
+                <textarea name="Message_Description" placeholder="Type your message..."></textarea>
+
+                <input type="hidden" name="guestId" value="<%= guestUser._id %>">
+
+                <button type="submit">Send</button>
+
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>

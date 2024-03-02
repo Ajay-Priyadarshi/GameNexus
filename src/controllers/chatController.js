@@ -10,6 +10,7 @@ export const personalChats = async (req, res) => {
   const guestId = req.params.userId;
   const userId = req.session.userId;
 
+  const user = await User.findById(userId);
   const guestUser = await User.findById(guestId);
   const chats = await Chat.find({
     $or: [
@@ -18,7 +19,7 @@ export const personalChats = async (req, res) => {
     ],
   }).populate('Sender_ID').populate('Reciever_ID').sort({ Message_Timestamp: 1 });
 
-  res.render('personalChat', { guestUser, chats, userId});
+  res.render('personalChat', { guestUser, user, chats});
 }
 
 export const sendMessage = async (req, res) => {

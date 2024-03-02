@@ -19,7 +19,7 @@
     
         <div class="chat-messages">
             <% chats.forEach(chat => { %>
-                <div class="message <%= chat.Sender_ID.toString() === userId ? 'sent' : 'received' %>">
+                <div class="message <%= chat.Sender_ID._id.toString() === user._id.toString() ? 'sent' : 'received' %>">
                     <div class="message-content">
                         <%= chat.Message_Description %>
                     </div>

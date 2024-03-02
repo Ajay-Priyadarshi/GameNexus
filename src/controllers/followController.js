@@ -7,7 +7,7 @@ export const sendRequest = async (req, res) => {
         const followerId = req.session.userId;      //jo follow kar raha hai
 
         const existingFollow = await Follow.findOne({ User_ID: followingId, Follower_ID: followerId });
-        if (existingFollow) {
+        if (existingFollow && existingFollow.Request_Status === 'Accepted') {
             return res.status(200).send(`
                 <script>
                     alert('Already following.');

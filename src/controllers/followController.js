@@ -1,3 +1,4 @@
+import moment from 'moment-timezone';
 import { UserModel as User } from '../models/User.js';
 import { FollowRequestModel as Follow } from '../models/Follow.js';
 
@@ -20,6 +21,7 @@ export const sendRequest = async (req, res) => {
             User_ID: followingId,
             Request_Status: 'Pending',
             Follower_ID: followerId,
+            Follow_Timestamp: moment.tz('Asia/Kolkata').format(),
         });
 
         await followRequest.save();

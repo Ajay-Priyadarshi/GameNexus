@@ -1,5 +1,4 @@
-// likeController.js
-
+import moment from 'moment-timezone';
 import { ContentModel as Content } from '../models/Contents.js';
 import { LikeModel as Like } from '../models/Like.js';
 
@@ -20,6 +19,7 @@ export const likeContent = async (req, res) => {
       const like = new Like({
         User_ID: userId,
         Content_ID: postId,
+        Like_Timestamp: moment.tz('Asia/Kolkata').format(),
       });
       await like.save();
       await Content.findByIdAndUpdate(postId, { $inc: { Like_Count: 1 } });

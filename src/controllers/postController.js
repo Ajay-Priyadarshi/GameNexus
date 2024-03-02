@@ -1,3 +1,4 @@
+import moment from 'moment-timezone';
 import { ContentModel as Content } from '../models/Contents.js';
 import { UserModel as User } from '../models/User.js';
 
@@ -16,6 +17,7 @@ export const createPost = async (req, res) => {
             Content_Type,
             Content_URL,
             Content_Description,
+            Content_Timestamp: moment.tz('Asia/Kolkata').format(),
         });
 
         await newPost.save();

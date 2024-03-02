@@ -10,6 +10,7 @@ const contentSchema = new mongoose.Schema({
   Upload_TimeStamp: { type: Date, default: Date.now },
   Like_Count: { type: Number, default: 0 }, //add to dfd
   Comment_Count: { type: Number, default: 0 }, //add to dfd
+  Content_TimeStamp: { type: Date, default: Date.now },
 });
 
 const ContentModel = mongoose.model('Content_tbl', contentSchema, 'Content_tbl');

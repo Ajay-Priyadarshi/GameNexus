@@ -1,3 +1,4 @@
+import moment from 'moment-timezone';
 import { EventModel as Event } from '../models/Event.js';
 import { UserModel as User } from '../models/User.js';
 
@@ -40,7 +41,8 @@ export const createEvent = async (req, res) => {
         Price,
         Event_Start_Date,
         Event_End_Date,
-        Registration_Link
+        Registration_Link,
+        Event_Timestamp: moment.tz('Asia/Kolkata').format(),
     });
     try {
         await newEvent.save();

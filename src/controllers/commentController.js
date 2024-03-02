@@ -1,3 +1,4 @@
+import moment from 'moment-timezone';
 import { ContentModel as Content } from '../models/Contents.js';
 import { CommentModel as Comment } from '../models/Comment.js';
 import { UserModel as User } from '../models/User.js';
@@ -31,7 +32,8 @@ export const createComment = async (req, res) => {
         const newComment = new Comment({
             Content_ID: Content_ID,
             User_ID: userId,
-            Comment_Description: Comment_Description
+            Comment_Description: Comment_Description,
+            Comment_Timestamp: moment.tz('Asia/Kolkata').format(),
         });
 
         await Content.findByIdAndUpdate(Content_ID, { $inc: { Comment_Count: 1 } });

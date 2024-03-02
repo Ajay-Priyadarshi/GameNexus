@@ -1,3 +1,4 @@
+import moment from 'moment-timezone';
 import { ChatModel as Chat } from '../models/Chat.js';
 import { UserModel as User } from '../models/User.js';
 
@@ -10,8 +11,14 @@ export const personalChats = async (req, res) => {
   const userId = req.session.userId;
 
   const guestUser = await User.findById(guestId);
+  const chats = await Chat.find({
+    $or: [
+      { Sender_ID: userId, Reciever_ID: guestId },
+      { Sender_ID: guestId, Reciever_ID: userId },
+    ],
+  }).populate('Sender_ID').populate('Reciever_ID').sort({ Message_Timestamp: 1 });
 
-  res.render('personalChat', { guestUser });
+  res.render('personalChat', { guestUser, chats, userId});
 }
 
 export const sendMessage = async (req, res) => {
@@ -23,6 +30,7 @@ export const sendMessage = async (req, res) => {
     Reciever_ID: guestId,
     Message_Description: Message_Description,
     Message_Status: 'sent',
+    Message_Timestamp: moment().tz('Asia/Kolkata').toDate(),
   });
 
   await newMessage.save();

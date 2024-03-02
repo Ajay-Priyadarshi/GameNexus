@@ -95,11 +95,12 @@ input[type="text"] {
     align-items: flex-end;
 }
 
-.last{
+.last {
     font-size: 15px;
     color: #888;
     margin-right: auto;
 }
+
 .time {
     font-size: 15px;
     color: #888;

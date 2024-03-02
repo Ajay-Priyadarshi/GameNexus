@@ -18,15 +18,15 @@ body::-webkit-scrollbar {
     width: 0;
 }
 
-form{
-    margin-left:13vw;
+form {
+    margin-left: 13vw;
 }
 
 label {
     display: block;
     margin-bottom: 8px;
     width: fit-content;
-    padding:2px;
+    padding: 2px;
     border-radius: 2px;
     background-color: #382c59;
 
@@ -38,7 +38,7 @@ input {
     padding: 8px;
     margin-bottom: 16px;
     box-sizing: border-box;
-    background-color: rgba(254,237,1,255);
+    background-color: rgba(254, 237, 1, 255);
     border-style: double;
     border-color: white;
     color: black;
@@ -47,19 +47,19 @@ input {
     font-size: 2.7vh;
 }
 
-input:focus{
+input:focus {
     outline: none;
     box-shadow: 0 5px #ffffff, 0 0 15px #c1c1c1, 0 0 20px #ffffff, 0 0 40px #ff8d00;
     border-color: white;
-   
+
 }
 
 button {
     font-family: 'Minecraft';
     font-weight: bold;
     border-radius: 100px;
-    background-color:#382c59;
-    height:fit-content;
+    background-color: #382c59;
+    height: fit-content;
     width: 30vw;
     /* Take up full width */
     padding: 3px;
@@ -71,13 +71,13 @@ button {
     border-color: white;
     box-shadow: 0 0 5px #ffffff;
     margin-top: 10px;
-    
+
 
 }
 
 button:hover {
-   
- 
+
+
     text-shadow: 0 0 5px #ffffff;
     outline: none;
     box-shadow: 0 5px #ffffff, 0 0 15px #c1c1c1, 0 0 20px #ffffff, 0 0 40px #ff8d00;
@@ -85,7 +85,7 @@ button:hover {
 }
 
 #photoInput {
-    
+
     display: none;
 }
 
@@ -96,7 +96,7 @@ button:hover {
     font-weight: bold;
     border-radius: 100px;
     text-align: center;
-    background-color:#382c59;
+    background-color: #382c59;
     /* Vertical padding */
     font-size: 18px;
     text-shadow: none;
@@ -104,10 +104,10 @@ button:hover {
     border-style: double;
     border-color: white;
     box-shadow: 0 0 5px #ffffff;
-    margin-top:8px;
+    margin-top: 8px;
 }
 
-#photoLabel:hover{
+#photoLabel:hover {
     text-shadow: 0 0 5px #ffffff;
     outline: none;
     box-shadow: 0 5px #ffffff, 0 0 15px #c1c1c1, 0 0 20px #ffffff, 0 0 40px #ff8d00;
@@ -125,7 +125,7 @@ a {
     font-family: 'Minecraft';
     font-weight: bold;
     background-color: red;
-    width:fit-content;
+    width: fit-content;
     border-radius: 5px;
     font-size: 18px;
     color: white;
@@ -135,10 +135,10 @@ a {
     border-color: white;
     padding: 5px;
     margin-top: 10px;
-    margin-left:13vw;
+    margin-left: 13vw;
 }
 
-.previous:hover{
+.previous:hover {
     text-shadow: 0 0 5px #ffffff;
     outline: none;
     box-shadow: 0 5px #ffffff, 0 0 15px #c1c1c1, 0 0 20px #ffffff, 0 0 40px #ff8d00;
@@ -147,7 +147,7 @@ a {
 
 
 
-#accountType{
+#accountType {
     font-family: 'Minecraft';
     font-weight: bold;
     border-radius: 100px;
@@ -157,37 +157,37 @@ a {
     color: white;
     border-style: double;
     border-color: white;
-    padding:2px 0px 0px 0px;
+    padding: 2px 0px 0px 0px;
     margin-bottom: 5px;
 }
 
-#accountType:focus{
+#accountType:focus {
     outline: none;
     box-shadow: 0 5px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff, 0 0 40px #ff8d00;
     border-color: white;
-   
+
 }
 
 
 
 
 
-.inbox:focus{
-   
+.inbox:focus {
+
     outline: none;
     box-shadow: 0 5px #ffffff, 0 0 15px #c1c1c1, 0 0 20px #ffffff, 0 0 40px #ff8d00;
     border-color: white;
 }
 
-.DETAILS{
+.DETAILS {
     background-color: #645F7D;
-    padding:10px 6px 4px 8px;
-border-radius: 10px;
-border-style: double;
-border-color: white;
+    padding: 10px 6px 4px 8px;
+    border-radius: 10px;
+    border-style: double;
+    border-color: white;
 }
 
-.details{
-    text-shadow: 0 0 20px #B0C4DE; 
+.details {
+    text-shadow: 0 0 20px #B0C4DE;
     margin-left: 13vw;
 }

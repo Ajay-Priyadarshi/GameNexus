@@ -1,3 +1,4 @@
+<!-- allChats.ejs -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -5,26 +6,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Index</title>
-    <link rel="stylesheet" href="styleChatIndex.css"> 
+    <title>All Chats</title>
+    <link rel="stylesheet" href="styleChat.css">
 </head>
 
 <body>
-
-
     <div class="search-results">
-        <div class="result-item">
-            <img src="../assets/profile-pic.png" alt="User 1">
-            <div class="result-details">
-                <a class="link" href="/chat/personal/65e1bf810b0d0b29a62b9c48">Ajay</a>
-                <p id="usertag">@Ajay • Player</p>
-                <div class="last-message">
-                    <span class="last">Last message...</span>
-                    <span class="time">12:30 PM</span>
+        <% recentChats.forEach(chat => { %>
+            <div class="result-item" >
+                <img class="profile-i" src="/uploads/profileImages/<%= chat.user.userPhoto %>" alt="<%= chat.user.username %>">
+                <div class="result-details">
+                    <a class="link" href="/chat/personal/<%= chat.user._id %>">
+                        <%= chat.user.username %>
+                    </a>
+                    <p class="last-message">
+                        <% if (chat.latestMessage) { %>
+                            <%= chat.latestMessage.Message_Description %>
+                        <% } else { %>
+                            No messages yet
+                        <% } %>
+                    </p>
+                    <p class="time">
+                        <% if (chat.latestMessage) { %>
+                            <%= moment(chat.latestMessage.Message_Timestamp).tz('Asia/Kolkata').format('HH:mm') %>
+                        <% } %>
+                    </p>
                 </div>
             </div>
-        </div>
-
+        <% }); %>
+    </div>
 </body>
 
 </html>

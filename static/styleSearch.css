@@ -4,10 +4,11 @@ body {
     color: white;
     margin: 0;
     padding: 0;
-    padding-top: 60px; /* Add padding to the top to accommodate the fixed header */
+    padding-top: 60px;
+    /* Add padding to the top to accommodate the fixed header */
 }
 
-button{
+button {
     padding: 4px;
     width: fit-content;
     margin-left: 1.7vw;
@@ -28,19 +29,19 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
 .search-container {
     display: flex;
     align-items: center;
     width: 100%;
-   
+
 }
 
-.usertag{
+.usertag {
     width: fit-content;
-    background-color:#594E86;
+    background-color: #594E86;
     color: white;
 }
 
@@ -49,14 +50,14 @@ header {
     margin-right: 8px;
 }
 
-.link{
+.link {
     text-decoration: none;
     color: rgb(0, 0, 0);
     font-weight: bold;
     font-size: 2.3vh;
 }
 
-.link:hover{
+.link:hover {
     color: #594E86;
     text-decoration: underline;
 }
@@ -72,9 +73,9 @@ input[type="text"] {
     color: rgb(255, 255, 255);
 }
 
-#usertag{
+#usertag {
     width: fit-content;
-    background-color:#594E86;
+    background-color: #594E86;
     color: white;
 }
 
@@ -84,22 +85,22 @@ input[type="text"] {
     max-width: 800px;
 }
 
-.result-item:hover{
+.result-item:hover {
     box-shadow: 0 0 5px rgba(254, 237, 1, 1),
-    0 0 15px rgba(254, 237, 1, 1),
-    0 0 20px rgba(254, 237, 1, 1),
-    0 0 40px rgba(254, 237, 1, 1),
-    0 0 60px rgba(255, 0, 0, 1),
-    0 0 10px rgba(255, 141, 0, 1);
+        0 0 15px rgba(254, 237, 1, 1),
+        0 0 20px rgba(254, 237, 1, 1),
+        0 0 40px rgba(254, 237, 1, 1),
+        0 0 60px rgba(255, 0, 0, 1),
+        0 0 10px rgba(255, 141, 0, 1);
 }
 
 .result-item {
     background-color: #ffffff;
 
-    border: 1px solid ;
-    border-style:double;
+    border: 1px solid;
+    border-style: double;
     border-radius: 8px;
-    border-color:rgba(254, 237, 1, 1) ;
+    border-color: rgba(254, 237, 1, 1);
     margin-top: 50px;
     padding: 20px;
     display: flex;
@@ -107,7 +108,7 @@ input[type="text"] {
 }
 
 .result-item img {
-   
+
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -117,7 +118,7 @@ input[type="text"] {
 
 .result-details {
     flex: 1;
-    
+
 }
 
 .result-details h3 {

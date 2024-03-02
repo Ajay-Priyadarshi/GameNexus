@@ -10,7 +10,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     color: white;
-    
+
 }
 
 h1 {
@@ -20,9 +20,9 @@ h1 {
 form {
     width: 100%;
     max-width: 400px;
-   
-    
-   
+
+
+
     border-radius: 8px;
     margin-top: 20px;
 }
@@ -38,17 +38,17 @@ label {
 
 input {
     width: calc(100% - 16px);
-    background-color:  rgba(254,237,1,255);
+    background-color: rgba(254, 237, 1, 255);
     outline: none;
     border-radius: 10px;
     border-style: double;
-    border-color:white;
+    border-color: white;
     padding: 8px;
     margin-bottom: 16px;
     box-sizing: border-box;
 }
 
-input:focus{
+input:focus {
     outline: none;
     box-shadow: 0 5px #ffffff, 0 0 15px #c1c1c1, 0 0 20px #ffffff, 0 0 40px #ff8d00;
     border-color: white;
@@ -65,7 +65,7 @@ button {
     cursor: pointer;
 }
 
-button:hover{
+button:hover {
     box-shadow: 0 5px #ffffff, 0 0 15px #c1c1c1, 0 0 20px #ffffff, 0 0 40px #ff8d00;
     text-shadow: 0 0 5px #ffffff;
 }
@@ -81,9 +81,9 @@ button:hover{
     text-decoration: none;
 }
 
-.back-to-login a:hover{
+.back-to-login a:hover {
     text-shadow: 0 0 5px #ffffff;
-} 
+}
 
 .back-to-login a:hover {
     text-decoration: underline;

@@ -96,9 +96,9 @@
             <% for (const user of inactiveUsers) { %>
                 <li class="user-list-item">
                     <%= user.username %> &nbsp; • &nbsp; <%= user.accountType %>
-                            <button class="delete-btn" data-userid="<%= user._id %>">
+                            <a href="#" class="delete-btn" onclick="window.location.href ='/userAnalytics/activate/<%= user._id %>';">
                                 <i class="fas fa-arrow-left"></i>
-                            </button>
+                            </a>
                 </li>
                 <% } %>
         </ul>

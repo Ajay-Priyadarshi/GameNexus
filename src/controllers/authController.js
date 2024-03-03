@@ -15,6 +15,16 @@ export const login = async (req, res) => {
       `);
     }
 
+    // Check if the account is active
+    if (existingUser.accountStatus !== 'Active') {
+      return res.status(401).send(`
+        <script>
+          alert('Account is not active. Please contact support.');
+          window.location.href = '/login.html';
+        </script>
+      `);
+    }
+
     // Compare the entered password with the stored password directly
     if (password !== existingUser.password) {
       return res.status(401).send(`
@@ -45,7 +55,7 @@ export const login = async (req, res) => {
 
 // Function to handle user registration
 export const register = async (req, res, next) => {
-  const { username, email, password, accountType, bio, securityQuestion, answer } = req.body;
+  const { username, email, password, accountType, bio, securityQuestion, answer, age, gender } = req.body;
   const photoFileName = req.file ? req.file.filename : null;
 
   try {
@@ -68,6 +78,8 @@ export const register = async (req, res, next) => {
       bio,
       securityQuestion,
       answer,
+      age,
+      gender,
       userPhoto: photoFileName,
     });
 

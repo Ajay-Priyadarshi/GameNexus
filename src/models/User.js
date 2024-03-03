@@ -20,6 +20,7 @@ const userSchema = new mongoose.Schema({
   requirements: { type: String },
   age: { type: Number},
   gender: { type: String},
+  accountStatus: { type: String, default: 'Active' },
 });
 
 const UserModel = mongoose.model('User_Data_tbl', userSchema, 'User_Data_tbl');

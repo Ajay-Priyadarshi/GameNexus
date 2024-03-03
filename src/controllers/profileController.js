@@ -108,7 +108,7 @@ export const deleteProfile = async (req, res) => {
 
     if (securityAnswer.toLowerCase() === user.answer.toLowerCase()) {
       // Delete the user's account
-      await User.findByIdAndDelete(userId);
+      await User.findByIdAndUpdate(userId, { $set: { accountStatus: 'Deactivated' } });
       req.session.destroy();
 
       const script = '<script>window.top.location.href =  "/";</script>';

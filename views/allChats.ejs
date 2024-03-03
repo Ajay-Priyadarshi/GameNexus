@@ -31,7 +31,7 @@
                     <div class="time">
                         <span class="time">
                             <% if (chat.latestMessage) { %>
-                                <%= moment(chat.latestMessage.Message_Timestamp).tz('Asia/Kolkata').format('HH:mm') %>
+                                <%= moment(chat.latestMessage.Message_Timestamp).format('HH:mm') %>
                             <% } %>
                         </span>
                     </div>

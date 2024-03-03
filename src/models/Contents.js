@@ -7,7 +7,6 @@ const contentSchema = new mongoose.Schema({
   Content_Type: { type: String, default: 'image' },
   Content_URL: { type: String, required: true },
   Content_Description: { type: String, required: true },
-  Upload_TimeStamp: { type: Date, default: Date.now },
   Like_Count: { type: Number, default: 0 }, //add to dfd
   Comment_Count: { type: Number, default: 0 }, //add to dfd
   Content_TimeStamp: { type: Date, default: Date.now },

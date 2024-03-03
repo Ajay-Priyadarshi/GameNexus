@@ -14,8 +14,8 @@ export const allChats = async (req, res) => {
       {
         $match: {
           $or: [
-            { Sender_ID: mongoose.Types.ObjectId.createFromHexString(userId) },
-            { Reciever_ID: mongoose.Types.ObjectId.createFromHexString(userId) },
+            { Sender_ID: new mongoose.Types.ObjectId(userId) },
+            { Reciever_ID: new mongoose.Types.ObjectId(userId) },
           ],
         },
       },
@@ -24,7 +24,7 @@ export const allChats = async (req, res) => {
           _id: 0,
           userId: {
             $cond: [
-              { $eq: ['$Sender_ID', mongoose.Types.ObjectId.createFromHexString(userId)] },
+              { $eq: ['$Sender_ID', new mongoose.Types.ObjectId(userId)] },
               '$Reciever_ID',
               '$Sender_ID',
             ],
@@ -34,35 +34,46 @@ export const allChats = async (req, res) => {
       { $group: { _id: '$userId', latestMessage: { $max: '$Message_Timestamp' } } },
     ]);
 
-    console.log('distinctConversations:', distinctConversations);
-
     // Get user details for each distinct conversation
     const recentChats = await Promise.all(
       distinctConversations.map(async (conversation) => {
-        const user = await User.findById(conversation._id);
-        const latestMessage = await Chat.findOne({
-          $or: [
-            { Sender_ID: userId, Reciever_ID: conversation._id },
-            { Sender_ID: conversation._id, Reciever_ID: userId },
-          ],
-          Message_Timestamp: conversation.latestMessage,
-        });
-
-        return {
-          user,
-          latestMessage,
-        };
+        try {
+          const user = await User.findById(conversation._id);
+          if (!user) {
+            console.log(`User not found for ID: ${conversation._id}`);
+            return null;
+          }
+    
+          const latestMessage = await Chat.findOne({
+            $or: [
+              { Sender_ID: userId, Reciever_ID: conversation._id },
+              { Sender_ID: conversation._id, Reciever_ID: userId },
+            ],
+          })
+            .sort({ Message_Timestamp: -1 }) // Sort by timestamp in descending order
+            .limit(1);
+    
+          return {
+            user,
+            latestMessage,
+          };
+        } catch (error) {
+          console.error(`Error fetching chat for user ID ${conversation._id}:`, error);
+          return null;
+        }
       })
     );
-
-    console.log('recentChats:', recentChats);
-
-    res.render('allChats', { recentChats });
+    
+    // Filter out null values (users not found or errors)
+    const validRecentChats = recentChats.filter((chat) => chat !== null);
+    
+    res.render('allChats', { recentChats: validRecentChats, moment });
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');
   }
 };
+
 
 export const personalChats = async (req, res) => {
   const guestId = req.params.userId;

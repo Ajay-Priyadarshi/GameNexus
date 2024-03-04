@@ -75,12 +75,12 @@
                             </thead>
                             <tbody>
                                 <% let totalPosts = 0; %>
-                                <% for (const accountType in analyticsData) { %>
+                                <% for (const user in analyticsData) { %>
                                     <tr>
-                                        <td><%= accountType %></td>
-                                        <td><%= analyticsData[accountType] %></td>
+                                        <td><a href="/postAnalytics/user/<%= user %>"><%= user %></a></td>
+                                        <td><%= analyticsData[user] %></td>
                                     </tr>
-                                    <% totalPosts += analyticsData[accountType]; %>
+                                    <% totalPosts += analyticsData[user]; %>
                                 <% } %>
                                 <tr>
                                     <td>Total Posts</td>

@@ -1,13 +1,13 @@
 // routes/userAnalyticsRoutes.js
 import express from 'express';
-import { showanalytics, userList } from '../controllers/postAnalyticsController.js';
+import { showanalytics, user ,post } from '../controllers/postAnalyticsController.js';
 
 const router = express.Router();
 
 router.get('/', showanalytics);
 
-router.get('/userList', userList);
+router.get('/user/:username', user);
 
-
+router.get('/post', post);
 
 export default router;

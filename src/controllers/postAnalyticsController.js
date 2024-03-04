@@ -35,7 +35,6 @@ export const showanalytics = async (req, res) => {
         postAnalyticsData.forEach(item => {
             analyticsData[item.username] = item.postCount;
         });
-
         res.render('postAnalytics', { analyticsData });
     } catch (error) {
         console.error('Error fetching user analytics data:', error);
@@ -43,13 +42,17 @@ export const showanalytics = async (req, res) => {
     }
 };
 
-export const userList = async (req, res) => {
+export const user = async (req, res) => {
     try {
-        const activeUsers = await User.find({ accountStatus: 'Active' });
-        const inactiveUsers = await User.find({ accountStatus: 'Deactivated' });
-        res.render('userList', { activeUsers, inactiveUsers });
-    } catch (error) {
-        console.error('Error fetching user list:', error);
+        const uname = req.params.username;
+        const user = await User.findById({ username: uname });
+        analyticsData = {}
+        res.render('postAnalytics(User)', { analyticsData });
+    }
+    catch (error) {
+        console.error('Error fetching user analytics data:', error);
         res.status(500).send('Internal Server Error');
     }
 }
+
+export const post = async (req, res) => {}

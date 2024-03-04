@@ -78,3 +78,64 @@ export const activateUser = async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 };
+
+export const genderRatio = async (req, res) => {
+    try {
+        const genderAnalyticsData = await User.aggregate([
+            {
+                $match: {
+                    accountType: { $ne: 'admin' } 
+                }
+            },
+            {
+                $group: {
+                    _id: '$gender',
+                    count: { $sum: 1 }
+                }
+            }
+        ]);
+
+        const analyticsData = {};
+        genderAnalyticsData.forEach(item => {
+            analyticsData[item._id] = item.count;
+        });
+        res.render('genderAnalytics', { analyticsData });
+    } catch (error) {
+        console.error('Error fetching user analytics data:', error);
+        res.status(500).send('Internal Server Error');
+    }  
+}
+
+
+export const ageRatio = async (req, res) => {
+    try {
+        const ageAnalyticsData = await User.aggregate([
+            {
+                $match: {
+                    accountType: { $ne: 'admin' }
+                }
+            },
+            {
+                $bucket: {
+                    groupBy: '$age',
+                    boundaries: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                    default: 'Other',
+                    output: {
+                        count: { $sum: 1 }
+                    }
+                }
+            }
+        ]);
+
+        const analyticsData = {};
+        ageAnalyticsData.forEach(item => {
+            const range = item._id === 'Other' ? item._id : `${item._id}-${item._id + 9}`;
+            analyticsData[range] = item.count;
+        });
+
+        res.render('genderAnalytics', { analyticsData });
+    } catch (error) {
+        console.error('Error fetching user analytics data:', error);
+        res.status(500).send('Internal Server Error');
+    }
+}

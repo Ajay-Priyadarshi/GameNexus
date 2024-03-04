@@ -78,8 +78,9 @@
                                 <i class="fas fa-heart" id="like-btn"> <%= post.Like_Count %></i>
                             </a>
 
-                            <a href="/comment/<%= post._id %>">
-                                <i class="fas fa-comment" id="cmt-btn"> <%= post.Comment_Count %>
+                            <a href="#" onclick="postComment('<%= post._id %>')" id="cmt-btn">
+                                <i class="fas fa-comment">
+                                    <%= post.Comment_Count %>
                                 </i>
                             </a>
                             <a href="#" class="delete-btn"
@@ -91,12 +92,7 @@
                 <% }); %>
         </div>
 
-        <script>
-            function likePost(icon) {
-                icon.classList.toggle('liked');
-                console.log("Liked post");
-            }
-        </script>
+        <script src="index.js"></script>
 
 </body>
 

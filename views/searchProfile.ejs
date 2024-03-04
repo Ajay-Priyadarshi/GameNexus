@@ -69,11 +69,15 @@
                                     <img src="/uploads/posts/<%= post.Content_URL %>" alt="<%= user.username %>'s Post">
                                 </div>
                                 <div class="post-actions">
-                                    <a href="/like/<%= post._id %>/<%= user._id %>" id="like-btn" >
-                                        <i class="fas fa-heart"><%= post.Like_Count %></i>
+                                    <a href="/like/<%= post._id %>/<%= user._id %>" id="like-btn">
+                                        <i class="fas fa-heart">
+                                            <%= post.Like_Count %>
+                                        </i>
                                     </a>
-                                    <a href="/comment/<%= post._id %>" id="cmt-btn" >
-                                        <i class="fas fa-comment"><%= post.Comment_Count %></i>
+                                    <a href="#" onclick="postComment('<%= post._id %>')" id="cmt-btn">
+                                        <i class="fas fa-comment">
+                                            <%= post.Comment_Count %>
+                                        </i>
                                     </a>
                                 </div>
                             </div>
@@ -81,6 +85,9 @@
                         <% }); %>
                 </div>
     </div>
+
+    <script src="index.js"></script>
+
 </body>
 
 </html>

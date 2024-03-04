@@ -84,6 +84,7 @@
         <button class="mp"><a href="#" onclick="loadPage('managePlans')" id="mp">Manage Plans</a></button>
         <button class="mp"><a href="#" onclick="loadPage('userAnalytics')" id="mp">User Analytics</a></button>
         <button class="mp"><a href="#" onclick="loadPage('salesAnalytics')" id="mp">Sales Analytics</a></button>
+        <button class="mp"><a href="#" onclick="logout()" id="mp">Log Out</a></button>
     </nav>
 
     <section>
@@ -94,6 +95,10 @@
         function loadPage(pageName) {
             console.log(`Loading page: ${pageName}`);
             document.getElementById("content").src = `/${pageName}`;
+        }
+        
+        function logout() {
+            window.top.location.href = '/';
         }
     </script>
 </body>

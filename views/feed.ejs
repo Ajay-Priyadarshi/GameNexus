@@ -25,12 +25,17 @@
                 </div>
                 <img class="post-img" src="/uploads/posts/<%= post.Content_URL %>" alt="Post">
                 <div class="post-actions">
-                    <a href="/like/<%= post._id %>" id="like-btn" >
-                        <i class="fas fa-heart"> <%= post.Like_Count %></i>
+                    <a href="/like/<%= post._id %>" id="like-btn">
+                        <i class="fas fa-heart">
+                            <%= post.Like_Count %>
+                        </i>
                     </a>
-                    <a href="/comment/<%= post._id %>" id="cmt-btn" >
-                        <i class="fas fa-comment"> <%= post.Comment_Count %></i>
+                    <a href="#" onclick="postComment('<%= post._id %>')" id="cmt-btn">
+                        <i class="fas fa-comment">
+                            <%= post.Comment_Count %>
+                        </i>
                     </a>
+                    <script src="index.js"></script>
                 </div>
             </div>
             <% }); %>

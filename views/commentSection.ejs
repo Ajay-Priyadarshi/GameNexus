@@ -29,11 +29,15 @@
                             const day = timestamp.getDate().toString().padStart(2, '0');
                             const formattedDate = `${day}-${month}-${year}`;
                             %> 
-                            <%= comment.User_ID.username %>: <%= comment.Comment_Description %> <p class="time"><%= formattedTime %>  <%= formattedDate %></p>
+                            <p class="us-name" id="cm"> <%= comment.User_ID.username %></p> <p class="cmt-des" id="cm"> <%= comment.Comment_Description %></p> <p class="time" id="cm"> <%= formattedTime %>  <%= formattedDate %></p>
                         </p>
                     </div>
                     <% }); %>
             </div>
+<br>
+<br>
+<br>
+<br>
 
             <div class="new-comment">
                 <form action="/comment/create" method="post">

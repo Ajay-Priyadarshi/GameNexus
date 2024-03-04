@@ -91,7 +91,10 @@ body::-webkit-scrollbar {
 }
 
 input[type="text"] {
-    width: 91%;
+    position:fixed;
+    top:94%;
+    margin-left: 5px;
+    width: 76.5%;
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #ddd;
@@ -100,6 +103,13 @@ input[type="text"] {
     background-color: white;
     color: rgb(0, 0, 0);
  
+}
+
+
+#send-comment-btn{
+    position:fixed;
+    top:92.72%;
+    left: 78.5%;
 }
 
 h2 {
@@ -127,6 +137,7 @@ h2 {
     border-radius: 2px;
     color: #000000;
 }
+
 
 /* Customize the like, comment, and share icons */
 .post-actions i {
@@ -206,10 +217,30 @@ h2 {
 }
 
 .new-comment{
+  
     display: flex;
     flex-direction: column;
+   
 }
 
+.comment{
+    border: #ddd 2px;
+
+    border-style: outset;
+    
+}
+
+#cm{
+    margin-left: 2vw;
+}
+
+.us-name{
+    padding: 8px;
+    border-radius: 6px;
+    width: fit-content;
+    background-color: #7B2CBF;
+    color: white;
+}
 
 .multiline-text {
     font-family: Arial, Helvetica, sans-serif;
@@ -231,7 +262,7 @@ h2 {
 
 .post-img {
     background-color: #000000;
-    height: 100vh;
+    height: 80vh;
     /* Set your desired fixed height */
     width: 100%;
     /* Set your desired fixed width */

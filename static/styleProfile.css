@@ -2,7 +2,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'League';
-    background-color: #000000;
+background-color: #0F0E0E;
+
     /* Light gray background */
     color: white;
 }
@@ -73,11 +74,16 @@ body::-webkit-scrollbar {
     text-align: center;
     font-size: 2vh;
     padding: 1vh;
-    background-color: #3D3D3D;
+    border-color: white;
+    border-style: outset;
+    background-color: #000000;
+
 }
 
 #newPostButton:hover {
-    background-color: #242424;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-color: white;
 }
 
 .profile-info h1 {
@@ -115,8 +121,9 @@ h2 {
 /* Customize the like, comment, and share icons */
 .post-actions i {
 
-    font-size: 24px;
-    margin-right: 10px;
+    font-size: 20px;
+   padding-top: 0.8vh;
+   padding-bottom: 0.8vh;
     cursor: pointer;
 }
 
@@ -164,7 +171,7 @@ h2 {
     border-bottom: 1px solid #e0e0e0;
     padding-top: 1vh;
     width: 100%;
-    background-color: #4c2265;
+    background-color: #7B2CBF;
 
 }
 
@@ -199,9 +206,19 @@ a {
     border-radius: 8px;
 }
 
-.delete-btn {
+#like-btn{
+    margin-left: 4px;
+    color: #000000;
+}
 
-    margin-left: 20.9vw;
+#cmt-btn{
+    margin-left: 4px;
+    color: #000000;
+}
+
+.delete-btn {
+    margin: 2px 0px 2px 4px;
+
     color: #000000;
 }
 

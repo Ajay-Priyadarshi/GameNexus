@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Followers</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000000;
+      margin: 0;
+      padding: 0;
+      color: white;
+    }
+
+    header {
+      font-family: 'Space Monkey';
+      text-align: center;
+    }
+
+    .followers-container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      color: black;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+    }
+
+    .profile-photo {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .profile-photo:hover{
+      box-shadow: 0 0 10px rgb(0, 0, 0);
+    }
+
+    .username {
+      margin-right: 10px;
+    }
+
+    .username:hover{
+      text-decoration: underline;
+      border-radius: 0cm;
+      background-color: #555;
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border-radius: 4px;
+    }
+
+    a:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>List of Followers</h1>
+  </header>
+
+  <div class="followers-container">
+    <ul>
+      <li>
+        <div class="user-info">
+          <img class="profile-photo" src="https://placekitten.com/30/30" alt="User Photo">
+          <span class="username">User 1</span>
+        </div>
+        <button onclick="removeUser(this)">Remove</button>
+      </li>
+      <li>
+        <div class="user-info">
+          <img class="profile-photo" src="https://placekitten.com/30/30" alt="User Photo">
+          <span class="username">User 2</span>
+        </div>
+        <button onclick="removeUser(this)">Remove</button>
+      </li>
+      <!-- Add similar entries for other users -->
+    </ul>
+    
+  </div>
+
+  <script>
+    function removeUser(button) {
+      // Assuming you want to remove the entire <li> element
+      button.parentNode.parentNode.removeChild(button.parentNode);
+    }
+  </script>
+</body>
+</html>

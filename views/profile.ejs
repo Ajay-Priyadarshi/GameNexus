@@ -51,7 +51,7 @@
 
         <div class="npost">
             <a href="/post/new" id="newPostButton">+ New Post</a>
-            <a href="/follow/getRequests" id="newPostButton">+ Follow Requests <%= user.followRequestCount %></a>
+            <a href="/follow/getRequests" id="newPostButton">+ Follow Requests (<%= user.followRequestCount %>)</a>
         </div>
 
         <div class="profile-container">
@@ -64,7 +64,9 @@
                     <div class="profile-i">
                         <img src="/uploads/profileImages/<%= user.userPhoto %>" alt="<%= user.username %>">
                         <div class="username">
-                            <%= user.username %>
+                            
+                           
+                                <%= user.username %>
                         </div>
                     </div>
                     <div class="post">
@@ -72,18 +74,17 @@
                             <img src="/uploads/posts/<%= post.Content_URL %>" alt="<%= user.username %>'s Post">
                         </div>
                         <div class="post-actions">
-                            <a href="/like/<%= post._id %>" id="like-btn" >
-                                <i class="fas fa-heart"><%= post.Like_Count %></i>
+                            <a href="/like/<%= post._id %>"  >
+                                <i class="fas fa-heart" id="like-btn"> <%= post.Like_Count %></i>
                             </a>
 
                             <a href="/comment/<%= post._id %>">
-                                <i class="fas fa-comment"></i><span>
-                                    <%= post.Comment_Count %>
-                                </span>
+                                <i class="fas fa-comment" id="cmt-btn"> <%= post.Comment_Count %>
+                                </i>
                             </a>
                             <a href="#" class="delete-btn"
-                                onclick="window.location.href ='/post/delete/<%= post._id %>';">
-                                <i class="fas fa-trash"></i></a>
+                            onclick="window.location.href ='/post/delete/<%= post._id %>';">
+                            <i class="fas fa-trash"></i></a>
                         </div>
                     </div>
                 </div>

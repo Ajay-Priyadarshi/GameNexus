@@ -14,7 +14,7 @@ body {
     text-align: center;
     font-size: 3.5vh;
     padding: 3vh;
-    text-shadow: 0 0 10px #87CEEB, 0 0 20px #B0C4DE;
+    text-shadow: 0 0 10px #87CEEB;
 }
 
 body::-webkit-scrollbar {

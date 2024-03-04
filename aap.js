@@ -18,6 +18,7 @@ import followRoutes from './src/routes/followRoutes.js';
 import eventRoutes from './src/routes/eventRoutes.js';
 import feedRoutes from './src/routes/feedRoutes.js';
 import commentRoutes from './src/routes/commentRoutes.js';
+import pdfRoutes from './src/routes/pdfRoutes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -59,6 +60,7 @@ app.use('/chat', express.static(path.join(__dirname, 'static')));
 app.use('/post', express.static(path.join(__dirname, 'static')));
 app.use('/events', express.static(path.join(__dirname, 'static')));
 app.use('/comment', express.static(path.join(__dirname, 'static')));
+app.use('/pdf', express.static(path.join(__dirname, 'static')));
 
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
@@ -81,6 +83,7 @@ app.use('/follow', followRoutes);
 app.use('/events', eventRoutes);
 app.use('/feed', feedRoutes);
 app.use('/comment', commentRoutes);
+app.use('/pdf', pdfRoutes);
 
 // Default route
 app.get('/', (req, res) => {

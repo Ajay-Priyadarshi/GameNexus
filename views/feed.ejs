@@ -13,8 +13,7 @@
 
     <h2 class="page-info">POST FEED</h2>
     <br>
-    <br>
-    <br>
+
     <div class="post-feed">
         <% userPosts.forEach(post=> { %>
             <div class="post">
@@ -24,13 +23,13 @@
                         <%= post.User_ID.username %>
                     </div>
                 </div>
-                <img src="/uploads/posts/<%= post.Content_URL %>" alt="Post">
+                <img class="post-img" src="/uploads/posts/<%= post.Content_URL %>" alt="Post">
                 <div class="post-actions">
                     <a href="/like/<%= post._id %>" id="like-btn" >
-                        <i class="fas fa-heart"><%= post.Like_Count %></i>
+                        <i class="fas fa-heart"> <%= post.Like_Count %></i>
                     </a>
                     <a href="/comment/<%= post._id %>" id="cmt-btn" >
-                        <i class="fas fa-comment"><%= post.Comment_Count %></i>
+                        <i class="fas fa-comment"> <%= post.Comment_Count %></i>
                     </a>
                 </div>
             </div>

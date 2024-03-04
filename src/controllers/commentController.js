@@ -57,7 +57,6 @@ export const createComment = async (req, res) => {
         
         return res.status(200).send(`
         <script>
-          alert('Comment added.');
           window.location.href = '/comment/commentSection/${Content_ID}';
         </script>
       `);

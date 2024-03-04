@@ -42,7 +42,7 @@
             <div class="new-comment">
                 <form action="/comment/create" method="post">
 
-                    <input type="text" id="Comment_Description" name="Comment_Description" placeholder="Enter comment">
+                    <input type="text" id="Comment_Description" name="Comment_Description" placeholder="Enter comment" required>
 
                     <input type="hidden" name="Content_ID" value="<%= post._id %>">
 

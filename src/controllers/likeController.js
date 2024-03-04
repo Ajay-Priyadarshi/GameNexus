@@ -33,8 +33,8 @@ export const likeContent = async (req, res) => {
       } else {
         redirectUrl = '/profile';
       }
-    } else if (referer.includes('/comment')) {
-      redirectUrl = `/comment/${postId}`;
+    } else if (referer.includes('/comment/postSection/')) {
+      redirectUrl = `/comment/postSection/${postId}`;
     } else if (referer.includes('/search')) {
       redirectUrl = '/search';
     }

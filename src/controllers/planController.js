@@ -10,6 +10,16 @@ export const showPlans = async (req, res) => {
     }
 };
 
+export const showUserPlans = async (req, res) => {
+    try {
+        const plans = await Plan.find();
+        res.render('showUserPlans', { plans });
+    } catch (error) {
+        console.error('Error fetching plans:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
 export const showAddPlanForm = (req, res) => {
     res.render('addPlan');
 };

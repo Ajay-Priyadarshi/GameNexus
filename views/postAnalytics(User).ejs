@@ -57,31 +57,34 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-title">&#9776; Post Info</p>
+                        <p class="card-title">&#9776; <%= user.username %> 's Posts </p>
+                        <a href="/pdf/postAnalytics" class="btn btn-primary mt-3">PDF</a>
                         <table id="postTable">
                             <thead>
                                 <tr>
-                                    <th>User Name</th>
-                                    <th>Post Count</th>
+                                    <th>Post ID</th>
+                                    <th>Content Type</th>
+                                    <th>Content URL</th>
+                                    <th>Content Description</th>
+                                    <th>Like Count</th>
+                                    <th>Comment Count</th>
+                                    <th>Timestamp</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <% let totalPosts = 0; %>
-                                <% for (const user in analyticsData) { %>
+                                <% for (const post of analyticsData) { %>
                                     <tr>
-                                        <td><a href="/postAnalytics/user/<%= user %>"><%= user %></a></td>
-                                        <td><%= analyticsData[user] %></td>
+                                        <td><%= post.postId %></td>
+                                        <td><%= post.content_type %></td>
+                                        <td><%= post.content_url %></td>
+                                        <td><%= post.content_description %></td>
+                                        <td><%= post.like_count %></td>
+                                        <td><%= post.comment_count %></td>
+                                        <td><%= post.timestamp %></td>
                                     </tr>
-                                    <% totalPosts += analyticsData[user]; %>
                                 <% } %>
-                                <tr>
-                                    <td>Total Posts</td>
-                                    <td><%= totalPosts %></td>
-                                </tr>
                             </tbody>
                         </table>
-
-                        <a href="/pdf/postAnalytics" class="btn btn-primary mt-3">PDF</a><br>
 
                     </div>
                 </div>

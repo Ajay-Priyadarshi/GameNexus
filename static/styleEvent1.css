@@ -10,7 +10,7 @@ body {
 
 .reg {
     margin-top: 4vh;
-    margin-left: 6vh;
+    margin-left: 8vh;
     font-size: 1.8vh;
 
 }
@@ -103,7 +103,7 @@ input[type="text"] {
     width: 60px;
     height: 60px;
     object-fit: cover;
-    margin-right: 15px;
+    margin-right: 25px;
 }
 
 .event-details {
@@ -137,11 +137,11 @@ body::-webkit-scrollbar {
 }
 
 .user-name {
-    margin: 4vh 5vh 2vh 1vh;
+    margin: 4vh 6vh 2vh 3vh;
 }
 
 .event-name {
-    margin: 3.5vh 6vh 2vh 0vh;
+    margin: 3.5vh 6vh 2vh 2vh;
     text-align: left;
     font-weight: bold;
     font-size: 18px;

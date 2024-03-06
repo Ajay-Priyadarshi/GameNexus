@@ -113,6 +113,8 @@
     <% plans.forEach(plan=> { %>
       <div class="plan">
         <label for="<%= plan._id %>"><strong>Type : <%= plan.Plan_Name %></strong></label>
+        <p>Account Type : <%= plan.accountType %>
+        </p>
         <p>Description : <%= plan.Plan_Description %>
         </p>
         <p>Price : <%= plan.Price %>

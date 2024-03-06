@@ -1,4 +1,5 @@
 import { PlanModel as Plan } from '../models/Plan.js';
+import { UserModel as User } from '../models/User.js';
 
 export const showPlans = async (req, res) => {
     try {
@@ -12,7 +13,9 @@ export const showPlans = async (req, res) => {
 
 export const showUserPlans = async (req, res) => {
     try {
-        const plans = await Plan.find();
+        const userId = req.session.userId;
+        const user = await User.findOne({ _id: userId });
+        const plans = await Plan.find({accountType: user.accountType});
         res.render('showUserPlans', { plans });
     } catch (error) {
         console.error('Error fetching plans:', error);
@@ -25,11 +28,12 @@ export const showAddPlanForm = (req, res) => {
 };
 
 export const addPlan = async (req, res) => {
-    const { Plan_Name, Plan_Description, Price, Plan_Cycle } = req.body;
+    const { Plan_Name, accountType, Plan_Description, Price, Plan_Cycle } = req.body;
 
     try {
         const newPlan = new Plan({
             Plan_Name,
+            accountType,
             Plan_Description,
             Price,
             Plan_Cycle,

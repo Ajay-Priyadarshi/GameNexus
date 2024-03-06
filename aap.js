@@ -20,6 +20,7 @@ import eventRoutes from './src/routes/eventRoutes.js';
 import feedRoutes from './src/routes/feedRoutes.js';
 import commentRoutes from './src/routes/commentRoutes.js';
 import pdfRoutes from './src/routes/pdfRoutes.js';
+import paymentRoutes from './src/routes/paymentRoutes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -87,6 +88,7 @@ app.use('/events', eventRoutes);
 app.use('/feed', feedRoutes);
 app.use('/comment', commentRoutes);
 app.use('/pdf', pdfRoutes);
+app.use('/payment', paymentRoutes);
 
 // Default route
 app.get('/', (req, res) => {

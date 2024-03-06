@@ -1,8 +1,7 @@
 import { UserModel as User } from '../models/User.js';
 
-export const showanalytics = async (req, res) => {
+export const showAnalytics = async (req, res) => {
     try {
-        // Fetch data from the User_Data_tbl
         const userAnalyticsData = await User.aggregate([
             {
                 $group: {

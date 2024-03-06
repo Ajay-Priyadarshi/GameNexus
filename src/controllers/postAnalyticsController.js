@@ -1,7 +1,7 @@
 import { UserModel as User } from '../models/User.js';
 import { ContentModel as Content } from '../models/Contents.js';
 
-export const showanalytics = async (req, res) => {
+export const showAnalytics = async (req, res) => {
     try {
         const postAnalyticsData = await User.aggregate([
             {

@@ -1,7 +1,6 @@
 import { UserModel as User } from '../models/User.js';
 import { PlanModel as Plan } from '../models/Plan.js';
 import { PaymentModel as Payment } from '../models/Payment.js';
-import e from 'express';
 
 export const login = async (req, res) => {
   const { username, password } = req.body;
@@ -100,7 +99,7 @@ export const selectPlan = async (req, res) => {
   try {
     const user = await User.findById(userId);
     const plan = await Plan.findById(planId);
-    
+
     user.Plan_ID = planId;
     await user.save();
 

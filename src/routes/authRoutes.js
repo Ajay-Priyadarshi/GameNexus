@@ -1,6 +1,6 @@
 // authRoutes.js
 import express from 'express';
-import { login, register, forgotPasswordStep1, forgotPasswordStep2 } from "../controllers/authController.js";
+import { login, register, selectPlan, forgotPasswordStep1, forgotPasswordStep2 } from "../controllers/authController.js";
 import multer from 'multer';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -26,6 +26,8 @@ router.get('/reg', (req, res) => {
   res.sendFile(path.join(__dirname, 'static', '../../../static/register.html'));
 })
 router.post('/register', upload.single('photo'), register);
+router.post('/select-plan', selectPlan);
+
 router.post('/login', login);
 router.post('/forgot-password-step1', forgotPasswordStep1);
 router.post('/forgot-password-step2', forgotPasswordStep2);

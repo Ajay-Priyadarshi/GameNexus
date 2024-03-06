@@ -1,4 +1,7 @@
 import { UserModel as User } from '../models/User.js';
+import { PlanModel as Plan } from '../models/Plan.js';
+import { PaymentModel as Payment } from '../models/Payment.js';
+import e from 'express';
 
 export const login = async (req, res) => {
   const { username, password } = req.body;
@@ -15,7 +18,6 @@ export const login = async (req, res) => {
       `);
     }
 
-    // Check if the account is active
     if (existingUser.accountStatus !== 'Active') {
       return res.status(401).send(`
         <script>
@@ -25,7 +27,6 @@ export const login = async (req, res) => {
       `);
     }
 
-    // Compare the entered password with the stored password directly
     if (password !== existingUser.password) {
       return res.status(401).send(`
         <script>
@@ -46,7 +47,6 @@ export const login = async (req, res) => {
       // Redirect to the user's profile or home page
       return res.redirect('/Homepage.html');
     }
-    // return res.status(200).json({ message: 'Login successful' });
   } catch (error) {
     console.error('Error during user login:', error);
     res.status(500).json({ error: 'Internal Server Error' });
@@ -85,15 +85,43 @@ export const register = async (req, res, next) => {
 
     await newUser.save();
 
-    return res.status(201).send(`
-    <script>
-      alert('Registration successful. Welcome to the website!');
-      window.location.href = '/login.html'; 
-    </script>
-  `);
+    const userPlans = await Plan.find({ accountType: accountType });
+
+    res.render('selectPlan', { userId: newUser._id, userPlans });
   } catch (error) {
     console.error('Error during registration:', error);
     res.status(500).json({ error: 'Internal Server Error', details: error.message });
+  }
+};
+
+export const selectPlan = async (req, res) => {
+  const { userId, planId } = req.body;
+
+  try {
+    const user = await User.findById(userId);
+    const plan = await Plan.findById(planId);
+    
+    user.Plan_ID = planId;
+    await user.save();
+
+    const newPayment = new Payment({
+      User_ID: userId,
+      Amount: plan.Price,
+      Plan_ID: planId,
+    });
+
+    await newPayment.save();
+
+    return res.status(200).send(`
+    <script>
+      alert('Registration successful. Please login to continue.');
+      window.location.href = '/login.html'; 
+    </script>
+    `);
+
+  } catch (error) {
+    console.error('Error selecting plan:', error);
+    res.status(500).send('Internal Server Error');
   }
 };
 

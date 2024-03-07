@@ -67,8 +67,7 @@
                             </li>
                         </ul>
                         
-                        <a href="/pdf/userAnalytics" class="btn btn-primary mt-3">PDF</a><br>
-                        <a href="/userAnalytics/userList" class="btn btn-primary mt-3">User List</a>
+                        <a href="/pdf/userAnalytics?data=<%= encodeURIComponent(JSON.stringify(analyticsData)) %>" class="btn btn-primary mt-3">PDF</a><br>
                         <a href="/userAnalytics/genderRatio" class="btn btn-primary mt-3">Gender Ratio</a>
                         <a href="/userAnalytics/ageRatio" class="btn btn-primary mt-3">Age Ratio</a>
                         

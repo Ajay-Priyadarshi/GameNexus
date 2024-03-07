@@ -132,7 +132,7 @@ export const ageRatio = async (req, res) => {
             analyticsData[range] = item.count;
         });
 
-        res.render('genderAnalytics', { analyticsData });
+        res.render('ageAnalytics', { analyticsData });
     } catch (error) {
         console.error('Error fetching user analytics data:', error);
         res.status(500).send('Internal Server Error');

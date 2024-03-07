@@ -56,19 +56,18 @@
                         <p class="card-title">&#9776;User Info</p>
                         <ul id="userList" class="list-group">
                             <% let totalUsers = 0; %>
-                            <% for (const accountType in analyticsData) { %>
+                            <% for (const record in analyticsData) { %>
                                 <li class="list-group-item">
-                                    <%= accountType %>: <%= analyticsData[accountType] %>
+                                    <%= record %>: <%= analyticsData[record] %>
                                 </li>
-                                <% totalUsers += analyticsData[accountType]; %>
+                                <% totalUsers += analyticsData[record]; %>
                             <% } %>
                             <li class="list-group-item">
                                 Total Users: <%= totalUsers %>
                             </li>
                         </ul>
                         
-                        <a href="/pdf/userAnalytics" class="btn btn-primary mt-3">PDF</a><br>
-                        <a href="/userAnalytics/userList" class="btn btn-primary mt-3">User List</a>
+                        <a href="/pdf/ageAnalytics?data=<%= encodeURIComponent(JSON.stringify(analyticsData)) %>" class="btn btn-primary mt-3">PDF</a><br>
                         <a href="/userAnalytics/genderRatio" class="btn btn-primary mt-3">Gender Ratio</a>
                         <a href="/userAnalytics/ageRatio" class="btn btn-primary mt-3">Age Ratio</a>
                         
@@ -92,7 +91,7 @@
                     labels: Object.keys(analyticsData).map(label => label.toLowerCase()),
                     datasets: [{
                         data: Object.values(analyticsData),
-                        backgroundColor: ['#2ecc71', '#e74c3c',]
+                        backgroundColor: ['#2ecc71', '#e74c3c', '#f39c12', '#3498db', '#9b59b6', '#34495e']
                     }]
                 }
             });

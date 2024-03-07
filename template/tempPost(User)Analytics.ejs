@@ -57,9 +57,9 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-title">&#9776; <%= user.username %> 's Posts </p>
-                        <a href="/pdf/postUserAnalytics/?data=<%= encodeURIComponent(JSON.stringify(analyticsData)) %>" class="btn btn-primary mt-3">PDF</a>
-
+                        <h1> Posts </h1>
+                        <p>Date: <%= currentDate %></p>
+                        <p>Time: <%= currentTime %></p>
                         <table id="postTable">
                             <thead>
                                 <tr>
@@ -75,32 +75,17 @@
                             <tbody>
                                 <% for (const post of analyticsData) { %>
                                     <tr>
-                                        <td>
-                                            <%= post.postId %>
-                                        </td>
-                                        <td>
-                                            <%= post.content_type %>
-                                        </td>
-                                        <td>
-                                            <%= post.content_url %>
-                                        </td>
-                                        <td>
-                                            <%= post.content_description %>
-                                        </td>
-                                        <td>
-                                            <%= post.like_count %>
-                                        </td>
-                                        <td>
-                                            <%= post.comment_count %>
-                                        </td>
-                                        <td>
-                                            <%= post.timestamp %>
-                                        </td>
+                                        <td><%= post.postId %></td>
+                                        <td><%= post.content_type %></td>
+                                        <td><%= post.content_url %></td>
+                                        <td><%= post.content_description %></td>
+                                        <td><%= post.like_count %></td>
+                                        <td><%= post.comment_count %></td>
+                                        <td><%= post.timestamp %></td>
                                     </tr>
-                                    <% } %>
+                                <% } %>
                             </tbody>
                         </table>
-
                     </div>
                 </div>
             </div>

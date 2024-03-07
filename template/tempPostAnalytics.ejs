@@ -57,7 +57,9 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-title">&#9776; Post Analytics</p>
+                        <h2>Post analytics</h2>
+                        <p>Date: <%= currentDate %></p>
+                        <p>Time: <%= currentTime %></p>
                         <table id="postTable">
                             <thead>
                                 <tr>
@@ -69,7 +71,7 @@
                                 <% let totalPosts = 0; %>
                                 <% for (const user in analyticsData) { %>
                                     <tr>
-                                        <td><a href="/postAnalytics/user/<%= user %>"><%= user %></a></td>
+                                        <td><%= user %></td>
                                         <td><%= analyticsData[user] %></td>
                                     </tr>
                                     <% totalPosts += analyticsData[user]; %>
@@ -80,9 +82,6 @@
                                 </tr>
                             </tbody>
                         </table>
-
-                        <a href="/pdf/postAnalytics?data=<%= encodeURIComponent(JSON.stringify(analyticsData)) %>" class="btn btn-primary mt-3">PDF</a><br>
-
                     </div>
                 </div>
             </div>

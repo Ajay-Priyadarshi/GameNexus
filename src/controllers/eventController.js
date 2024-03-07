@@ -20,7 +20,6 @@ export const eventUsr = async (req, res) => {
         const events = await Event.find()
             .populate('User_ID', 'username userPhoto _id')
             .exec();
-
         res.render('eventPageUsr', { events });
     } catch (error) {
         console.error('Error fetching plans:', error);

@@ -28,7 +28,7 @@ export const showAddPlanForm = (req, res) => {
 };
 
 export const addPlan = async (req, res) => {
-    const { Plan_Name, accountType, Plan_Description, Price, Plan_Cycle } = req.body;
+    const { Plan_Name, accountType, Plan_Description, Price } = req.body;
 
     try {
         const newPlan = new Plan({
@@ -36,7 +36,6 @@ export const addPlan = async (req, res) => {
             accountType,
             Plan_Description,
             Price,
-            Plan_Cycle,
         });
 
         await newPlan.save();
@@ -67,14 +66,13 @@ export const showEditPlanForm = async (req, res) => {
 
 export const editPlan = async (req, res) => {
     const planId = req.params.planId;
-    const { Plan_Name, Plan_Description, Price, Plan_Cycle } = req.body;
+    const { Plan_Name, Plan_Description, Price} = req.body;
 
     try {
         await Plan.findByIdAndUpdate(planId, {
             Plan_Name,
             Plan_Description,
             Price,
-            Plan_Cycle,
         });
         return res.send(`
         <script>

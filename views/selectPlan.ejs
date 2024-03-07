@@ -22,7 +22,6 @@
                     <th>Plan Name</th>
                     <th>Plan Description</th>
                     <th>Price</th>
-                    <th>Plan Cycle</th>
                     <th>Select</th>
                 </tr>
             </thead>
@@ -32,7 +31,6 @@
                         <td><%= plan.Plan_Name %></td>
                         <td><%= plan.Plan_Description %></td>
                         <td>$<%= plan.Price %></td>
-                        <td><%= plan.Plan_Cycle %></td>
                         <td>
                             <label>
                                 <input type="radio" name="planId" value="<%= plan._id %>" required>

@@ -7,7 +7,6 @@ const planSchema = new mongoose.Schema({
   accountType: { type: String, required: true },
   Plan_Description: { type: String, required: true },
   Price: { type: Number, required: true },
-  Plan_Cycle: { type: String, required: true },
 });
 
 const PlanModel = mongoose.model('Plans_tbl', planSchema, 'Plans_tbl');

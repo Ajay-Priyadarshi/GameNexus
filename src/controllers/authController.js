@@ -55,7 +55,7 @@ export const login = async (req, res) => {
 // Function to handle user registration
 export const register = async (req, res, next) => {
   const { username, email, password, accountType, bio, securityQuestion, answer, age, gender } = req.body;
-  const photoFileName = req.file ? req.file.filename : null;
+  const photoFileName = req.file ? req.file.filename : "demo.jpg";
 
   try {
     const existingUser = await User.findOne({ username });

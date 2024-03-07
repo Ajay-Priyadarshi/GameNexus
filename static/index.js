@@ -24,7 +24,7 @@ function loadPagein(parentName, pageName) {
     document.getElementById("content").src = `/${parentName}/${pageName}`;
 
     const relatedPageName = `${pageName}_options`;
-    document.getElementById("options-content").src = `/${pageName}/${relatedPageName}`;
+    document.getElementById("options-content").src = `/${parentName}/${pageName}/${relatedPageName}`;
 }
 
 function toggleDropdown(dropdownId) {

@@ -19,8 +19,15 @@
             </div>
         </div>
         <div class="post">
-            <div class="post-img">
-                <img src="/uploads/posts/<%= post.Content_URL %>" alt="<%= post.User_ID.username %>'s Post">
+            <div class="post-media">
+                <% if (post.Content_Type === 'image') { %>
+                    <img class="post-img" src="/uploads/posts/<%= post.Content_URL %>" alt="<%= post.User_ID.username %>'s Post">
+                <% } else if (post.Content_Type === 'video') { %>
+                    <video class="post-video" controls>
+                        <source src="/uploads/posts/<%= post.Content_URL %>" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                <% } %>
             </div>
             <div class="post-actions">
                 <a href="/like/<%= post._id %>/<%= post.User_ID._id %>" id="like-btn">

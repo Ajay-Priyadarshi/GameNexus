@@ -17,12 +17,12 @@ const storage = multer.diskStorage({
     },
 });
 
+const upload = multer({ storage }).single('userPhoto');
+
 const router = express.Router();
-const upload = multer({ storage });
 
 router.get('/new', newPost);
-router.post('/create', upload.single('userPhoto'), createPost);
+router.post('/create', upload, createPost);
 router.get('/delete/:postId', deletePost);
-
 
 export default router;

@@ -210,6 +210,18 @@ h2 {
     justify-content: center;
 }
 
+.post-video {
+    height: 65vh;
+    /* Set your desired fixed height */
+    width: 45vh;
+    /* Set your desired fixed width */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 a {
     color: white;
     text-decoration: none;

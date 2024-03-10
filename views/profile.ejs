@@ -57,39 +57,52 @@
         <div class="profile-container">
             <h2># PROFILE GRID</h2>
         </div>
-<br>
+        <br>
         <div class="posts">
             <% userPosts.forEach(post=> { %>
                 <div class="profile-container">
                     <div class="profile-i">
-                        <img class="img-i" src="/uploads/profileImages/<%= user.userPhoto %>" alt="<%= user.username %>">
+                        <img class="img-i" src="/uploads/profileImages/<%= user.userPhoto %>"
+                            alt="<%= user.username %>">
                         <div class="username">
-                            
-                           
-                                <%= user.username %>
+                            <%= user.username %>
                         </div>
                     </div>
                     <div class="post">
-                        <div class="post-img">
-                            <img src="/uploads/posts/<%= post.Content_URL %>" alt="<%= user.username %>'s Post">
-                        </div>
-                        <div class="post-actions">
-                            <a href="/like/<%= post._id %>"  >
-                                <i class="fas fa-heart" id="like-btn"> <%= post.Like_Count %></i>
-                            </a>
 
-                            <a href="#" onclick="postComment('<%= post._id %>')" id="cmt-btn">
-                                <i class="fas fa-comment">
-                                    <%= post.Comment_Count %>
-                                </i>
-                            </a>
-                            <a href="#" class="delete-btn"
-                            onclick="window.location.href ='/post/delete/<%= post._id %>';">
-                            <i class="fas fa-trash"></i></a>
-                        </div>
+                        <% if (post.Content_Type==='image' ) { %>
+                            <!-- Render image element -->
+                            <div class="post-img">
+                                <img src="/uploads/posts/<%= post.Content_URL %>" alt="<%= user.username %>'s Post">
+                            </div>
+                            <% } else if (post.Content_Type==='video' ) { %>
+                                <!-- Render video element -->
+                                <div class="post-video">
+                                    <video controls>
+                                        <source src="/uploads/posts/<%= post.Content_URL %>" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <% } %>
+                    </div>
+                    <div class="post-actions">
+                        <a href="/like/<%= post._id %>">
+                            <i class="fas fa-heart" id="like-btn"> <%= post.Like_Count %></i>
+                        </a>
+    
+                        <a href="#" onclick="postComment('<%= post._id %>')" id="cmt-btn">
+                            <i class="fas fa-comment">
+                                <%= post.Comment_Count %>
+                            </i>
+                        </a>
+                        <a href="#" class="delete-btn" onclick="window.location.href ='/post/delete/<%= post._id %>';">
+                            <i class="fas fa-trash"></i>
+                        </a>
                     </div>
                 </div>
+                
                 <% }); %>
+                
         </div>
 
         <script src="index.js"></script>

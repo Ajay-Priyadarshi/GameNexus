@@ -12,7 +12,7 @@
     <form action="/post/create" method="POST" enctype="multipart/form-data">
 
         <label for="postImg" id="photoLabel">Add File</label>
-        <input type="file" id="postImg" name="userPhoto" accept="image/*">
+        <input type="file" id="postImg" name="userPhoto" accept="image/*, video/*">
 
         <label for="description">Description:</label>
         <input type="text" id="description" name="Content_Description" value="">
@@ -20,7 +20,7 @@
         <input type="hidden" name="User_ID" value="<%= user._id %>">
         <button type="submit">Create Post</button>
 
-        <button onclick="goBack()">Go Back</button>
+        <button type="button" onclick="goBack()">Go Back</button>
 
     </form>
 

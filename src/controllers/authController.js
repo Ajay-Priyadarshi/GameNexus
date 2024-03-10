@@ -82,11 +82,9 @@ export const register = async (req, res, next) => {
       userPhoto: photoFileName,
     });
 
-    await newUser.save();
-
     const userPlans = await Plan.find({ accountType: accountType });
 
-    res.render('selectPlan', { userId: newUser._id, userPlans });
+    res.render('selectPlan', { newUser, userPlans });
   } catch (error) {
     console.error('Error during registration:', error);
     res.status(500).json({ error: 'Internal Server Error', details: error.message });
@@ -94,17 +92,19 @@ export const register = async (req, res, next) => {
 };
 
 export const selectPlan = async (req, res) => {
-  const { userId, planId } = req.body;
+  const { planId, newUser } = req.body;
 
   try {
-    const user = await User.findById(userId);
+    const parsedNewUser = JSON.parse(newUser);
     const plan = await Plan.findById(planId);
 
+    const user = new User(parsedNewUser); 
     user.Plan_ID = planId;
-    await user.save();
+
+    await user.save(); 
 
     const newPayment = new Payment({
-      User_ID: userId,
+      User_ID: user._id,
       Amount: plan.Price,
       Plan_ID: planId,
     });

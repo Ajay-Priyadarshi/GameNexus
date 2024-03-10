@@ -14,8 +14,8 @@
     <h1>Select Plan</h1>
 
     <form method="post" action="/auth/select-plan">
-        <input type="hidden" name="userId" value="<%= userId %>">
 
+        <input type="hidden" name="newUser" value="<%= JSON.stringify(newUser) %>">
         <table>
             <thead>
                 <tr>

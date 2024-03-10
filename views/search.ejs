@@ -23,7 +23,7 @@
             <% for (let i=0; i < results.length; i++) { %>
                 <a href="/profile/<%= results[i]._id %>">
                     <div class="result-item">
-                        <img src="/uploads/profileImages/<%= results[i].userPhoto %>" alt="<%= results[i].username %>">
+                        <img class="img-i" src="/uploads/profileImages/<%= results[i].userPhoto %>" alt="<%= results[i].username %>">
                         <div class="result-details">
                             <h3>
                                 <%= results[i].username %>

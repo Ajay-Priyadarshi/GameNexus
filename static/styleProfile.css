@@ -12,8 +12,7 @@ background-color: #0F0E0E;
 
     padding-bottom: 3vh;
     display: flex;
-    border-bottom: 1px solid #e0e0e0;
-    /* Light gray border */
+   
 
 }
 
@@ -32,8 +31,8 @@ body::-webkit-scrollbar {
 }
 
 .npost {
-    margin-top: 4vh;
-    margin-bottom: 4vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 
 }
 
@@ -67,26 +66,28 @@ body::-webkit-scrollbar {
 
 
 #newPostButton {
-
+margin-top: 0;
+margin-bottom: 0;
     margin-left: 24vw;
+    border-radius: 5px;
     padding: 4px;
     width: fit-content;
     font-family: 'Supercell-Magic', sans-serif;
     font-weight: bold;
-    color: white;
+    color: rgb(255, 255, 255);
     text-align: center;
     font-size: 2vh;
     padding: 1vh;
-    border-color: white;
+    border-color: rgb(255, 255, 255);
     border-style: outset;
-    background-color: #000000;
+    background-color:  #ea6e15;
 
 }
 
 #newPostButton:hover {
     background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    border-color: white;
+    color: #ea6e15;
+    border-color: #ea6e15;
 }
 
 .profile-info h1 {
@@ -130,6 +131,11 @@ h2 {
     cursor: pointer;
 }
 
+.main-i{
+    border: #ffffff 3px;
+    border-style: outset;
+}
+
 .profile-i {
     background-color: white;
     color: rgb(0, 0, 0);
@@ -164,17 +170,23 @@ h2 {
     width: 90%;
 }
 
+.img-i{
+    border:#594E86 solid 2px;
+    border-style: outset;
+}
+
 .counts p {
     margin: 0;
 }
 
 .multiline-text {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "League";
     padding-left: 5px;
    border:#ffffff solid 2px;
+   border-radius: 10px;
     padding-top: 1vh;
     width: 99%;
-    background-color: #7B2CBF;
+    background-color: #ea6e15;
 
 }
 

@@ -18,7 +18,7 @@
         <% userPosts.forEach(post=> { %>
             <div class="post">
                 <div class="profile-info">
-                    <img src="/uploads/profileImages/<%= post.User_ID.userPhoto %>" alt="<%= post.User_ID.username %>">
+                    <img class="img-i" src="/uploads/profileImages/<%= post.User_ID.userPhoto %>" alt="<%= post.User_ID.username %>">
                     <div class="username">
                         <%= post.User_ID.username %>
                     </div>

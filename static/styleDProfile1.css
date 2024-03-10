@@ -1,10 +1,21 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'League';
-    background-color: #000000;
+
+background-color: #0F0E0E;
+font-family: "League";
     /* Light gray background */
     color: white;
+}
+
+.main-i{
+    border:#ffffff solid 2px;
+    border-style: outset;
+}
+
+.img-i{
+    border:#594E86 solid 2px;
+    border-style: outset;
 }
 
 .profile-header {
@@ -31,7 +42,9 @@ body::-webkit-scrollbar {
 }
 
 .npost {
-    margin: 10px;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+
 }
 
 #photoLabel {
@@ -61,23 +74,45 @@ body::-webkit-scrollbar {
 
 }
 
+button{
+    font-family: "League";
+     height: 4vh;
+     width: 10vw;
+    background-color: #ea6e15;
+    border: #ffffff 3px;
+    border-radius: 5px;
+    border-style: outset;
+    margin: 1vh;
+    color: #ffffff;
+}
 
+button:hover{
+    color: #ea6e15;
+    background-color: white;
+    border-color: #ea6e15;
+}
 
 #newPostButton {
+
+    margin-left: 24vw;
     padding: 4px;
     width: fit-content;
-    margin-right: 4px;
     font-family: 'Supercell-Magic', sans-serif;
     font-weight: bold;
     color: white;
     text-align: center;
     font-size: 2vh;
     padding: 1vh;
-    background-color: #3D3D3D;
+    border-color: white;
+    border-style: outset;
+    background-color: #000000;
+
 }
 
 #newPostButton:hover {
-    background-color: #242424;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-color: white;
 }
 
 .profile-info h1 {
@@ -91,6 +126,10 @@ h2 {
     font-family: 'Space Monkey';
 }
 
+.r1 {
+
+    margin-left: 2.5vw;
+}
 
 #data {
 
@@ -111,17 +150,11 @@ h2 {
 /* Customize the like, comment, and share icons */
 .post-actions i {
 
-    font-size: 24px;
+    font-size: 20px;
+   padding-top: 0.8vh;
+   padding-bottom: 0.8vh;
     cursor: pointer;
 }
-
-#like-btn,
-#cmt-btn {
-    color: #000000;
-    margin: 0;
-}
-
-
 
 .profile-i {
     background-color: white;
@@ -161,17 +194,34 @@ h2 {
     margin: 0;
 }
 
+h2{
+    margin-top: 0;
+    margin-bottom: 1.25vh;
+    padding: 1.5vh 0vh;
+    border: #ffffff 3px;
+    border-radius: 5px;
+    border-style: outset;
+}
+
 .multiline-text {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "League";
     padding-left: 5px;
-    border-bottom: 1px solid #e0e0e0;
+   border:#ffffff solid 2px;
     padding-top: 1vh;
-    width: 100%;
-    background-color: #4c2265;
+    width: 99%;
+    background-color: #ea6e15;
 
 }
 
+.profile-container1{
+    border: 2px solid #fff;
+    border-radius: 5px;
+    border-style: outset;
+}
+
 .posts {
+
+    margin-top:0 ;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 5px;
@@ -182,7 +232,7 @@ h2 {
 .post-img {
     height: 65vh;
     /* Set your desired fixed height */
-    width: 45vh;
+    width: 42vh;
     /* Set your desired fixed width */
     overflow: hidden;
     position: relative;
@@ -198,26 +248,25 @@ a {
 
 .profile-container {
     overflow: hidden;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+
+
 }
 
-button {
-    width: fit-content;
-    padding: 3px 10px;
-    background-color: #594E86;
-
-    color: white;
-    margin: 10px;
-    font-size: 2vh;
+#like-btn{
+    margin-left: 4px;
+    color: #000000;
 }
 
-.opt-r {
-    border-style: outset;
-    border-color: #ddd;
+#cmt-btn{
+    margin-left: 4px;
+    color: #000000;
 }
 
+.delete-btn {
+    margin: 2px 0px 2px 4px;
 
+    color: #000000;
+}
 
 .post img {
     max-height: 100%;

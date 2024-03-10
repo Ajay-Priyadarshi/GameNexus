@@ -9,9 +9,17 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-            background-color: #1b1b1b;
+            font-family: "League";
+            background-color: #000000;
             color: white;
         }
+
+h1{
+    font-family: "Space Monkey";
+    color: #000;
+    text-align: center;
+    margin-top: 4vh;
+}
 
         .card-title {
             font-size: 2vh;
@@ -19,57 +27,63 @@
         }
 
         .container {
-            background-color: #1b1b1b;
+            background-color: #000000;
         }
 
         .card {
-            background-color: #3a3a3a;
+            background-color: #000000;
         }
 
         h2 {
-            color: white;
+            text-align: center;
+            color: #000;
         }
 
         .card-title {
-            color: white;
+            color: #000;
+        }
+
+        p{
+            text-align: center;
+            color: #000;
         }
     </style>
 </head>
 
 <body>
-
+<h1>GameNexus</h1>
     <div class="container my-5">
         <div class="row">
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
                         <h2>User Info</h2>
-                        <p>Date: <%= currentDate %></p>
-                        <p>Time: <%= currentTime %></p>
+                        <p>Date: <%= currentDate %>
+                        Time: <%= currentTime %></p>
                         <table class="table table-bordered table-dark">
                             <thead>
                                 <tr>
-                                    <th scope="col">Account Type</th>
-                                    <th scope="col">Number of Users</th>
+                                    <th scope="col"><p>Account Type</p></th>
+                                    <th scope="col"><p>Number of Users</p></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <% let totalUsers=0; %>
-                                    <% for (const record in analyticsData) { %>
+                                <p> <% let totalUsers=0; %>
+                                    <% for (const record in analyticsData) { %></p>
                                         <tr>
                                             <td>
-                                                <%= record %>
+                                                <p> <%= record %></p>
                                             </td>
                                             <td>
-                                                <%= analyticsData[record] %>
+                                                <p> <%= analyticsData[record] %></p>
                                             </td>
                                         </tr>
-                                        <% totalUsers +=analyticsData[record]; %>
-                                            <% } %>
+                                        <p> <% totalUsers +=analyticsData[record]; %>
+                                            <% } %> </p>
                                                 <tr>
-                                                    <td>Total Users:</td>
+                                                    <td><p>Total Users:</p></td>
                                                     <td>
-                                                        <%= totalUsers %>
+                                                        <p><%= totalUsers %></p>
                                                     </td>
                                                 </tr>
                             </tbody>

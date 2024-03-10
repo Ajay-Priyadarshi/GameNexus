@@ -9,12 +9,25 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-            background-color: #1b1b1b;
+            text-align: center;
+            font-family: "League";
+            background-color: #000000;
             color: white;
+        }
+
+        h1{
+            font-family: "Space Monkey";
+            text-align: center;
+            color: #000000;
+            margin-top: 4vh;
         }
 
         .card-title {
             font-size: 2vh;
+        }
+
+        tr{
+            color:#000000 ;
         }
 
         .container {
@@ -22,24 +35,24 @@
         }
 
         .card {
-            background-color: #3a3a3a;
+            background-color: #000000;
         }
 
         h2 {
-            color: white;
+            color: rgb(0, 0, 0);
         }
 
         .card-title {
-            color: white;
+            color: rgb(0, 0, 0);
         }
 
         #pie-chart {
-            color: white;
+            color: rgb(0, 0, 0);
         }
 
         #postTable th,
         #postTable td {
-            border: 1px solid white;
+            border: 1px solid rgb(0, 0, 0);
             padding: 8px;
         }
 
@@ -51,15 +64,15 @@
 </head>
 
 <body>
-
+<h1>GameNexus</h1>
     <div class="container my-5">
         <div class="row">
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
                         <h2>Post analytics</h2>
-                        <p>Date: <%= currentDate %></p>
-                        <p>Time: <%= currentTime %></p>
+                        <p>Date: <%= currentDate %>
+                           Time: <%= currentTime %></p>
                         <table id="postTable">
                             <thead>
                                 <tr>

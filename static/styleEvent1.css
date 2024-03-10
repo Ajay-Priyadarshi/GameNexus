@@ -8,6 +8,8 @@ body {
     /* Black text color */
 }
 
+
+
 .reg {
     margin-top: 4vh;
     margin-left: 8vh;
@@ -18,6 +20,16 @@ body {
 .reg a {
 
     color: rgb(255, 255, 255);
+}
+
+h2{
+    margin: 0;
+    padding: 0;
+    font-family: "Space Monkey";
+    text-align: center;
+  background-color: #ea6e15;
+    font-size: 5vh;
+
 }
 
 .reg a:hover {
@@ -98,6 +110,10 @@ input[type="text"] {
 }
 
 .event-image {
+    
+        border:rgba(254, 237, 1, 1) solid 2px;
+        border-style: outset;
+    
     margin-top: 1vh;
     border-radius: 50%;
     width: 60px;

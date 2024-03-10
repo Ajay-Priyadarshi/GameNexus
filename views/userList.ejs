@@ -9,10 +9,11 @@
     <title>Two-Segment User List</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'League';
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #1b1b1b;
+            color: #fff;
         }
 
         .segment {
@@ -23,36 +24,63 @@
         }
 
         .search-bar {
+            font-family: 'League';
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
             box-sizing: border-box;
+            border: #156aea;
+            border-style: outset;
+            border-radius: 10px;
         }
 
         .user-list {
             list-style-type: none;
             padding: 0;
+            color: black;
             margin: 0;
+         
         }
 
         .user-list-item {
             background-color: #fff;
-            border: 1px solid #ddd;
+           
             padding: 10px;
             margin-bottom: 10px;
             position: relative;
+            border: #ea6e15 3px;
+            border-style: outset;
+            border-radius: 10px;
+        }
+
+        .user-list-item:hover {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 10px;
+            margin-bottom: 10px;
+            position: relative;
+            border: #ff0000 3px;
+            border-style: outset;
+            border-radius: 10px;
         }
 
         .delete-btn {
             position: absolute;
             top: 5px;
             right: 5px;
-            background-color: rgb(119, 119, 119);
+            background-color: rgb(72, 68, 68);
             color: #fff;
             border: none;
             padding: 5px;
             cursor: pointer;
         }
+ 
+        .delete-btn:hover {
+ 
+            background-color: rgb(255, 0, 0);
+ 
+        }
+
 
         a {
             margin-left: 48%;

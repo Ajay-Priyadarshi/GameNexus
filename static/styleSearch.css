@@ -1,5 +1,5 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'League';
     background-color: #0F0E0E;
     color: white;
     margin: 0;
@@ -42,7 +42,8 @@ header {
 }
 
 .search-container {
- margin-left: 2vw;
+   
+ margin-left: 3.2vw;
     display: flex;
     align-items: center;
     width: 95%;
@@ -72,7 +73,13 @@ header {
     text-decoration: underline;
 }
 
+.img-i{
+    border:#594E86 solid 2px;
+    border-style: outset;
+}
+
 input[type="text"] {
+    
     width: 95%;
     padding: 10px;
     box-sizing: border-box;

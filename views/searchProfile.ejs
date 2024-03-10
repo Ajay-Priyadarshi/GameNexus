@@ -14,7 +14,7 @@
 
     <div class="profile-container">
         <div class="profile-header">
-            <img src="/uploads/profileImages/<%= user.userPhoto %>" alt="Profile Picture">
+            <img class="main-i" src="/uploads/profileImages/<%= user.userPhoto %>" alt="Profile Picture">
             <div class="profile-info">
                 <h1 id="usrname">
                     <%= user.username %>
@@ -42,24 +42,22 @@
         <div class="multiline-text">
             <lable id="ach"><b>Achievement bio:</b>
                 <%= user.bio %>
-            </lable><br><br>
+            </lable><br><br><br>
             <lable id="req"><b>Requirements:</b>
                 <%= user.requirements %>
             </lable><br><br>
         </div>
         <div class="opt-r">
-            <button><a class="prev" href="/follow/sendRequest/<%= user._id %>">&plus; Follow</a></button>
-            <a href="/chat/personal/<%= user._id %>"><button>&#9993; Message</button></a>
-            <button><a class="prev" href="/search">Go Back</a></button>
+           <a class="prev" href="/follow/sendRequest/<%= user._id %>"> <button>Follow</button></a>
+            <a href="/chat/personal/<%= user._id %>"><button>Message</button></a>
+            <a class="prev" href="/search"><button>Go Back</button></a>
         </div>
-        <h2># POST GRID<h2>
-
+        <h2># POST GRID</h2>
                 <div class="posts">
-
                     <% userPosts.forEach(post=> { %>
-                        <div class="profile-container">
+                        <div class="profile-container1">
                             <div class="profile-i">
-                                <img src="/uploads/profileImages/<%= user.userPhoto %>" alt="<%= user.username %>">
+                                <img class="img-i" src="/uploads/profileImages/<%= user.userPhoto %>" alt="<%= user.username %>">
                                 <div class="username">
                                     <%= user.username %>
                                 </div>

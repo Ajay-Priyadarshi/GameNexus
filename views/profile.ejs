@@ -13,7 +13,7 @@
 
     <div class="profile-container11">
         <div class="profile-header">
-            <img src="/uploads/profileImages/<%= user.userPhoto %>" alt="Profile Picture">
+            <img class="main-i" src="/uploads/profileImages/<%= user.userPhoto %>" alt="Profile Picture">
             <div class="profile-info">
                 <h1 id="usrname">
                     <%= user.username %>
@@ -43,7 +43,7 @@
         <div class="multiline-text">
             <label id="ach"><b>Achievement bio:</b>
                 <%= user.bio %>
-            </label><br><br>
+            </label><br><br><br>
             <label id="req"><b>Requirements:</b>
                 <%= user.requirements %>
             </label><br><br>
@@ -62,7 +62,7 @@
             <% userPosts.forEach(post=> { %>
                 <div class="profile-container">
                     <div class="profile-i">
-                        <img src="/uploads/profileImages/<%= user.userPhoto %>" alt="<%= user.username %>">
+                        <img class="img-i" src="/uploads/profileImages/<%= user.userPhoto %>" alt="<%= user.username %>">
                         <div class="username">
                             
                            

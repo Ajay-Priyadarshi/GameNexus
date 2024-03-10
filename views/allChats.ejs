@@ -14,7 +14,7 @@
     <div class="search-results">
         <% recentChats.forEach(chat => { %>
             <div class="result-item" >
-                <img src="/uploads/profileImages/<%= chat.user.userPhoto %>" alt="<%= chat.user.username %>">
+                <img class="main-i" src="/uploads/profileImages/<%= chat.user.userPhoto %>" alt="<%= chat.user.username %>">
                 <div class="result-details">
                     <a class="link" href="/chat/personal/<%= chat.user._id %>">
                         <%= chat.user.username %>

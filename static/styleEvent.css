@@ -10,9 +10,18 @@ body {
 
 .reg {
     margin-top: 4vh;
-    margin-left: 4vh;
+    margin-left: 2vh;
     font-size: 1.8vh;
 
+}
+
+h2{
+    margin: 0;
+    padding: 0;
+    font-family: "Space Monkey";
+    text-align: center;
+  background-color: #ea6e15;
+    font-size: 5vh;
 }
 
 .reg a {
@@ -34,7 +43,7 @@ header {
 
 .opt {
     margin-top: 4vh;
-    margin-left: 4vh;
+    margin-left: 2vh;
 }
 
 .a1 {
@@ -98,19 +107,22 @@ input[type="text"] {
 }
 
 .event-image {
+    
+    border:rgba(254, 237, 1, 1) solid 2px;
+    border-style: outset;
     margin-top: 1vh;
     border-radius: 50%;
     width: 60px;
     height: 60px;
     object-fit: cover;
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
 .event-details {
     border-style: double;
     border-radius: 4vh;
     border-color: rgba(254, 237, 1, 1);
-    padding: 0.8vh 4vh 2vh 4vh;
+    padding: 0.8vh 2vh 2vh 4vh;
     display: flex;
     flex-direction: row;
     width: calc(100% - 70px);
@@ -137,11 +149,11 @@ body::-webkit-scrollbar {
 }
 
 .user-name {
-    margin: 4vh 3vh 2vh 1vh;
+    margin: 4vh 2vh 2vh 1vh;
 }
 
 .event-name {
-    margin: 3.5vh 4vh 0vh 0vh;
+    margin: 3.5vh 2vh 0vh 0vh;
     text-align: left;
     font-weight: bold;
     font-size: 18px;

@@ -12,8 +12,6 @@ Welcome to GameNexus, a social media application designed to connect users, shar
 - [Usage](#usage)
 - [Directory Structure](#directory-structure)
 - [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
@@ -46,5 +44,53 @@ Make sure you have the following installed:
    ```bash
    git clone https://github.com/your-username/GameNexus.git
 
-Change to the project directory:
-cd GameNexus
+2. Change to the project directory:
+   ```bash
+   cd GameNexus
+3. Install dependencies:
+   ```bash
+   npm install
+
+### Configuration
+1. Create a .env file in the root directory:
+   ```bash
+   # MongoDB connection string:
+   MONGODB_URI=mongodb+srv://your-username:your-password@your-cluster.mongodb.net/your-database
+   
+   # Session secret:
+   SESSION_SECRET=your-session-secret
+
+   # Server port
+   PORT=3001
+2. Create folder uploads inside that:
+   - Create folder posts
+   - Create folder profileImages.
+3. Start the application:
+   ```bash
+   npm start
+The application will be accessible at http://localhost:3001.
+
+## Usage
+- Visit http://localhost:3001 to access the application.
+- Create an account, set up your profile, and start exploring the features.
+
+## Directory Structure
+- src: Source code for the application
+   - controllers: Controller Functions
+   - routes: Express route definitions
+   - models: MongoDB data models
+- views: EJS views
+- static: Static files (CSS, client-side JavaScript)
+- uploads: Directory for user-uploaded files
+- assets: all static assets
+- templates: templates for generating reports
+
+## Technologies Used
+- Node.js
+- Express
+- MongoDB
+- EJS
+- Multer
+- Moment-Timezone
+- Puppeteer
+- Bcrypt

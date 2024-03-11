@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import path from 'path';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
 import authRoutes from './src/routes/authRoutes.js';
 import profileRoutes from './src/routes/profileRoutes.js';
 import searchRoutes from './src/routes/searchRoutes.js';
@@ -23,6 +24,8 @@ import commentRoutes from './src/routes/commentRoutes.js';
 import pdfRoutes from './src/routes/pdfRoutes.js';
 import paymentRoutes from './src/routes/paymentRoutes.js';
 
+dotenv.config();
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -35,12 +38,12 @@ const PORT = process.env.PORT || 3001;
 // });
 
 //Atlas cloud connection string
-mongoose.connect("mongodb+srv://21bca142:zYIFspmRMACgnS99@gamenexus.qhvxr3b.mongodb.net/?retryWrites=true&w=majority").then(() => {
+mongoose.connect(process.env.MONGODB_URI).then(() => {
   console.log("mongodb connected Atlas cloud");
 });
 
 app.use(session({
-  secret: 'i-m-a-n-o-o-b-i-e',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
 }));

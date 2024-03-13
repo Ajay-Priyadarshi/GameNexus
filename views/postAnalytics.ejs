@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/images/logo5.png" type="image/x-icon">
     <title>Post Analytics</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -12,7 +13,18 @@
             background-color: #1b1b1b;
             font-family: 'League';
             color: white;
+            height: 100vh;
+            width: 100vw;
+            overflow-x: hidden; /* Hide vertical overflow */
         }
+
+        ::-webkit-scrollbar {
+  width: 0px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-verticle {
+  width: 0px; /* Width of the scrollbar */
+}
 
         .card-title {
             font-size: 2vh;
@@ -21,11 +33,13 @@
         .container {
             
             background-color: #1b1b1b;
+           ;
         }
 
 .row{
     width:172vw;
   color: white;
+  
 }
 
 
@@ -59,6 +73,7 @@
             text-decoration: none;
             width: 100%;
             margin-top: 20px;
+            
         }
 
         a{

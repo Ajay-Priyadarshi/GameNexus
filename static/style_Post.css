@@ -79,32 +79,22 @@ body::-webkit-scrollbar {
   font-weight: bold;
 }
 
+.post-img,
+.post-video {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
 .post img,
 .post video {
-  height: 65vh;
-  /* Set your desired fixed height */
-  width: 76vh;
-  /* Set your desired fixed width */
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.post-img {
-  max-height: 100%;
-  max-width: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-}
-
-.post video {
-  object-fit: cover;
-  /* Maintain aspect ratio and cover the container */
-  width: 100%;
-  height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 65vh; /* Set your desired fixed height */
+    width: 100%; /* Set your desired fixed width or leave it as is */
 }
 
 .post-actions {

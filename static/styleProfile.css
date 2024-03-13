@@ -201,7 +201,7 @@ h2 {
 .post-img {
     height: 65vh;
     /* Set your desired fixed height */
-    width: 45vh;
+    width: 43vh;
     /* Set your desired fixed width */
     overflow: hidden;
     position: relative;
@@ -213,7 +213,7 @@ h2 {
 .post-video {
     height: 65vh;
     /* Set your desired fixed height */
-    width: 45vh;
+    width: 43vh;
     /* Set your desired fixed width */
     overflow: hidden;
     position: relative;
@@ -250,11 +250,15 @@ a {
     color: #000000;
 }
 
-.post img {
+.post img,
+.post video {
     max-height: 100%;
     max-width: 100%;
     width: auto;
     height: auto;
     object-fit: contain;
+}
 
+.post-video video {
+    object-fit: cover; /* Use 'cover' for videos to fill the container */
 }

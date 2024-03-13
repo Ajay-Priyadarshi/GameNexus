@@ -8,13 +8,31 @@ body {
     /* Dark text color */
 }
 
+.name{
+    display: flex;
+    flex-direction:row;
+}
+
+.img-logo{
+    height: 12vh;
+    width: 12vh;
+    padding: 0;
+    margin: 0vh 0vh 0vh 0vh;
+    
+}
+
+link[rel="icon"] {
+    width: 200px;
+    height: 200px;
+}
+
 .logo {
     font-family: 'Space Monkey';
     color: white;
     text-align: center;
-    font-size: 3.5vh;
-    padding: 3vh;
+    font-size: 2.7vh;
     text-shadow: 0 0 10px #87CEEB;
+    margin: 4.8vh 0vh 0vh 0vh;
 }
 
 body::-webkit-scrollbar {

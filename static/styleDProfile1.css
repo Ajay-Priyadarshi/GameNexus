@@ -229,28 +229,13 @@ h2 {
 
 }
 
-.post-img {
-    height: 65vh;
-    /* Set your desired fixed height */
-    width: 42vh;
-    /* Set your desired fixed width */
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
+.post-img,
 .post-video {
-    height: 65vh;
-    /* Set your desired fixed height */
-    width: 42vh;
-    /* Set your desired fixed width */
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
 }
 
 a {
@@ -280,11 +265,15 @@ a {
     color: #000000;
 }
 
-.post img {
-    max-height: 100%;
-    max-width: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+.post img,
+.post video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 65vh; /* Set your desired fixed height */
+    width: 47vh; /* Set your desired fixed width or leave it as is */
+}
 
+.post-video video {
+    object-fit: cover; /* Use 'cover' for videos to fill the container */
 }

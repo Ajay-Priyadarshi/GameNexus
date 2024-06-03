@@ -98,7 +98,7 @@ app.use('/payment', paymentRoutes);
 
 // Default route
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'static', 'home.html'));
+  res.sendFile(path.join(__dirname, 'static', 'Home.html'));
 });
 
 // Start the server
